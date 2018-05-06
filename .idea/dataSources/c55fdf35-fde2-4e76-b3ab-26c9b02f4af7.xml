@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hibernate.cfg.xml/Hibernate">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
+    <root id="1"/>
+    <database id="2" parent="1" name="service">
+      <ObjectId>33480</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12938</ObjectId>
+    </database>
+    <database id="4" parent="1" name="test">
+      <ObjectId>25081</ObjectId>
+    </database>
+    <database id="5" parent="1" name="servdb">
+      <ObjectId>33482</ObjectId>
+    </database>
+    <role id="6" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="9" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="10" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="11" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="12" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-04-13.22:49:36.114</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1996</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="13" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="14" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="15" parent="2" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+    </schema>
+    <schema id="16" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+    </schema>
+    <schema id="17" parent="2" name="information_schema">
+      <ObjectId>12648</ObjectId>
+    </schema>
+    <sequence id="18" parent="12" name="access_id_auth_seq">
+      <ObjectId>50984</ObjectId>
+      <StateNumber>1959</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="19" parent="12" name="auth_inf_id_seq">
+      <ObjectId>50992</ObjectId>
+      <StateNumber>1960</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="20" parent="12" name="category_id_seq">
+      <ObjectId>51003</ObjectId>
+      <StateNumber>1961</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="21" parent="12" name="course_id_seq">
+      <ObjectId>51011</ObjectId>
+      <StateNumber>1962</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="22" parent="12" name="favorite_course_id_auth_seq">
+      <ObjectId>51022</ObjectId>
+      <StateNumber>1963</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="23" parent="12" name="following_id_seq">
+      <ObjectId>51030</ObjectId>
+      <StateNumber>1964</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="24" parent="12" name="user_inf_id_seq">
+      <ObjectId>51038</ObjectId>
+      <StateNumber>1965</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="25" parent="12" name="access">
+      <ObjectId>50986</ObjectId>
+      <StateNumber>1967</StateNumber>
+    </table>
+    <table id="26" parent="12" name="auth_inf">
+      <ObjectId>50994</ObjectId>
+      <StateNumber>1972</StateNumber>
+    </table>
+    <table id="27" parent="12" name="category">
+      <ObjectId>51005</ObjectId>
+      <StateNumber>1969</StateNumber>
+    </table>
+    <table id="28" parent="12" name="course">
+      <ObjectId>51013</ObjectId>
+      <StateNumber>1970</StateNumber>
+    </table>
+    <table id="29" parent="12" name="favorite_course">
+      <ObjectId>51024</ObjectId>
+      <StateNumber>1971</StateNumber>
+    </table>
+    <table id="30" parent="12" name="following">
+      <ObjectId>51032</ObjectId>
+      <StateNumber>1964</StateNumber>
+    </table>
+    <table id="31" parent="12" name="user_inf">
+      <ObjectId>51040</ObjectId>
+      <StateNumber>1972</StateNumber>
+    </table>
+    <column id="32" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1959</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="33" parent="25" name="id_auth">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1959</StateNumber>
+      <DefaultExpression>nextval(&apos;access_id_auth_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>access_id_auth_seq</SequenceName>
+    </column>
+    <column id="34" parent="25" name="id_course">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1959</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="35" parent="25" name="access_pkey">
+      <ObjectId>50990</ObjectId>
+      <ColNames>id_auth
+id_course</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="36" parent="25" name="access_pkey">
+      <ObjectId>50991</ObjectId>
+      <ColNames>id_auth
+id_course</ColNames>
+      <UnderlyingIndexName>access_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="37" parent="25" name="fkm7epad4s1iimw4wrr5w49rust">
+      <ObjectId>51054</ObjectId>
+      <ColNames>id_auth</ColNames>
+      <RefTableId>50994</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_inf</RefTableName>
+      <RefKeyName>auth_inf_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="38" parent="25" name="fkmlp1t275fp4lw7u21nduntsvk">
+      <ObjectId>51049</ObjectId>
+      <ColNames>id_course</ColNames>
+      <RefTableId>51013</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>course</RefTableName>
+      <RefKeyName>course_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="39" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1960</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_inf_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>auth_inf_id_seq</SequenceName>
+    </column>
+    <column id="40" parent="26" name="email">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1960</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="41" parent="26" name="login">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1960</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="42" parent="26" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1960</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="26" name="role">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1960</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="26" name="userinfbyid_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1960</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="45" parent="26" name="uuid">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1960</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="46" parent="26" name="auth_inf_pkey">
+      <ObjectId>51001</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="47" parent="26" name="auth_inf_pkey">
+      <ObjectId>51002</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>auth_inf_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="48" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1961</StateNumber>
+      <DefaultExpression>nextval(&apos;category_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>category_id_seq</SequenceName>
+    </column>
+    <column id="49" parent="27" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1961</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="50" parent="27" name="category_pkey">
+      <ObjectId>51009</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="27" name="category_pkey">
+      <ObjectId>51010</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1962</StateNumber>
+      <DefaultExpression>nextval(&apos;course_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>course_id_seq</SequenceName>
+    </column>
+    <column id="53" parent="28" name="status">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1962</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="54" parent="28" name="structure">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>1996</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="55" parent="28" name="uuid">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1962</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="56" parent="28" name="authbyid_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1962</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="57" parent="28" name="categorybyid_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1962</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="58" parent="28" name="course_pkey">
+      <ObjectId>51020</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="59" parent="28" name="course_pkey">
+      <ObjectId>51021</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>course_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="60" parent="28" name="fkd10ywsajk8red9ki33kkxifsq">
+      <ObjectId>51059</ObjectId>
+      <ColNames>authbyid_id</ColNames>
+      <RefTableId>50994</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_inf</RefTableName>
+      <RefKeyName>auth_inf_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="61" parent="28" name="fk87k9d1lu6rdhljahjivecw52y">
+      <ObjectId>51064</ObjectId>
+      <ColNames>categorybyid_id</ColNames>
+      <RefTableId>51005</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="62" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1963</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="63" parent="29" name="id_auth">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1963</StateNumber>
+      <DefaultExpression>nextval(&apos;favorite_course_id_auth_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>favorite_course_id_auth_seq</SequenceName>
+    </column>
+    <column id="64" parent="29" name="id_course">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1963</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="65" parent="29" name="favorite_course_pkey">
+      <ObjectId>51028</ObjectId>
+      <ColNames>id_auth
+id_course</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="66" parent="29" name="favorite_course_pkey">
+      <ObjectId>51029</ObjectId>
+      <ColNames>id_auth
+id_course</ColNames>
+      <UnderlyingIndexName>favorite_course_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="67" parent="29" name="fk9t07ase4tj9qa1tm6fp11yfgk">
+      <ObjectId>51074</ObjectId>
+      <ColNames>id_auth</ColNames>
+      <RefTableId>50994</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_inf</RefTableName>
+      <RefKeyName>auth_inf_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="68" parent="29" name="fk9ixgxxw7jlwdcxmiul6auwrtn">
+      <ObjectId>51069</ObjectId>
+      <ColNames>id_course</ColNames>
+      <RefTableId>51013</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>course</RefTableName>
+      <RefKeyName>course_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="69" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1964</StateNumber>
+      <DefaultExpression>nextval(&apos;following_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>following_id_seq</SequenceName>
+    </column>
+    <column id="70" parent="30" name="id_auth">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1964</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="71" parent="30" name="id_following">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1964</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="72" parent="30" name="following_pkey">
+      <ObjectId>51036</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="30" name="following_pkey">
+      <ObjectId>51037</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>following_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1965</StateNumber>
+      <DefaultExpression>nextval(&apos;user_inf_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>user_inf_id_seq</SequenceName>
+    </column>
+    <column id="75" parent="31" name="dbay">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <StateNumber>1965</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="76" parent="31" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1965</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="77" parent="31" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1965</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="78" parent="31" name="authinfbyid_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1965</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="79" parent="31" name="user_inf_pkey">
+      <ObjectId>51047</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="80" parent="31" name="user_inf_pkey">
+      <ObjectId>51048</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>user_inf_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="31" name="fkfrj57k0i5xksr6164v6pfy5ko">
+      <ObjectId>51079</ObjectId>
+      <ColNames>authinfbyid_id</ColNames>
+      <RefTableId>50994</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_inf</RefTableName>
+      <RefKeyName>auth_inf_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
