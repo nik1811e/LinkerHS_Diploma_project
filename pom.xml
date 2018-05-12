@@ -4,8 +4,8 @@
     <groupId>by.bstu.eng</groupId>
     <artifactId>diploma</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>diploma Maven Webapp</name>
+    <version>2.1.4</version>
+    <name>Diploma project self-study service</name>
     <url>http://maven.apache.org</url>
 
     <properties>

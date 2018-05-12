@@ -522,5 +522,35 @@ public class MethodUtil {
         }
     }
 
+    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String password, String email, String fname, String lname, String bday, String uuid, String desc, String date, String status) {
+        try {
+            session.createQuery("UPDATE  " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " +
+                    "a.login=:login, a.password=:password,a.email=:email," +
+                    "a.FName =:fname,a.LName =:lname,a.BDay=:bday,a.about=:about," +
+                    "a.role=:status,a.dateReg=:date WHERE a.uuid =:uuid")
+                    .setParameter("login", login).setParameter("password", password).setParameter("email", email)
+                    .setParameter("fname", fname).setParameter("lname", lname)
+                    .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc)
+                    .setParameter("date", date).setParameter("status", status).executeUpdate();
+            transaction.commit();
+            return true;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            logger.error(ex.getStackTrace());
+            return false;
+        }
+    }
 
+    public static boolean changePermission(Session session, Transaction transaction, String uuidAuth, String role) {
+        try {
+            session.createQuery("UPDATE " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " + " a.role=:role WHERE a.uuid=:uuid")
+                    .setParameter("role", role).setParameter("uuid", uuidAuth).executeUpdate();
+            transaction.commit();
+            return true;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            logger.error(ex.getStackTrace());
+            return false;
+        }
+    }
 }
