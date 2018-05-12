@@ -4,20 +4,25 @@ import org.apache.log4j.Logger;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Objects;
-import java.util.Properties;
+import java.util.*;
 
 public class MailUtil {
     private static final Logger logger = Logger.getLogger(MailUtil.class);
     private URL url = null;
+    private Map<String, File> attachments = new HashMap<>();
+    private static String timeNow;
 
     private void setupMessageParameters(String email, String subject, String mailBody) {
+        timeNow = new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime());
         try {
             Properties props = new Properties();
             props.put("mail.smtp.host", FinalValueUtil.EMAIL_HOST);
@@ -34,21 +39,39 @@ public class MailUtil {
             System.setProperty("https.protocols", "TLSv1.1");
 
             Message message = new MimeMessage(session);
+
+            if (!attachments.isEmpty()) {
+                Multipart multipart = new MimeMultipart();
+
+                for (Map.Entry<String, File> entry : attachments.entrySet()) {
+                    MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+                    attachmentBodyPart.attachFile(new File(String.valueOf(entry.getValue())));
+                    multipart.addBodyPart(attachmentBodyPart);
+                }
+
+                MimeBodyPart messageBodyPart = new MimeBodyPart();
+                messageBodyPart.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE);
+                multipart.addBodyPart(messageBodyPart);
+
+                message.setContent(multipart);
+            } else {
+                message.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE);
+            }
+
             message.setFrom(new InternetAddress(FinalValueUtil.EMAIL_SUPPORT));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject(subject);
-            message.setContent(mailBody, "text/html; charset=utf-8");
             Transport.send(message);
-            logger.info("Sent message pojo [" + email + "] successfully.");
+            logger.info("Sent message to [ " + email + " ] successfully.");
 
-        } catch (MessagingException e) {
+        } catch (MessagingException | IOException e) {
             logger.error(e.getLocalizedMessage());
         }
     }
 
     public void sendErrorMailForAdmin(String error) {
         String mailBody = "" +
-                "<br/>" + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date().getTime()) +
+                "<br/>" + timeNow +
                 "<br/>" + error +
                 "<br/>";
         setupMessageParameters(FinalValueUtil.EMAIL_SUPPORT, "Error", mailBody);
@@ -87,4 +110,9 @@ public class MailUtil {
             logger.error(e.getMessage());
         }
     }
+
+    public void addAttachment(File file) {
+        this.attachments.put(UUID.randomUUID().toString(), file);
+    }
+
 }

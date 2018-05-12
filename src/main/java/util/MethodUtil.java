@@ -6,22 +6,24 @@ import course.pojo.ResourceTO;
 import course.pojo.SectionTO;
 import course.resources.ResourceInformation;
 import course.sections.SectionInformation;
-import entity.AuthInfEntity;
-import entity.CategoryEntity;
-import entity.FollowingEntity;
-import entity.ResourceCategoryEntity;
+import entity.*;
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 @SuppressWarnings("ALL")
@@ -124,14 +126,14 @@ public class MethodUtil {
         }
     }
 
-    public static CourseStructureTO getCourseInfFromJson(String uuidCourse){
+    public static CourseStructureTO getCourseInfFromJson(String uuidCourse) {
         Session session = null;
         Gson gson = new Gson();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
-           return gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+            return gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
 
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
@@ -143,7 +145,7 @@ public class MethodUtil {
         }
     }
 
-    public static Integer[] getDateCourse (String dataCreate) throws ParseException {
+    public static Integer[] getDateCourse(String dataCreate) throws ParseException {
         int day;
         int month;
         int year;
@@ -162,13 +164,13 @@ public class MethodUtil {
         return dateArr;
     }
 
-    public static String getJsonRequest(Session session,String uuidAuth) {
+    public static String getJsonRequest(Session session, String uuidAuth) {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             /*return String.valueOf(session.createQuery("SELECT s.request FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " s WHERE uuid = :uuid")
                     .setParameter("uuid", uuidAuth).list().get(0));*/
-            return String.valueOf(session.createSQLQuery("select course_request from auth_inf where uuid='"+uuidAuth+"'").list().get(0));
+            return String.valueOf(session.createSQLQuery("select course_request from auth_inf where uuid='" + uuidAuth + "'").list().get(0));
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
@@ -404,4 +406,121 @@ public class MethodUtil {
             }
         }
     }
+
+    public static boolean isUniqueNameCourse(Session session, String name, AuthInfEntity idAuth) {
+        try {
+            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c WHERE c.nameCourse = :nameCourse and authById =:idAuth")
+                    .setParameter("nameCourse", name).setParameter("idAuth", idAuth).list().isEmpty();
+        } catch (Exception ex) {
+            logger.error(ex.getStackTrace());
+            return false;
+        }
+    }
+
+    public static List<CourseEntity> getCourseByUuid(Session session, String uuidCourse) {
+        try {
+            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c WHERE uuid =:uuidCourse")
+                    .setParameter("uuidCourse", uuidCourse).list();
+        } catch (Exception ex) {
+            logger.error(ex.getStackTrace());
+            return null;
+        }
+    }
+
+    public static boolean isUniqueSectionName(String uuidCourse, String nameSection) {
+        List<SectionTO> sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
+        for (SectionTO sn :
+                sectionTOList) {
+            if (sn.getName().equals(nameSection)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static List<CourseEntity> getAllCourses() {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c").getResultList();
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            logger.error(ex.getStackTrace());
+            return null;
+        } finally {
+            if (session.isOpen())
+                session.close();
+        }
+    }
+
+    public static File prepareExcelFileForAttach(Workbook workbook, String fileName, String extension) {
+        try {
+            File tempFile = File.createTempFile(fileName, extension);
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            workbook.write(byteArrayOutputStream);
+
+            FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
+            fileOutputStream.write(byteArrayOutputStream.toByteArray());
+            fileOutputStream.close();
+            return tempFile;
+        } catch (IOException ex) {
+            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            logger.error(ex.getStackTrace());
+            return null;
+        }
+    }
+
+    public static Workbook createExcelFile(List<Map<String, String>> dataList, List<String> columnList, String sheetName) {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet(sheetName);
+        Row rowHeader = sheet.createRow(0);
+
+        for (int i = 0; i < columnList.size(); i++) {
+            Cell cell = rowHeader.createCell(i);
+            cell.setCellValue(String.valueOf(columnList.get(i)));
+        }
+
+        int rowNumber = 1;
+        for (Map<String, String> stringMap : dataList) {
+            Row row = sheet.createRow(rowNumber++);
+            int columnNumber = 0;
+            for (String column : columnList) {
+                Cell cell = row.createCell(columnNumber++);
+                cell.setCellValue(stringMap.get(column));
+            }
+        }
+        return workbook;
+    }
+
+    public static File prepareFileForAttach(Object o, String fileName, String extension) {
+        try {
+            File tempFile = File.createTempFile(fileName, extension);
+
+            logger.info("file name: " + tempFile.getName());
+            logger.info("file path: " + tempFile.getAbsolutePath());
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            if (extension.equals(FinalValueUtil.EXCEL_EXTENSION_XLSX) || extension.equals(FinalValueUtil.EXCEL_EXTENSION_XLS)) {
+                logger.info("prepareFileForAttach\textension: " + extension);
+                Workbook workbook = (Workbook) o;
+                workbook.write(byteArrayOutputStream);
+            }
+//            if(extension.equals(VariablesUtil.PDF_EXTENSION)){
+//
+//            }
+
+            FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
+            fileOutputStream.write(byteArrayOutputStream.toByteArray());
+            fileOutputStream.close();
+
+            return tempFile;
+        } catch (IOException ex) {
+            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
+            logger.error(ex.getStackTrace());
+            return null;
+        }
+    }
+
+
 }

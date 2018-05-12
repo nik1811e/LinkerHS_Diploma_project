@@ -1,8 +1,11 @@
+<%@ page import="com.google.gson.Gson" %>
 <%@ page import="course.courses.CourseInformation" %>
 <%@ page import="course.courses.RequestInformation" %>
+<%@ page import="course.pojo.CourseStructureTO" %>
 <%@ page import="course.pojo.RequestTO" %>
 <%@ page import="course.pojo.SectionTO" %>
 <%@ page import="course.sections.SectionInformation" %>
+<%@ page import="entity.CategoryEntity" %>
 <%@ page import="entity.CourseEntity" %>
 <%@ page import="util.CookieUtil" %>
 <%@ page import="util.MailUtil" %>
@@ -68,20 +71,26 @@
     <link rel="stylesheet" media="all" href="/resources/css/skin.css"/>
     <link rel="stylesheet" media="all" href="/resources/css/modal.css"/>
     <%
+        Gson gson = new Gson();
         CookieUtil cookieUtil = new CookieUtil(request);
         String urlRedirect = "/pages/signin.jsp";
 
         String uuidCourse = String.valueOf(request.getParameter("uuidCourse")).trim();
         List<CourseEntity> courseInformationList = null;
+        CourseStructureTO courseInformationFromJson = null;
         List<SectionTO> sectionTOList = null;
         List<RequestTO> requests = new ArrayList<>();
+        List<CategoryEntity> categoryEntityList = null;
+        String currentCategory = null;
         boolean exist = false;
         if (cookieUtil.isFindCookie()) {
             try {
-
                 requests = new RequestInformation().getRequets(request.getParameter("uuidAuth"));
                 courseInformationList = new CourseInformation().getCourseInformation(uuidCourse);
+                courseInformationFromJson = new CourseInformation().getCourseInformationFromJson(uuidCourse);
                 sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
+                categoryEntityList = MethodUtil.getCourseCategory();
+                currentCategory = MethodUtil.getNameCourseCategoryByid(courseInformationList.get(0).getCategory());
             } catch (Exception ex) {
                 new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             }
@@ -125,7 +134,10 @@
             <%} else {%>
             <li><a href="/pages/profile.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
                    style="text-decoration: none">ПРОФИЛЬ</a></li>
-            <%}%>
+            <%
+                }
+                assert courseInformationFromJson != null;
+            %>
         </ul>
     </div>
 </header>
@@ -143,7 +155,11 @@
                             </h3>
                             <div style="float: right;display: inline-block">
                                 <a href="#removeCourse" id="btnRemove" class="btn-modal"
-                                   style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить курс</a>
+                                   style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить
+                                </a>
+                                <a href="#removeCourse" id="btnEdit" class="btn-modal"
+                                   style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
+                                </a>
                             </div>
                             <br>
                             <div class="meta">
@@ -158,20 +174,7 @@
                                      alt="<%=courseInformationList.get(0).getNameCourse()%>"/>
                             </a>
                         </div>
-                        <div class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada
-                            neque non mi maximus
-                            mattis. Etiam nulla turpis, placerat sed turpis a, malesuada interdum nibh. Vivamus
-                            tristique,
-                            diam vitae tincidunt scelerisque, est ligula dictum mauris, in suscipit orci nunc ut massa.
-                            Cras
-                            sagittis nisl blandit leo facilisis accumsan. Maecenas egestas, ante ac finibus mollis,
-                            velit
-                            nulla faucibus odio, quis egestas massa dolor in arcu. Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipiscing elit. Cras tincidunt vel dui et pharetra. Maecenas odio risus, ultrices
-                            sollicitudin
-                            tempor sed, pulvinar id mi. Suspendisse at magna sit amet velit lobortis tempor. Suspendisse
-                            potenti.
+                        <div class="excerpt"><%=courseInformationFromJson.getDescriptionCourse()%>
                         </div>
                     </article>
 
@@ -285,20 +288,6 @@
 
 </div>
 
-<footer>
-    <div class="wrapper clearfix">
-
-        <!-- bottom -->
-        <div class="footer-bottom">
-            <div class="left">Developed by <a href="https://vk.com/xxxnikgtxxx">@Nikita1811E</a></div>
-            <div class="right">
-                <ul id="social-bar">
-                </ul>
-            </div>
-        </div>
-        <!-- ENDS bottom -->
-    </div>
-</footer>
 <div id="removeCourse" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -319,8 +308,82 @@
         </div>
     </div>
 </div>
+<div id="editCourse" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color: #3A3A3A">Редиктирование</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/editcourse" role="form" method="post">
+                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
+                    <input type="hidden" name="uuidCourseEdit" value="<%=request.getParameter("uuidCourse")%>">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nameCourseEdit" required
+                               maxlength="50" placeholder="Название"
+                               value="<%=courseInformationList.get(0).getNameCourse()%>">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="status" name="statusCourseEdit">
+                            <%if (courseInformationList.get(0).getStatus().equals("Открыт")) {%>
+                            <option selected>Открыт</option>
+                            <option>Закрыт</option>
+                            <%} else {%>
+                            <option>Открыт</option>
+                            <option selected>Закрыт</option>
+                            <%}%>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="id_category" name="courseCategoryEdit">
+                            <%
+                                assert categoryEntityList != null;
+                                for (int i = 0; i < categoryEntityList.size(); i++) {
+                                    int id = categoryEntityList.get(i).getId();
+                                    String name = categoryEntityList.get(i).getName();
+                                    assert currentCategory != null;
+                                    if (!currentCategory.equals(name)) {
+                            %>
+                            <option value="<%=id%>"><%=name%>
+                            </option>
+                            <%} else {%>
+                            <option selected value="<%=id%>"><%=name%>
+                            </option>
+                            <%
+                                    }
+                                }
+                            %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                                    <textarea class="form-control" name="courseDescEdit" id="desc"
+                                              placeholder="Описание курса" maxlength="6000" rows="7">
+                                        <%=courseInformationFromJson.getDescriptionCourse().trim()%>
+                                    </textarea>
+                    </div>
+                    <button type="submit" class="btn-modal" id="btnContactUs">
+                        Внести изменения
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="wrapper clearfix">
 
-
+        <!-- bottom -->
+        <div class="footer-bottom">
+            <div class="left">Developed by <a href="https://vk.com/xxxnikgtxxx">@Nikita1811E</a></div>
+            <div class="right">
+                <ul id="social-bar">
+                </ul>
+            </div>
+        </div>
+        <!-- ENDS bottom -->
+    </div>
+</footer>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script>
@@ -332,6 +395,11 @@
     $(function () {
         $("#btnRemove").click(function () {
             $("#removeCourse").modal('show');
+        });
+    });
+    $(function () {
+        $("#btnEdit").click(function () {
+            $("#editCourse").modal('show');
         });
     });
 </script>

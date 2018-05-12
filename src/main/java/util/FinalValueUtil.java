@@ -11,6 +11,7 @@ public final class FinalValueUtil {
 
     public static final String ROLE_ADMIN = "admin";
     public static final String ROLE_USER = "user";
+    static final String EMAIL_CONTENT_TYPE = "text/html; charset=utf-8";
 
     static final String EMAIL_SUPPORT = "service.helper.eng@gmail.com";
     static final String EMAIL_SUPPORT_PASSWORD = "567320218NIKgt";
@@ -24,4 +25,10 @@ public final class FinalValueUtil {
 
     public static final String MESSAGE_ERROR_SERVER = "Please, contact us. Email: service.helper.eng@gmail.com";
 
-    public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";}
+    public static final String REGEXP_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+
+    public static final String EXCEL_EXTENSION_XLSX = ".xlsx";
+    public static final String EXCEL_EXTENSION_XLS = ".xls";
+
+    public static final String PATTERN_FULL_DATE_TIME = "dd/MM/yyyy, HH:mm:ss";
+}

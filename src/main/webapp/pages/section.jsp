@@ -133,6 +133,9 @@
                             <a href="#removeSection" id="btnSectionRemove" class="btn-modal"
                                      style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить раздел</a>
                             <br>
+                            <a href="#editSection" id="btnEdit" class="btn-modal"
+                               style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
+                            </a>
                             <div class="meta">
                                 <span class="user"><%=Objects.requireNonNull(MethodUtil.getCourseNameByUuid(sectionInformation.getUuidCourse())).toUpperCase()%> |</span>
                                 <span class="comments"><%=sectionInformation.getDateLastUpdate().toUpperCase()%></span>
@@ -296,6 +299,37 @@
         </div>
     </div>
 </div>
+<div id="editSection" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color: #3A3A3A">Редактирование</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/editsection" role="form" method="post">
+                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
+                    <input type="hidden" name="uuidCourse" value="<%=sectionInformation.getUuidCourse()%>">
+                    <input type="hidden" name="uuidSection" value="<%=sectionInformation.getUuidSection()%>">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nameSection" required
+                               maxlength="50" placeholder="Название"
+                               value="<%=sectionInformation.getName()%>">
+                    </div>
+                    <div class="form-group">
+                                    <textarea class="form-control" name="descSection" id="desc"
+                                              placeholder="Описание курса" rows="7">
+                                        <%=sectionInformation.getDescriptionSection().trim()%>
+                                    </textarea>
+                    </div>
+                    <button type="submit" class="btn-modal" id="btnContactUs">
+                        Внести изменения
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -309,6 +343,11 @@
     $(function () {
         $("#btnSectionRemove").click(function () {
             $("#removeSection").modal('show');
+        });
+    });
+    $(function () {
+        $("#btnEdit").click(function () {
+            $("#editSection").modal('show');
         });
     });
 </script>

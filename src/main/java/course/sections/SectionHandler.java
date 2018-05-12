@@ -16,7 +16,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transactional;
 import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -43,7 +42,7 @@ public class SectionHandler extends HttpServlet implements Serializable {
         this.uuidCourse = String.valueOf(req.getParameter("uuidCourse").trim());
         try {
             boolean result = addSection(prepareAddSection(String.valueOf(req.getParameter("name").trim()),
-                    uuidCourse, String.valueOf(req.getParameter("description").trim())), this.uuidCourse);
+                    uuidCourse, String.valueOf(req.getParameter("description")).trim()), this.uuidCourse);
             if (result) {
                 resp.sendRedirect("/pages/section.jsp?uuidAuth="+req.getParameter("uuidAuth")+"&&uuidSection=" + uuidNewSection + "&&uuidCourse=" + uuidCourse);
             }
@@ -58,7 +57,7 @@ public class SectionHandler extends HttpServlet implements Serializable {
         List<SectionTO> sections = new ArrayList<>(courseStructureTOgson.getSection());
         List<ResourceTO> resources = new ArrayList<>();
         SectionTO sectionTO = new SectionTO();
-        if (isUniqueSectionName(uuidCourse, name)) {
+        if (MethodUtil.isUniqueSectionName(uuidCourse, name)) {
             uuidNewSection = UUID.randomUUID().toString();
             sectionTO.setName(name);
             sectionTO.setUuidCourse(uuidCourse);
@@ -69,22 +68,12 @@ public class SectionHandler extends HttpServlet implements Serializable {
 
             sections.add(sectionTO);
             courseStructureTOgson.setSection(sections);
+            return gson.toJson(courseStructureTOgson);
         }
-        return gson.toJson(courseStructureTOgson);
+        return null;
     }
 
-    private boolean isUniqueSectionName(String uuidCourse, String nameSection) {
-        List<SectionTO> sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
-        for (SectionTO sn :
-                sectionTOList) {
-            if (sn.getName().equals(nameSection)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
-    @Transactional
     private boolean addSection(String jsonStructure, String uuidCourse) {
         try {
             session.createQuery("UPDATE " + FinalValueUtil.ENTITY_COURSE + " c SET c.structure = :newStructure WHERE c.uuid = :uuid")

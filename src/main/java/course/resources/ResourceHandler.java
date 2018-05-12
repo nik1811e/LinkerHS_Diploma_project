@@ -26,7 +26,6 @@ public class ResourceHandler extends HttpServlet implements Serializable {
     private static final Logger logger = Logger.getLogger(ResourceHandler.class);
 
     private Session session = null;
-    private Transaction transaction = null;
     private String uuidAuth;
     private String uuidSection;
     private String uuidCourse;
@@ -38,7 +37,7 @@ public class ResourceHandler extends HttpServlet implements Serializable {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         session = HibernateUtil.getSessionFactory().openSession();
-        transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         this.uuidAuth = new CookieUtil(req).getUserUuidFromToken();
         this.uuidSection = req.getParameter("uuidSection");
         this.uuidCourse = req.getParameter("uuidCourse");
@@ -111,19 +110,6 @@ public class ResourceHandler extends HttpServlet implements Serializable {
 
         return gson.toJson(courseStructureTOgson);
     }
-
-    /*private boolean addResource(String jsonStructure) {
-        try {
-            session.createQuery("UPDATE " + FinalValueUtil.ENTITY_COURSE + " c SET c.structure = :newStructure WHERE c.uuid = :uuid")
-                    .setParameter("newStructure", jsonStructure).setParameter("uuid", this.uuidCourse).executeUpdate();
-            transaction.commit();
-            return true;
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
-            return false;
-        }
-    }*/
 
     private boolean isUniqueResource(String name, String link, String uuidSection,String uuidCourse) {
 

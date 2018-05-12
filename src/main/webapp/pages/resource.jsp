@@ -2,6 +2,7 @@
 <%@ page import="course.pojo.SectionTO" %>
 <%@ page import="course.resources.ResourceInformation" %>
 <%@ page import="course.sections.SectionInformation" %>
+<%@ page import="entity.ResourceCategoryEntity" %>
 <%@ page import="util.CookieUtil" %>
 <%@ page import="util.MailUtil" %>
 <%@ page import="util.MethodUtil" %>
@@ -75,7 +76,10 @@
         String uuidSection = null;
         String uuidResource = null;
         SectionTO sectionInformations = null;
+        List<ResourceCategoryEntity> resourceCategoryList = null;
+
         if (cookieUtil.isFindCookie()) {
+            resourceCategoryList = MethodUtil.getResourceCategory();
             uuidCourse = String.valueOf(request.getParameter("uuidCourse")).trim();
             uuidSection = String.valueOf(request.getParameter("uuidSection")).trim();
             uuidResource = String.valueOf(request.getParameter("uuidResource")).trim();
@@ -189,6 +193,10 @@
                 <a href="#myModal1" id="btn1" class="btn-modal"
                    style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить</a>
             </div>
+            <div>
+                <a href="#myModal2" id="btnEdit" class="btn-modal"
+                   style="background-color: #b18422;font-size: 12px;width: 100px;height: 30px;text-align: center; padding:11px;margin:10px;display: inline-block;text-decoration: none">Копировать</a>
+            </div>
             <em id="corner"></em>
         </aside>
         <!-- ENDS sidebar -->
@@ -234,8 +242,7 @@
                                value="<%=resource.getLink()%>">
                     </div>
                     <div class="form-group">
-                        <h4 style="color: #3A3A3A">Из</h4> <input type="text" class="form-control"
-                                                                  id="currentSection"
+                        <h4 style="color: #3A3A3A">Из</h4> <input type="text" class="form-control" id="currentSection"
                                                                   name="currentSection"
                                                                   required
                                                                   maxlength="50"
@@ -265,7 +272,7 @@
                            value="<%=resource.getAuthor()%>">
                     <input type="hidden" id="id_category" name="id_category"
                            value="<%=resource.getCategory_link()%>">
-                    <input class="form-control" type="hidden" name="desc" id="desc"
+                    <input class="form-control" type="hidden" name="desc"
                            value="<%=resource.getDescriptionResource()%>">
                     <button type="submit" class="btn btn-lg sun-flower-button btn-block">
                         Добавить
@@ -297,6 +304,66 @@
         </div>
     </div>
 </div>
+<div id="editResource" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color: #3A3A3A">Редактирование</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" method="post" action="/editresource">
+                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
+                    <input type="hidden" name="uuidCourse" value="<%=request.getParameter("uuidCourse")%>">
+                    <input type="hidden" name="uuidSection" value="<%=request.getParameter("uuidSection")%>">
+                    <input type="hidden" name="uuidResource" value="<%=request.getParameter("uuidResource")%>">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name"
+                               required
+                               maxlength="50" placeholder="Название" value="<%=resource.getName()%>">
+                    </div>
+                    <div class="form-group">
+                        <input type="url"
+                               pattern="_(^|[\s.:;?\-\]<\(])(https?://[-\w;/?:@&=+$\|\_.!~*\|'()\[\]%#,☺]+[\w/#](\(\))?)(?=$|[\s',\|\(\).:;?\-\[\]>\)])_i"
+                               class="form-control" id="link" name="link" maxlength="70"
+                               placeholder="Ссылка на ресурс" value="<%=resource.getLink()%>">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="author"
+                               maxlength="70" placeholder="Автор ресурса" value="<%=resource.getAuthor()%>">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="category">
+                            <%
+                                assert resourceCategoryList != null;
+                                for (int i = 0; i < resourceCategoryList.size(); i++) {
+                                    int id = resourceCategoryList.get(i).getId();
+                                    String name = resourceCategoryList.get(i).getName();
+                                    if (id != resource.getCategory_link()) {
+                            %>
+                            <option value="<%=id%>"><%=name%>
+                            </option>
+                            <%} else {%>
+                            <option selected value="<%=id%>"><%=name%>
+                            </option>
+                            <%}}%>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                                    <textarea class="form-control" name="desc" id="desc"
+                                              placeholder="Описание" maxlength="100"
+                                              rows="7"><%=resource.getDescriptionResource()%></textarea>
+                    </div>
+                    <button type="submit" class="btn-modal" id="btnContactUs">
+                        Добавить
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="/resources/js/jQuery.headroom.min.js"></script>
@@ -309,6 +376,11 @@
     $(function () {
         $("#btn1").click(function () {
             $("#myModal1").modal('show');
+        });
+    });
+    $(function () {
+        $("#btnEdit").click(function () {
+            $("#editResource").modal('show');
         });
     });
 </script>

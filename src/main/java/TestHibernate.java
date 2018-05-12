@@ -1,5 +1,7 @@
+import admin.user.UserRemoving;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 @SuppressWarnings("ALL")
@@ -9,8 +11,7 @@ public class TestHibernate {
     public static void main(String[] args) {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
-
-        session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
 /*
         Registration doRegistration = new Registration();
@@ -32,6 +33,9 @@ public class TestHibernate {
        /* System.out.println("LOL" + ":" + session.createQuery("UPDATE " + FinalValueUtil.ENTITY_COURSE + " SET structure = :newBulk WHERE uuid = :uuid")
                 .setParameter("newBulk", "kgkwejwl").setParameter("uuid", "1dfabb2d-5396-4580-a25f-d622f9267efa").executeUpdate() );*/
 
+       /* new DocumentHandler().generateExcelDocAllCources(FinalValueUtil.EXCEL_EXTENSION_XLSX);*/
+
+        new UserRemoving().removeUserAndDepends("f065837d-3b49-4301-9583-2acf988bd423");
     }
 
 }

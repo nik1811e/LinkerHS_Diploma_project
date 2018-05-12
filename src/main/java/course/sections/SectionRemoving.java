@@ -6,7 +6,6 @@ import course.pojo.SectionTO;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.FinalValueUtil;
 import util.HibernateUtil;
 import util.MailUtil;
 import util.MethodUtil;
@@ -30,8 +29,8 @@ public class SectionRemoving extends HttpServlet {
         Transaction transaction = session.beginTransaction();
         String uuidCourse = req.getParameter("uuidCourse");
         try {
-            if (removeSection(uuidCourse, prepareRemoveSection(uuidCourse,
-                    req.getParameter("uuidSection"), session), session, transaction)){
+            if (MethodUtil.updateJsonStructure( session, transaction,uuidCourse, prepareRemoveSection(uuidCourse,
+                    req.getParameter("uuidSection"), session))){
                 resp.sendRedirect("/pages/course.jsp?uuidAuth="+req.getParameter("uuidAuth")+"&&uuidCourse="+uuidCourse);
             }
         } catch (Exception ex) {
@@ -56,6 +55,7 @@ public class SectionRemoving extends HttpServlet {
         return gson.toJson(courseStructureTOgson);
     }
 
+/*
     private boolean removeSection(String uuidCourse, String newStructure, Session session, Transaction transaction) {
         try {
             session.createQuery("UPDATE " + FinalValueUtil.ENTITY_COURSE + " SET structure =:newStructure")
@@ -68,4 +68,5 @@ public class SectionRemoving extends HttpServlet {
             return false;
         }
     }
+*/
 }
