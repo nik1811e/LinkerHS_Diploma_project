@@ -40,7 +40,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
         PrintWriter printWriter = resp.getWriter();
         if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
             if (doRegistration(req.getParameter("login"), req.getParameter("password"),
-                    req.getParameter("confirm_password"), req.getParameter("email"), req.getParameter("fname"),
+                    req.getParameter("email"), req.getParameter("fname"),
                     req.getParameter("lname"), req.getParameter("bday"))) {
                 try {
                     new MailUtil().sendMailRegistration(req.getParameter("email"),
@@ -57,44 +57,41 @@ public class Registration extends HttpServlet implements IParseJsonString {
         }
     }
 
-    private boolean doRegistration(String login, String password, String conf_password, String email, String first_name, String last_name, String dbay) {
+    public boolean doRegistration(String login, String password, String email, String first_name, String last_name, String dbay) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        try{
+        try {
             logger.debug(this.getClass().getName() + ", method: doRegistration");
-            if (password.equals(conf_password)) {
-                AuthInfEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfEntity.class);
-                if (isLoginAndEmailEmpty(authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
-                    String uuidAuth = UUID.randomUUID().toString();
-                    authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
-                    authInfoEntity.setPassword(authInfoEntity.getPassword());
-                    authInfoEntity.setEmail(authInfoEntity.getEmail());
-                    authInfoEntity.setRole(FinalValueUtil.ROLE_USER);
-                    authInfoEntity.setUuid(uuidAuth);
-                    authInfoEntity.setDateReg(new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new java.util.Date().getTime()));
-                    authInfoEntity.setFName(first_name);
-                    authInfoEntity.setLName(last_name);
-                    authInfoEntity.setBDay(dbay);
-                    authInfoEntity.setAbout("Пусто");
-                    authInfoEntity.setRequest("{\"uuid_course_owner\":\" "+uuidAuth+" \",\"request\":[]}");
-                    session.save(authInfoEntity);
-                    session.getTransaction().commit();
-                    session.close();
-                    return true;
-                } else {
-                    errorMessage = "Login isn't empty";
-                    logger.debug("Login isn't empty");
-                    return false;
-                }
+
+            AuthInfEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfEntity.class);
+            if (isLoginAndEmailEmpty(authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
+                String uuidAuth = UUID.randomUUID().toString();
+                authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
+                authInfoEntity.setPassword(authInfoEntity.getPassword());
+                authInfoEntity.setEmail(authInfoEntity.getEmail());
+                authInfoEntity.setRole(FinalValueUtil.ROLE_USER);
+                authInfoEntity.setUuid(uuidAuth);
+                authInfoEntity.setDateReg(new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new java.util.Date().getTime()));
+                authInfoEntity.setFName(first_name);
+                authInfoEntity.setLName(last_name);
+                authInfoEntity.setBDay(dbay);
+                authInfoEntity.setAbout("Пусто");
+                authInfoEntity.setRequest("{\"uuid_course_owner\":\" " + uuidAuth + " \",\"request\":[]}");
+                session.save(authInfoEntity);
+                session.getTransaction().commit();
+                session.close();
+                return true;
             } else {
-                errorMessage = "Passwords don't match";
+                errorMessage = "Login isn't empty";
+                logger.debug("Login isn't empty");
                 return false;
             }
-        }
-        catch (Exception ex){
+
+
+        } catch (Exception ex) {
             return false;
-        }finally {
-            if(session.isOpen())
+        } finally {
+            if (session.isOpen())
                 session.close();
         }
 
