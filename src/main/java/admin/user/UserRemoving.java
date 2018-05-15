@@ -13,39 +13,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transactional;
 
 @WebServlet(urlPatterns = "/removeuser")
 public class UserRemoving extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(UserRemoving.class);
+    private static final Logger LOGGER = Logger.getLogger(UserRemoving.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
+            Transaction transaction = session.beginTransaction();
             if (removeUserAndDepends(session, transaction, req.getParameter("uuidUser"))) {
                 resp.sendRedirect("");
             }
         } catch (Exception ex) {
-            logger.error(ex.getLocalizedMessage());
-        } finally {
-            if (session.isOpen())
-                session.close();
+            LOGGER.error(ex.getLocalizedMessage());
         }
-
     }
 
-    @Transactional
-    public boolean removeUserAndDepends(Session session, Transaction transaction, String uuidUser) {
+    private boolean removeUserAndDepends(Session session, Transaction transaction, String uuidUser) {
         try {
-            new CourseRemoving().removeAllUserCourses(session.load(AuthInfEntity.class,
+            new CourseRemoving().removeAllUserCourses(session,transaction,session.load(AuthInfEntity.class,
                     MethodUtil.getIdAuthByUUID(session, uuidUser)));
             session.createQuery("DELETE FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " WHERE uuid =:uuidUser")
                     .setParameter("uuidUser", uuidUser).executeUpdate();
             transaction.commit();
             return true;
         } catch (Exception ex) {
+            LOGGER.error(ex.getLocalizedMessage());
             return false;
         }
     }

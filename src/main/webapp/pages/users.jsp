@@ -69,7 +69,7 @@
             try {
                 authInfEntityList = MethodUtil.getUsersFromDb();
             } catch (Exception ex) {
-                new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+                new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             }
         } else {
             response.sendRedirect(urlRedirect);

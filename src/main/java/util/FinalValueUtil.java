@@ -17,11 +17,14 @@ public final class FinalValueUtil {
     static final String EMAIL_SUPPORT_PASSWORD = "567320218NIKgt";
     static final String EMAIL_HOST = "smtp.gmail.com";
     static final String EMAIL_PORT = "587";
+    static final String EMAIL_CONTENT_TYPE_HTML = "text/html; charset=utf-8";
 
     public static final String PATTERN_DATE = "dd/MM/yyyy";
 
     public static final String COOKIE_KEY = "a7fca695-ae2b-4aea-bc17-e62106e14c57";
     public static final String COOKIE_AUTH_NAME = "service_auth";
+    static final String EMAIL_TITLE_PART= "[Self-study Service] ";
+
 
     public static final String MESSAGE_ERROR_SERVER = "Please, contact us. Email: service.helper.eng@gmail.com";
 

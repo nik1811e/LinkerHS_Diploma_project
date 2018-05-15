@@ -19,30 +19,20 @@ import java.util.*;
 public class DocumentHandler extends HttpServlet {
     private static final Logger logger = Logger.getLogger(DocumentHandler.class);
 
-    private String uuidCourse = null;
-    private static String fileName = "File_";
     private ByteArrayOutputStream byteArrayOutputStreamExcel = new ByteArrayOutputStream();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        uuidCourse = req.getParameter("uuidCourse");
-        try {
-
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
         } catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
-
     }
 
-    public void generateExcelDocAllCources(String extension) {
+    private void generateExcelDocAllCources(String extension) {
         List<Map<String, String>> dataList = new ArrayList<>();
         List<CourseEntity> coursesList = MethodUtil.getAllCourses();
-
 
         List<String> columnList = new ArrayList<>();
         columnList.add("Name");
@@ -61,10 +51,11 @@ public class DocumentHandler extends HttpServlet {
             dataList.add(map);
         }
         MailUtil mailUtil = new MailUtil();
+        String fileName = "File_";
         mailUtil.addAttachment(MethodUtil.prepareFileForAttach(
                 MethodUtil.createExcelFile(dataList, columnList, "Bet history"),
                 fileName, extension));
-        mailUtil.sendErrorMailForAdmin("");
+        mailUtil.sendErrorMail("");
     }
 
     public String getExcelEncode() {

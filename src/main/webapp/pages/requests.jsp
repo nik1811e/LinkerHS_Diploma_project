@@ -72,10 +72,10 @@
             try {
                 if (cookieUtil.getUserUuidFromToken() != null) {
                     uuidAuth = cookieUtil.getUserUuidFromToken();
-                    requestTOList = new RequestInformation().getRequets(cookieUtil.getUserUuidFromToken());
+                    requestTOList = new RequestInformation().getRequest(cookieUtil.getUserUuidFromToken());
                 }
             } catch (Exception ex) {
-                new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+                new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             }
         } else {
             response.sendRedirect(urlRedirect);

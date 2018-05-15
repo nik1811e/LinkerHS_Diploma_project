@@ -7,22 +7,18 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MailUtil {
-    private static final Logger logger = Logger.getLogger(MailUtil.class);
-    private URL url = null;
+    private static final Logger LOGGER = Logger.getLogger(MailUtil.class);
+    private static String timeNow
+            = new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime());
     private Map<String, File> attachments = new HashMap<>();
-    private static String timeNow;
 
     private void setupMessageParameters(String email, String subject, String mailBody) {
-        timeNow = new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime());
         try {
             Properties props = new Properties();
             props.put("mail.smtp.host", FinalValueUtil.EMAIL_HOST);
@@ -50,34 +46,42 @@ public class MailUtil {
                 }
 
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE);
+                messageBodyPart.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE_HTML);
                 multipart.addBodyPart(messageBodyPart);
 
                 message.setContent(multipart);
             } else {
-                message.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE);
+                message.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE_HTML);
             }
 
             message.setFrom(new InternetAddress(FinalValueUtil.EMAIL_SUPPORT));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-            message.setSubject(subject);
+            message.setSubject(FinalValueUtil.EMAIL_TITLE_PART + subject);
             Transport.send(message);
-            logger.info("Sent message to [ " + email + " ] successfully.");
-
+            LOGGER.info("Sent message to [ " + email + " ] successfully.");
         } catch (MessagingException | IOException e) {
-            logger.error(e.getLocalizedMessage());
+            LOGGER.error(e.getLocalizedMessage());
         }
     }
 
-    public void sendErrorMailForAdmin(String error) {
-        String mailBody = "" +
-                "<br/>" + timeNow +
-                "<br/>" + error +
-                "<br/>";
-        setupMessageParameters(FinalValueUtil.EMAIL_SUPPORT, "Error", mailBody);
+    public void sendMail(String to, String body, String subject) {
+        setupMessageParameters(FinalValueUtil.EMAIL_SUPPORT, subject, body);
     }
 
-    public void sendMailRegistration(String email, String login, String password_, HttpServletRequest request) {
+    public void sendErrorMail(String error) {
+        String mailBody = "" +
+                "<br/>" + timeNow +
+                "<br/><br/>" + error +
+                "<br/>";
+        setupMessageParameters(FinalValueUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody);
+    }
+
+    public void addAttachment(File file) {
+        this.attachments.put(UUID.randomUUID().toString(), file);
+    }
+
+
+   /* public void sendMailRegistration(String email, String login, String password_, HttpServletRequest request) {
         try {
             url = new URL(request.getRequestURL().toString());
             String subject = "Successfully registration";
@@ -90,11 +94,11 @@ public class MailUtil {
 
             setupMessageParameters(email, subject, mailBody);
         } catch (MalformedURLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
-    }
+    }*/
 
-    public void sendMailCourseRequest(String email, String uuidAuthReq, String uuidAuthOwn, String uuidCourse) {
+   /* public void sendMailCourseRequest(String email, String uuidAuthReq, String uuidAuthOwn, String uuidCourse) {
         try {
             url = new URL(" http://localhost:8080/course.jsp?uuidAuth=" + uuidAuthReq + "&&uuidCourse=" + uuidCourse);
             String subject = "Access to the course is available.";
@@ -107,12 +111,9 @@ public class MailUtil {
                     "</p>";
             setupMessageParameters(email, subject, mailBody);
         } catch (MalformedURLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
-
-    public void addAttachment(File file) {
-        this.attachments.put(UUID.randomUUID().toString(), file);
-    }
+*/
 
 }

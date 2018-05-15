@@ -23,48 +23,34 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/courserequest")
 public class CourseRequest extends HttpServlet implements Serializable {
-    private static final Logger logger = Logger.getLogger(FollowingHandler.class);
+    private static final Logger LOGGER = Logger.getLogger(FollowingHandler.class);
 
-    private Session session;
-    private Transaction transaction;
     private Gson gson = new Gson();
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            transaction = session.beginTransaction();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
 
             String uuidAuthOwner = req.getParameter("uuidAuthOwner");
             String uuidAuthReq = req.getParameter("uuidAuthReq");
-            String uuidCourseReq = req.getParameter("uuidCourseReq");
-            boolean result = new MethodUtil().updateRequest(session, transaction, prepareAddRequest(uuidCourseReq, uuidAuthReq, uuidAuthOwner), uuidAuthOwner);
-            if (result) {
+            if(MethodUtil.updateRequest(session, transaction, prepareAddRequest(session,req.getParameter("uuidCourseReq"), uuidAuthReq, uuidAuthOwner), uuidAuthOwner)){
                 resp.sendRedirect("/pages/catalog.jsp?uuidAuth=" + uuidAuthOwner);
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
         }
     }
 
-    private String prepareAddRequest(String uuidCourse, String uuidAuth, String uuidAuthOwner) {
+    private String prepareAddRequest(Session session, String uuidCourse, String uuidAuth, String uuidAuthOwner) {
         CourseRequestTO courseRequestTO = gson.fromJson(MethodUtil.getJsonRequest(session, uuidAuthOwner), CourseRequestTO.class);
         List<RequestTO> requestsList = new ArrayList<>(courseRequestTO.getRequest());
         RequestTO request = new RequestTO();
-
         request.setUuidAuth(uuidAuth);
         request.setUuidCourse(uuidCourse);
-
         requestsList.add(request);
         courseRequestTO.setRequest(requestsList);
-
         return gson.toJson(courseRequestTO);
     }
-
-
 }

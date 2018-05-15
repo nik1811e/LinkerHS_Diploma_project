@@ -19,38 +19,36 @@ import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/editcourse")
 public class CourseEditing extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(CourseEditing.class);
+    private static final Logger LOGGER = Logger.getLogger(CourseEditing.class);
     private Gson gson = new Gson();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+        resp.setCharacterEncoding("UTF-8");
         String uuidCourse = req.getParameter("uuidCourseEdit").trim();
         String name = req.getParameter("nameCourseEdit").trim();
         String status = req.getParameter("statusCourseEdit").trim();
         String uuidAuth = req.getParameter("uuidAuth");
-        try {
-            if(updateCourse(session,transaction,uuidCourse,Integer.parseInt(req.getParameter("courseCategoryEdit").trim()),
-                    name,status,prepareEditCourse(session,uuidCourse,name,status,req.getParameter("courseDescEdit").trim(),uuidAuth))){
-                resp.sendRedirect("/pages/course.jsp?uuidAuth="+uuidAuth+"&&uuidCourse="+uuidCourse);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            if (updateCourse(session, transaction, uuidCourse, Integer.parseInt(req.getParameter("courseCategoryEdit").trim()),
+                    name, status, prepareEditCourse(session, uuidCourse, name, status, req.getParameter("courseDescEdit").trim(), uuidAuth))) {
+                resp.sendRedirect("/pages/course.jsp?uuidAuth=" + uuidAuth + "&&uuidCourse=" + uuidCourse);
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
-
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
         }
 
     }
 
-    private String prepareEditCourse(Session session, String uuidCourse, String nameCourse, String status, String courseDesc,String uuidAuth) {
+    private String prepareEditCourse(Session session, String uuidCourse, String nameCourse, String status, String courseDesc, String uuidAuth) {
         CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
-        if (MethodUtil.isUniqueNameCourse(session, nameCourse,session.load(AuthInfEntity.class,MethodUtil.getIdAuthByUUID(session,uuidAuth)))) {
+        if (MethodUtil.isUniqueNameCourse(session, nameCourse, session.load(AuthInfEntity.class, MethodUtil.getIdAuthByUUID(session, uuidAuth)))) {
             courseStructure.setNameCourse(nameCourse);
             courseStructure.setDescriptionCourse(courseDesc);
             courseStructure.setStatus(status);
             return gson.toJson(courseStructure);
-
         } else {
             return null;
         }
@@ -65,8 +63,8 @@ public class CourseEditing extends HttpServlet {
             transaction.commit();
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return false;
         }
     }

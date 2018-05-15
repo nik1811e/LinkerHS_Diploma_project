@@ -38,7 +38,7 @@ public class SectionEditing extends HttpServlet {
                 resp.sendRedirect("/pages/section.jsp?uuidAuth="+req.getParameter("uuidAuth")+"&&uuidCourse="+uuidCourse+"&&uuidSection="+uuidSection);
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
 
         }

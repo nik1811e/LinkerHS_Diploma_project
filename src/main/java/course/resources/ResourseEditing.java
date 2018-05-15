@@ -21,25 +21,23 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/editresource")
 public class ResourseEditing extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(ResourseEditing.class);
+    private static final Logger LOGGER = Logger.getLogger(ResourseEditing.class);
     private Gson gson = new Gson();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
         String uuidCourse = req.getParameter("uuidCourse");
         String uuidSection = req.getParameter("uuidSection");
         String uuidResource = req.getParameter("uuidResource");
-        String uuidAuth = req.getParameter("uuidAuth");
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareEditResource(session, uuidCourse, uuidSection, uuidResource, req.getParameter("author"),
                     req.getParameter("desc"), req.getParameter("link"), req.getParameter("name"), Integer.parseInt(req.getParameter("category"))))) {
-                resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + uuidAuth + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection + "&&uuidResource=" + uuidResource);
+                resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection + "&&uuidResource=" + uuidResource);
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
 
         }
 
@@ -49,7 +47,6 @@ public class ResourseEditing extends HttpServlet {
         CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
         List<SectionTO> sectionTOList = new ArrayList<>(courseStructureTOgson.getSection());
         List<SectionTO> tmpSectionList = new ArrayList<>();
-
 
         List<List<ResourceTO>> list = new ArrayList<>();
         for (SectionTO section : sectionTOList) {
@@ -82,7 +79,6 @@ public class ResourseEditing extends HttpServlet {
                 tmpSectionList.add(sect);
             }
         }
-
 
         courseStructureTOgson.setSection(tmpSectionList);
         return gson.toJson(courseStructureTOgson);

@@ -66,7 +66,7 @@
         List<CourseEntity> userCourseList = null;
         List<CategoryEntity> categoryEntityList = null;
         if (cookieUtil.isFindCookie()) {
-            userCourseList = new CourseInformation().getUserCourse(request.getParameter("uuidAuth"));
+            userCourseList = new CourseInformation().getUserCourses(request.getParameter("uuidAuth"));
             categoryEntityList = MethodUtil.getCourseCategory();
         } else {
             response.sendRedirect(urlRedirect);

@@ -1,6 +1,5 @@
 package course.resources;
 
-import com.google.gson.Gson;
 import course.pojo.ResourceTO;
 import course.pojo.SectionTO;
 import course.sections.SectionInformation;
@@ -14,13 +13,12 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/resourceinformation")
 public class ResourceInformation extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(ResourceInformation.class);
-    private Gson gson = new Gson();
+    private static final Logger LOGGER = Logger.getLogger(ResourceInformation.class);
 
     public List<ResourceTO> getSectionResource(String uuidSection, String uuidCourse) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             List<SectionTO> sectionsTOList = new SectionInformation().getCourseSection(uuidCourse);
             List<ResourceTO> resourceTOList;
             for (SectionTO sn : sectionsTOList) {
@@ -32,17 +30,11 @@ public class ResourceInformation extends HttpServlet {
             return null;
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public ResourceTO getResourceInformation(String uuidCourse, String uuidSection, String uuidResource) {
-        logger.info("getResourceInformation");
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        LOGGER.info("getResourceInformation");
         try {
             List<ResourceTO> resourceTOList = getSectionResource(uuidSection, uuidCourse);
             for (ResourceTO rt : resourceTOList) {
@@ -52,10 +44,6 @@ public class ResourceInformation extends HttpServlet {
             }
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
         return null;
     }

@@ -28,120 +28,91 @@ import java.util.regex.Pattern;
 
 @SuppressWarnings("ALL")
 public class MethodUtil {
-    private static final Logger logger = Logger.getLogger(MethodUtil.class);
+    private static final Logger LOGGER = Logger.getLogger(MethodUtil.class);
 
     public static String loginOrEmail(String loginOrEmail) {
         String result = Pattern.compile(FinalValueUtil.REGEXP_EMAIL,
                 Pattern.CASE_INSENSITIVE).matcher(loginOrEmail).find() ? "email" : "login";
-        logger.debug(MethodUtil.class.getName() + " loginOrEmail return: " + result);
+        LOGGER.debug(MethodUtil.class.getName() + " loginOrEmail return: " + result);
         return result;
     }
 
     public static String getUuudAuthById(int id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             String result = session.createQuery("SELECT a.uuid FROM " + FinalValueUtil.ENTITY_AUTH_INFO
                     + " a WHERE  a.id =:id").setParameter("id", id).list().get(0).toString();
-            logger.debug(MethodUtil.class.getName() + " getUUIDUserByLoginEmail return: " + result);
+            LOGGER.debug(MethodUtil.class.getName() + " getUUIDUserByLoginEmail return: " + result);
             return result;
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static int getIdAuthByUUID(Session session, String uuid) {
         int result = (int) session.createQuery("SELECT a.id FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a WHERE" +
                 " uuid = :uuid").setParameter("uuid", uuid).list().get(0);
-        logger.debug(MethodUtil.class.getName() + " getIdUserByLoginEmail return: " + result);
+        LOGGER.debug(MethodUtil.class.getName() + " getIdUserByLoginEmail return: " + result);
         return result;
     }
 
     public static List<AuthInfEntity> getAuthInfByUuid(String uuidAuth) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT a FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a WHERE uuid =:uuid").
                     setParameter("uuid", uuidAuth).getResultList();
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static int getIdCourseByUUID(Session session, String uuid) {
         int result = (int) session.createQuery("SELECT a.id FROM CourseEntity a WHERE uuid =:uuid").setParameter("uuid", uuid).list().get(0);
-        logger.debug(MethodUtil.class.getName() + " getIdCourseByUUID return: " + result);
+        LOGGER.debug(MethodUtil.class.getName() + " getIdCourseByUUID return: " + result);
         return result;
     }
 
     public static String getNameCourseCategoryByid(int id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return String.valueOf(session.createQuery("SELECT name FROM " + FinalValueUtil.ENTITY_COURSE_CATEGORY + " WHERE id =:id")
                     .setParameter("id", id).list().get(0));
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static String getNameResourceCategoryByid(int id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return String.valueOf(session.createQuery("SELECT name FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " WHERE id =:id")
                     .setParameter("id", id).list().get(0));
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static String getJsonCourseStructure(Session session, String uuidCourse) {
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-
             return String.valueOf(session.createQuery("SELECT s.structure FROM " + FinalValueUtil.ENTITY_COURSE + " s WHERE uuid = :uuid")
                     .setParameter("uuid", uuidCourse).list().get(0));
-
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static CourseStructureTO getCourseInfFromJson(String uuidCourse) {
-        Session session = null;
         Gson gson = new Gson();
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-
             return gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
-
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
@@ -166,66 +137,43 @@ public class MethodUtil {
 
     public static String getJsonRequest(Session session, String uuidAuth) {
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            /*return String.valueOf(session.createQuery("SELECT s.request FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " s WHERE uuid = :uuid")
-                    .setParameter("uuid", uuidAuth).list().get(0));*/
             return String.valueOf(session.createSQLQuery("select course_request from auth_inf where uuid='" + uuidAuth + "'").list().get(0));
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static List<CategoryEntity> getCourseCategory() {
-        logger.info("getCourseCategory");
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        LOGGER.info("getCourseCategory");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE_CATEGORY + " c ").getResultList();
         } catch (Exception ex) {
-            logger.error(ex.getLocalizedMessage());
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
+            LOGGER.error(ex.getLocalizedMessage());
         }
         return null;
     }
 
     public static List<ResourceCategoryEntity> getResourceCategory() {
-        logger.info("getResourceCategory");
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        LOGGER.info("getResourceCategory");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT rc FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " rc ").getResultList();
         } catch (Exception ex) {
-            logger.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
-
     }
 
     public static List<AuthInfEntity> getUsers() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT a FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a ORDER BY a.dateReg").getResultList();
         } catch (Exception ex) {
-            logger.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -240,67 +188,47 @@ public class MethodUtil {
     }
 
     public static boolean getAccessInformation(String uuidCourse, String uuidAuth) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
-            int idAuth = getIdAuthByUUID(session, uuidAuth);
-            int idCourse = getIdCourseByUUID(session, uuidCourse);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT id FROM " + FinalValueUtil.ENTITY_ACCEESS_INFO + " ac WHERE ac.idAuth =:idAuth and ac.idCourse =:idCourse")
-                    .setParameter("idAuth", idAuth).setParameter("idCourse", idCourse).getResultList().isEmpty();
+                    .setParameter("idAuth", getIdAuthByUUID(session, uuidAuth)).setParameter("idCourse", getIdCourseByUUID(session, uuidCourse)).getResultList().isEmpty();
         } catch (Exception ex) {
             return false;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static boolean checkAccess(String status, AuthInfEntity idCourseOwner, String uuidAuth, String uuidCourse) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             boolean accessEntity = getAccessInformation(uuidCourse, uuidAuth);
             if (status.equals("Открыт")) return true;
             if (!accessEntity) return true;
             return idCourseOwner.getId() == (getIdAuthByUUID(session, uuidAuth));
         } catch (Exception ex) {
             return false;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
-
     }
 
     public static String getCourseNameByUuid(String uuidCourse) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.getTransaction();
             return String.valueOf(session.createQuery("SELECT nameCourse FROM " + FinalValueUtil.ENTITY_COURSE + "  WHERE uuid =:uuid")
                     .setParameter("uuid", uuidCourse).list().get(0));
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static String getSectionNameByUuid(String uuidCourse, String uuidSection) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.getTransaction();
             return new SectionInformation().getSectionInformation(uuidCourse, uuidSection).getName();
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static boolean isUniqueResource(String name, String link, String uuidCourse, String uuidSection) {
-
         List<ResourceTO> resourceTOList = new ResourceInformation().getSectionResource(uuidSection, uuidCourse);
         for (ResourceTO rc :
                 resourceTOList) {
@@ -326,69 +254,48 @@ public class MethodUtil {
             transaction.commit();
             return true;
         } catch (Exception ex) {
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
             return false;
         }
     }
 
     public static List<AuthInfEntity> getUsersFromDb() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT a FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a").getResultList();
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static boolean isExistFollowing(String uuiddFollower, String uuididFollowing) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-
-        try {
-            boolean isExist = !(session.createQuery("SELECT f FROM " + FinalValueUtil.ENTITY_FOLLOWING + " f where f.idAuth =:idFollower and f.idFollowing =:idFollowing")
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            return !(session.createQuery("SELECT f FROM " + FinalValueUtil.ENTITY_FOLLOWING + " f where f.idAuth =:idFollower and f.idFollowing =:idFollowing")
                     .setParameter("idFollower", getIdAuthByUUID(session, uuiddFollower)).setParameter("idFollowing", getIdAuthByUUID(session, uuididFollowing)).list().isEmpty());
-            return isExist;
         } catch (Exception ex) {
-
-        } finally {
-            if (session.isOpen())
-                session.close();
+            return false;
         }
-        return false;
     }
 
     public static List<FollowingEntity> getUserFollowings(String uuidFollower) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT f FROM " + FinalValueUtil.ENTITY_FOLLOWING + " f where f.idAuth =:idFollower")
                     .setParameter("idFollower", getIdAuthByUUID(session, uuidFollower)).list();
         } catch (Exception ex) {
-
-        } finally {
-            if (session.isOpen())
-                session.close();
+            return null;
         }
-        return null;
     }
 
     public static List<FollowingEntity> getUserFollowers(String uuidFollowing) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createQuery("SELECT f FROM " + FinalValueUtil.ENTITY_FOLLOWING + " f where f.idFollowing =:uuidFollowing")
                     .setParameter("uuidFollowing", getIdAuthByUUID(session, uuidFollowing)).list();
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
-
     }
 
     public static boolean updateRequest(Session session, Transaction transaction, String request, String uuidAuth) {
@@ -398,12 +305,8 @@ public class MethodUtil {
             transaction.commit();
             return true;
         } catch (Exception ex) {
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
             return false;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -412,7 +315,7 @@ public class MethodUtil {
             return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c WHERE c.nameCourse = :nameCourse and authById =:idAuth")
                     .setParameter("nameCourse", name).setParameter("idAuth", idAuth).list().isEmpty();
         } catch (Exception ex) {
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
             return false;
         }
     }
@@ -422,7 +325,7 @@ public class MethodUtil {
             return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c WHERE uuid =:uuidCourse")
                     .setParameter("uuidCourse", uuidCourse).list();
         } catch (Exception ex) {
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
             return null;
         }
     }
@@ -439,34 +342,27 @@ public class MethodUtil {
     }
 
     public static List<CourseEntity> getAllCourses() {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
+        try ( Session session  = HibernateUtil.getSessionFactory().openSession()){
             return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c").getResultList();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return null;
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 
     public static File prepareExcelFileForAttach(Workbook workbook, String fileName, String extension) {
         try {
             File tempFile = File.createTempFile(fileName, extension);
-
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             workbook.write(byteArrayOutputStream);
-
             FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
             fileOutputStream.write(byteArrayOutputStream.toByteArray());
             fileOutputStream.close();
             return tempFile;
         } catch (IOException ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return null;
         }
     }
@@ -497,18 +393,15 @@ public class MethodUtil {
         try {
             File tempFile = File.createTempFile(fileName, extension);
 
-            logger.info("file name: " + tempFile.getName());
-            logger.info("file path: " + tempFile.getAbsolutePath());
+            LOGGER.info("file name: " + tempFile.getName());
+            LOGGER.info("file path: " + tempFile.getAbsolutePath());
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             if (extension.equals(FinalValueUtil.EXCEL_EXTENSION_XLSX) || extension.equals(FinalValueUtil.EXCEL_EXTENSION_XLS)) {
-                logger.info("prepareFileForAttach\textension: " + extension);
+                LOGGER.info("prepareFileForAttach\textension: " + extension);
                 Workbook workbook = (Workbook) o;
                 workbook.write(byteArrayOutputStream);
             }
-//            if(extension.equals(VariablesUtil.PDF_EXTENSION)){
-//
-//            }
 
             FileOutputStream fileOutputStream = new FileOutputStream(tempFile);
             fileOutputStream.write(byteArrayOutputStream.toByteArray());
@@ -516,8 +409,8 @@ public class MethodUtil {
 
             return tempFile;
         } catch (IOException ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return null;
         }
     }
@@ -535,8 +428,8 @@ public class MethodUtil {
             transaction.commit();
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return false;
         }
     }
@@ -548,9 +441,20 @@ public class MethodUtil {
             transaction.commit();
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin("\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return false;
+        }
+    }
+
+    public static void setSectionResources(String uuidSection, List<SectionTO> sections, List<SectionTO> tempSectionList, List<ResourceTO> res) {
+        for (SectionTO sect : sections) {
+            if (sect.getUuidSection().equals(uuidSection)) {
+                sect.setResource(res);
+                tempSectionList.add(sect);
+            } else {
+                tempSectionList.add(sect);
+            }
         }
     }
 }

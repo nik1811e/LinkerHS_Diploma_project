@@ -34,7 +34,7 @@ public class SectionRemoving extends HttpServlet {
                 resp.sendRedirect("/pages/course.jsp?uuidAuth="+req.getParameter("uuidAuth")+"&&uuidCourse="+uuidCourse);
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
 
         }

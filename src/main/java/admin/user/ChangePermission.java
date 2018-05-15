@@ -15,25 +15,22 @@ import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/changeperm")
 public class ChangePermission extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(ChangePermission.class);
+    private static final Logger LOGGER = Logger.getLogger(ChangePermission.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
+            Transaction transaction = session.beginTransaction();
+
             if (MethodUtil.changePermission(session, transaction,
                     req.getParameter("uuidAuth"), req.getParameter("role"))) {
                 resp.sendRedirect("");
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
-        } finally {
-            if (session.isOpen())
-                session.close();
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
         }
-
     }
 
 }

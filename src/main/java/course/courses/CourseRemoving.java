@@ -16,25 +16,21 @@ import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/removecourse")
 public class CourseRemoving extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(CourseRemoving.class);
+    private static final Logger LOGGER = Logger.getLogger(CourseRemoving.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            resp.setCharacterEncoding("UTF-8");
+            session.beginTransaction();
             if (removeCourse(req.getParameter("uuidCourse"), session)) {
                 resp.sendRedirect("/pages/catalog.jsp?uuidAuth=" + req.getParameter("uuidAuth"));
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
 
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
-
     }
 
     private boolean removeCourse(String uuidCourse, Session session) {
@@ -43,27 +39,22 @@ public class CourseRemoving extends HttpServlet {
                     .setParameter("uuidCourse", uuidCourse).executeUpdate();
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
             return false;
         }
     }
 
-    public boolean removeAllUserCourses(AuthInfEntity idAuth) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+    public void removeAllUserCourses(Session session,Transaction transaction,AuthInfEntity idAuth) {
         try {
             session.createQuery("DELETE FROM " + FinalValueUtil.ENTITY_COURSE + " WHERE authById =:idAuth")
                     .setParameter("idAuth", idAuth).executeUpdate();
             transaction.commit();
-            return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
-            return false;
-        }
-        finally {
-            if(session.isOpen())
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
+        } finally {
+            if (session.isOpen())
                 session.close();
         }
     }

@@ -7,10 +7,9 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import util.FinalValueUtil;
-import util.MethodUtil;
 import util.HibernateUtil;
 import util.MailUtil;
-
+import util.MethodUtil;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -23,12 +22,10 @@ import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/auth")
 public class Authorization extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(Authorization.class);
 
-    private static final Logger logger = Logger.getLogger(Authorization.class);
     private static final String REDIRECT_INDEX_PAGE = "/pages/index.jsp";
     private static final String REDIRECT_AUTH_PAGE = "/pages/signin.jsp";
-
-
     private String type;
 
     @Override
@@ -45,37 +42,30 @@ public class Authorization extends HttpServlet {
     }
 
     private Object[] getUserUuidAndRole(String loginOrEmail) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             return session.createSQLQuery("select uuid, role from auth_inf where " + type + " = '" +
                     loginOrEmail + "'").list().toArray();
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getLocalizedMessage());
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     private boolean isPasswordValid(String cred, String password) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             Query query = session.createQuery("SELECT a.password FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a WHERE " +
-                    type + " = :cred").setParameter("cred", cred);
+                    type + " =:cred").setParameter("cred", cred);
             return !(query.list().isEmpty()) && (password.equals(query.list().get(0).toString()));
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getLocalizedMessage());
+            new MailUtil().sendErrorMail(Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getLocalizedMessage());
             return false;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -89,13 +79,13 @@ public class Authorization extends HttpServlet {
                             FinalValueUtil.COOKIE_KEY.getBytes("UTF-8")
                     )
                     .compact();
-            logger.info(getClass().getName() + " token create successfully");
+            LOGGER.info(getClass().getName() + " token create successfully");
 
             Cookie cookie = new Cookie(FinalValueUtil.COOKIE_AUTH_NAME, token);
             cookie.setMaxAge(-1); //  the cookie will persist until browser shutdown
             resp.addCookie(cookie);
         } catch (UnsupportedEncodingException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 }

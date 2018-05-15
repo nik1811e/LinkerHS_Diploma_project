@@ -4,9 +4,7 @@ import entity.CategoryEntity;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import util.FinalValueUtil;
-import util.MethodUtil;
 import util.HibernateUtil;
 import util.MailUtil;
 
@@ -19,54 +17,42 @@ import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/ccategoryhandler")
 public class CourseCategoryHandler extends HttpServlet implements Serializable {
-    private static final Logger logger = Logger.getLogger(CourseCategoryHandler.class);
-    private Session session = null;
-    private Transaction transaction = null;
-    private String errorMessage;
-    private static String successMessage = "category created";
+    private static final Logger LOGGER = Logger.getLogger(CourseCategoryHandler.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             String name = String.valueOf(req.getParameter("name_category")).trim();
-            session = HibernateUtil.getSessionFactory().openSession();
-            transaction = session.beginTransaction();
-            boolean success = addCourseCategory(String.valueOf(name));
-            MethodUtil.showMessage(resp, success, errorMessage,successMessage);
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + Arrays.toString(ex.getStackTrace()));
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
+            Transaction transaction = session.beginTransaction();
+            if (addCourseCategory(session, transaction, String.valueOf(name))) {
+                resp.sendRedirect("/");
             }
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
         }
     }
 
-    private boolean isUniqueCourseCategory(String name) {
-    Query query = session.createQuery("SELECT c.id FROM " +
-                FinalValueUtil.ENTITY_COURSE_CATEGORY + " c WHERE c.name = :name");
-        query.setParameter("name", name);
-        return query.list().isEmpty();
+    private boolean isUniqueCourseCategory(Session session, String name) {
+        return session.createQuery("SELECT c.id FROM " +
+                FinalValueUtil.ENTITY_COURSE_CATEGORY + " c WHERE c.name = :name")
+                .setParameter("name", name).list().isEmpty();
     }
 
-    private boolean addCourseCategory(String name) {
-        logger.debug(getClass().getName() + " addCategory");
+    private boolean addCourseCategory(Session session, Transaction transaction, String name) {
+        LOGGER.debug(getClass().getName() + " addCategory");
         try {
-            if (isUniqueCourseCategory(name)) {
+            if (isUniqueCourseCategory(session, name)) {
                 CategoryEntity category = new CategoryEntity();
                 category.setName(name);
                 session.save(category);
                 transaction.commit();
                 return true;
-
-            } else {
-                errorMessage = "This name category already exist";
-                return false;
             }
         } catch (Exception ex) {
-            logger.error(ex.getLocalizedMessage());
-            errorMessage = "Category creation failed";
+            LOGGER.error(ex.getLocalizedMessage());
             return false;
         }
+        return false;
     }
 }

@@ -15,26 +15,19 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/requestinf")
 public class RequestInformation extends HttpServlet implements Serializable {
-    private static final Logger logger = Logger.getLogger(CourseInformation.class);
-    private Session session;
+    private static final Logger LOGGER = Logger.getLogger(CourseInformation.class);
 
+    private Gson gson = new Gson();
 
-    Gson gson = new Gson();
-
-    public List<RequestTO> getRequets(String uuidAuth) {
-        logger.debug(getClass().getName() + "getRequets");
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+    public List<RequestTO> getRequest(String uuidAuth) {
+        LOGGER.debug(getClass().getName() + "getRequest");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             CourseRequestTO courseStructureTO = gson.fromJson(MethodUtil.getJsonRequest(session, uuidAuth), CourseRequestTO.class);
             return courseStructureTO.getRequest();
         } catch (Exception ex) {
-            logger.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getLocalizedMessage());
             return null;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
     }
 

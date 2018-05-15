@@ -85,14 +85,14 @@
         boolean exist = false;
         if (cookieUtil.isFindCookie()) {
             try {
-                requests = new RequestInformation().getRequets(request.getParameter("uuidAuth"));
+                requests = new RequestInformation().getRequest(request.getParameter("uuidAuth"));
                 courseInformationList = new CourseInformation().getCourseInformation(uuidCourse);
                 courseInformationFromJson = new CourseInformation().getCourseInformationFromJson(uuidCourse);
                 sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
                 categoryEntityList = MethodUtil.getCourseCategory();
                 currentCategory = MethodUtil.getNameCourseCategoryByid(courseInformationList.get(0).getCategory());
             } catch (Exception ex) {
-                new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+                new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             }
         } else {
             response.sendRedirect(urlRedirect);

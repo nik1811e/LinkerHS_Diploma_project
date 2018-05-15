@@ -12,20 +12,19 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class CookieUtil {
-    private static final Logger logger = Logger.getLogger(CookieUtil.class);
+    private static final Logger LOGGER = Logger.getLogger(CookieUtil.class);
 
     private String token = null;
     private boolean isFindCookie = false;
 
     public CookieUtil(HttpServletRequest req) {
         Cookie[] cookies = req.getCookies();
-
         if (cookies != null) {
             for (Cookie c : cookies) {
                 if (c.getName().equals(FinalValueUtil.COOKIE_AUTH_NAME)) {
                     token = c.getValue();
                     isFindCookie = true;
-                    logger.info(getClass().getName() + " constructor, token: " + token);
+                    LOGGER.info(getClass().getName() + " constructor, token: " + token);
                 }
             }
         } else {

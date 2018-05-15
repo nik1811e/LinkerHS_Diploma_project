@@ -47,7 +47,7 @@ public class SectionHandler extends HttpServlet implements Serializable {
                 resp.sendRedirect("/pages/section.jsp?uuidAuth="+req.getParameter("uuidAuth")+"&&uuidSection=" + uuidNewSection + "&&uuidCourse=" + uuidCourse);
             }
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
         }
     }
@@ -81,7 +81,7 @@ public class SectionHandler extends HttpServlet implements Serializable {
             transaction.commit();
             return true;
         } catch (Exception ex) {
-            new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
+            new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             logger.error(ex.getStackTrace());
             return false;
         } finally {
