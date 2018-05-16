@@ -167,7 +167,7 @@ public class MethodUtil {
         }
     }
 
-    public static List<AuthInfEntity> getUsers() {
+    public static List<AuthInfEntity> getAllUsers() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT a FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a ORDER BY a.dateReg").getResultList();
@@ -425,19 +425,6 @@ public class MethodUtil {
                     .setParameter("fname", fname).setParameter("lname", lname)
                     .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc)
                     .setParameter("date", date).setParameter("status", status).executeUpdate();
-            transaction.commit();
-            return true;
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
-            LOGGER.error(ex.getStackTrace());
-            return false;
-        }
-    }
-
-    public static boolean changePermission(Session session, Transaction transaction, String uuidAuth, String role) {
-        try {
-            session.createQuery("UPDATE " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " + " a.role=:role WHERE a.uuid=:uuid")
-                    .setParameter("role", role).setParameter("uuid", uuidAuth).executeUpdate();
             transaction.commit();
             return true;
         } catch (Exception ex) {

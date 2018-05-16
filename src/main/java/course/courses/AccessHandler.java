@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -49,6 +50,7 @@ public class AccessHandler extends HttpServlet implements Serializable {
             }
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
         }
     }
 
@@ -63,6 +65,7 @@ public class AccessHandler extends HttpServlet implements Serializable {
             return true;
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
             return false;
         }
     }

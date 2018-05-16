@@ -1,4 +1,4 @@
-package api;
+package api.user;
 
 import api.pojo.AuthRegAPITO;
 import com.google.gson.Gson;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-@WebServlet("/api/user/add")
+@WebServlet(urlPatterns = "/api/user/add")
 public class RegistrationAPI extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(RegistrationAPI.class);
 

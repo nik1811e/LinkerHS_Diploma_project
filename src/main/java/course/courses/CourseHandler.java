@@ -33,6 +33,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
                 resp.sendRedirect("/pages/course.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidNewCourse);
             }
         } catch (Exception ex) {
+            LOGGER.error(ex.getLocalizedMessage());
             new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
         }
     }

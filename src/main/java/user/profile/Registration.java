@@ -88,6 +88,8 @@ public class Registration extends HttpServlet implements IParseJsonString {
                 return false;
             }
         } catch (Exception ex) {
+            LOGGER.error(ex.getLocalizedMessage());
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));
             return false;
         }
     }

@@ -33,5 +33,4 @@ public class Profile extends HttpServlet implements Serializable {
             LOGGER.error(ex.getStackTrace());
         }
     }
-
 }

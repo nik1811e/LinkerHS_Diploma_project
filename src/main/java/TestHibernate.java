@@ -1,8 +1,4 @@
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import util.HibernateUtil;
-import util.MethodUtil;
 
 @SuppressWarnings("ALL")
 public class TestHibernate {
@@ -10,8 +6,8 @@ public class TestHibernate {
 
     public static void main(String[] args) {
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+       /* Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();*/
 
 /*
         Registration doRegistration = new Registration();
@@ -36,7 +32,7 @@ public class TestHibernate {
 /*
         new UserRemoving().removeUserAndDepends(session, transaction, "f065837d-3b49-4301-9583-2acf988bd423");
 */
-new MethodUtil().changePermission(session,transaction,"5b971bd2-a268-4e03-b987-853d98021106","admin");
+/*new MethodUtil().changePermission(session,transaction,"5b971bd2-a268-4e03-b987-853d98021106","admin");*/
     }
 
 }

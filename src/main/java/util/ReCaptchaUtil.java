@@ -14,7 +14,7 @@ public class ReCaptchaUtil {
     private static final String URL = "https://www.google.com/recaptcha/api/siteverify";
     private static final String SECRET = "6Lfc2lEUAAAAAPqlD6c_yUWT2ljPCMTeRDkUkpN4";
     public static final String PUBLIC = "6Lfc2lEUAAAAAAZQx2Tts94VK8nanujfRONFQGTJ";
-    private final static String USER_AGENT = "Mozilla/5.0";
+    private static final String USER_AGENT = "Mozilla/5.0";
 
     public static boolean verify(String gRecaptchaResponse) {
         if (gRecaptchaResponse == null || "".equals(gRecaptchaResponse)) {

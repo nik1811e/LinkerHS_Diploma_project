@@ -28,12 +28,12 @@ public class RequestRemoving extends HttpServlet implements Serializable {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String uuidAuthOwner = req.getParameter("uuidAuthOwner");
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             resp.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
-            if (MethodUtil.updateRequest(session, transaction, prepareRemoveRequest(session, req.getParameter("uuidCourseReq"), req.getParameter("uuidAuthReq"), uuidAuthOwner), uuidAuthOwner))
-                ;
-            resp.sendRedirect("/pages/requests.jsp?uuidAuth=" + uuidAuthOwner);
+            if (MethodUtil.updateRequest(session, transaction, prepareRemoveRequest(session, req.getParameter("uuidCourseReq"), req.getParameter("uuidAuthReq"), uuidAuthOwner), uuidAuthOwner)) {
+                resp.sendRedirect("/pages/requests.jsp?uuidAuth=" + uuidAuthOwner);
+            }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
@@ -41,7 +41,7 @@ public class RequestRemoving extends HttpServlet implements Serializable {
         }
     }
 
-    public String prepareRemoveRequest(Session session, String uuidCourse, String uuidAuth, String uuidOwner) {
+    String prepareRemoveRequest(Session session, String uuidCourse, String uuidAuth, String uuidOwner) {
         CourseRequestTO courseRequestTO = gson.fromJson(MethodUtil.getJsonRequest(session, uuidOwner), CourseRequestTO.class);
         List<RequestTO> requestTOList = new ArrayList<>(courseRequestTO.getRequest());
 

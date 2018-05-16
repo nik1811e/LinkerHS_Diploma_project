@@ -28,8 +28,6 @@ h1,h2,h3,h4,h5,h6{ color: #383f47; }
 ::-moz-selection 	{background: #fbe471}
 img::selection 		{background: #fbe471}
 img::-moz-selection	{background: #fbe471}
-body {-webkit-tap-highlight-color: background: #fbe471}
-
 /* HEADINGS ------------------------------------------------------------*/
 
 .masthead{ border-bottom: 1px solid #ccc; }
