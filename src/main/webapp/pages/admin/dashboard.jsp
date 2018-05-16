@@ -2,7 +2,6 @@
 <%@ page import="entity.CourseEntity" %>
 <%@ page import="util.CookieUtil" %>
 <%@ page import="util.MethodUtil" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <html>
 <head>
@@ -138,7 +137,7 @@
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-warning text-center">
-                                                <i class="ti-server"></i>
+                                            <i class="ti-server"></i>
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
@@ -151,7 +150,8 @@
                                 <div class="footer">
                                     <hr/>
                                     <div class="stats">
-                                        <a href="tables.jsp" style="text-decoration: none"> <i class="ti-link"></i> Updated now </a>
+                                        <a href="tables.jsp" style="text-decoration: none"> <i class="ti-link"></i>
+                                            Updated now </a>
                                     </div>
                                 </div>
                             </div>
@@ -266,8 +266,7 @@
                                 <p class="category">Last Campaign Performance</p>
                             </div>
                             <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
+                                <canvas id="myChart" width="300px" height="300px"></canvas>
                                 <div class="footer">
                                     <div class="chart-legend">
                                         <i class="fa fa-circle text-info"></i> Open
@@ -361,11 +360,54 @@
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="/resources/js/admin/paper-dashboard.js"></script>
 <script src="/resources/js/admin/demo.js"></script>
+<script src="/resources/js/admin/chart.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-
-        demo.initChartist();
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [
+                        <%for(int i=0;i<=5;i++){
+                        if(i<5){%>
+                        <%=Math.random()*100 +","%>
+                        <%}else{%>
+                        <%=Math.random()*100%>
+                        <%}}%>
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
 
         $.notify({
             icon: 'ti-gift',
