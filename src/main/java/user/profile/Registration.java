@@ -29,13 +29,13 @@ public class Registration extends HttpServlet implements IParseJsonString {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
-            if (doRegistration(req.getParameter("login"), req.getParameter("password"),
-                    req.getParameter("email"), req.getParameter("fname"),
-                    req.getParameter("lname"), req.getParameter("bday"))) {
-                try {
+        try {
+            req.setCharacterEncoding("UTF-8");
+            if (ReCaptchaUtil.verify(req.getParameter("g-recaptcha-response"))) {
+                if (doRegistration(req.getParameter("login"), req.getParameter("password"),
+                        req.getParameter("email"), req.getParameter("fname"),
+                        req.getParameter("lname"), req.getParameter("bday"))) {
                     URL url = new URL(req.getRequestURL().toString());
-
                     String login = req.getParameter("login");
                     String body = "<br/> " + new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                             "<p>Здравствуйте,</p>" +
@@ -52,10 +52,10 @@ public class Registration extends HttpServlet implements IParseJsonString {
                     new MailUtil().sendMail(req.getParameter("email"), body, subject);
 
                     resp.sendRedirect("/pages/index.jsp");
-                } catch (IOException e) {
-                    new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(e.getStackTrace()));
                 }
             }
+        } catch (IOException e) {
+            new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(e.getStackTrace()));
         }
     }
 

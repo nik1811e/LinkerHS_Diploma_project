@@ -21,6 +21,7 @@ public class FollowingHandler extends HttpServlet implements Serializable {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (!MethodUtil.isExistFollowing(req.getParameter("uuidFollower"), req.getParameter("uuidFollowing"))) {
                 if (addFollowing(session,transaction, req.getParameter("uuidFollower"), req.getParameter("uuidFollowing"))) {

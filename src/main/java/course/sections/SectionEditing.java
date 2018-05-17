@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,47 +24,45 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/editsection")
 public class SectionEditing extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(SectionEditing.class);
+    private static final Logger LOGGER = Logger.getLogger(SectionEditing.class);
     private Gson gson = new Gson();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String uuidCourse = req.getParameter("uuidCourse");
         String uuidSection = req.getParameter("uuidSection");
-        try {
+        String path = "/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection;
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
+            Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse,
                     prepareEditSection(session, uuidCourse, uuidSection, req.getParameter("nameSection"), req.getParameter("descSection")))) {
-                resp.sendRedirect("/pages/section.jsp?uuidAuth="+req.getParameter("uuidAuth")+"&&uuidCourse="+uuidCourse+"&&uuidSection="+uuidSection);
+                resp.sendRedirect(path);
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
-
+            LOGGER.error(ex.getStackTrace());
+            resp.sendRedirect(path);
         }
 
     }
 
-    private String prepareEditSection(Session session, String uuidCourse, String uuidSection, String nameSection, String descriptionSection) {
+    private String prepareEditSection(Session session, String uuidCourse, String uuidSection, String nameSection, String descriptionSection) throws Exception {
         CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
         List<SectionTO> sectionTOList = new ArrayList<>(courseStructure.getSection());
-        List<SectionTO> resultSections = new ArrayList<>();
-        if (MethodUtil.isUniqueSectionName(uuidCourse, nameSection)) {
+        if (MethodUtil.isUniqueSectionName(uuidCourse, nameSection, uuidSection)) {
             for (SectionTO sect : sectionTOList) {
                 if (sect.getUuidSection().equals(uuidSection)) {
                     sect.setName(nameSection);
                     sect.setDescriptionSection(descriptionSection);
                     sect.setDateLastUpdate(new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new Date().getTime()));
-                    resultSections.add(sect);
-                }{
-                    resultSections.add(sect);
                 }
             }
-            courseStructure.setSection(resultSections);
+            courseStructure.setSection(sectionTOList);
             return gson.toJson(courseStructure);
         }
-        return null;
+        return gson.toJson(courseStructure);
+
     }
 
 }

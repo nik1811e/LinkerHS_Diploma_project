@@ -7,12 +7,10 @@ import util.FinalValueUtil;
 import util.HibernateUtil;
 import util.MailUtil;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/userremove")
@@ -20,8 +18,9 @@ public class UserRemoving extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(UserRemoving.class);
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             if (removeUser(session, session.beginTransaction(), req.getParameter("uuidAuth"))) {
                 resp.sendRedirect("/pages/admin/tables.jsp");
             }

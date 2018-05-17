@@ -15,7 +15,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,10 +27,10 @@ public class CourseRequest extends HttpServlet implements Serializable {
     private Gson gson = new Gson();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
-
             String uuidAuthOwner = req.getParameter("uuidAuthOwner");
             String uuidAuthReq = req.getParameter("uuidAuthReq");
             if(MethodUtil.updateRequest(session, transaction, prepareAddRequest(session,req.getParameter("uuidCourseReq"), uuidAuthReq, uuidAuthOwner), uuidAuthOwner)){

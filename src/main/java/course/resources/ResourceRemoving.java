@@ -32,9 +32,13 @@ public class ResourceRemoving extends HttpServlet implements Serializable {
         String uuidSection = req.getParameter("uuidSectionDel");
         String uuidCourse = req.getParameter("uuidCourseDel");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareRemoveResource(session, uuidCourse, uuidSection, req.getParameter("uuidResourceDel")))) {
                 resp.sendRedirect("/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + uuidSection);
+            } else {
+                resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + uuidSection + "&uuidResource=" + req.getParameter("uuidResourceDel"));
+
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));

@@ -20,6 +20,7 @@ public class Profile extends HttpServlet implements Serializable {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateAuthInf(session, transaction,
                     req.getParameter("login"), req.getParameter("password"),

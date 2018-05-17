@@ -15,42 +15,32 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/sectioninformation")
 public class SectionInformation extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(SectionInformation.class);
+    private static final Logger LOGGER = Logger.getLogger(SectionInformation.class);
 
     public List<SectionTO> getCourseSection(String uuidCourse) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             CourseStructureTO courseStructureTO = new Gson().fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
             return new ArrayList<>(courseStructureTO.getSection());
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
     public SectionTO getSectionInformation(String uuidCourse, String uuidSection) {
-        logger.info("getSectionInformation");
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        try {
+        LOGGER.info("getSectionInformation");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
             List<SectionTO> sectionTOList = getCourseSection(uuidCourse);
             for (SectionTO st : sectionTOList) {
                 if (st.getUuidSection().equals(uuidSection)) {
                     return st;
                 }
             }
+            return null;
         } catch (Exception ex) {
             return null;
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
-        return null;
     }
 
 }

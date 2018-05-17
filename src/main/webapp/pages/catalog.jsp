@@ -4,6 +4,7 @@
 <%@ page import="util.CookieUtil" %>
 <%@ page import="util.MethodUtil" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html class="no-js">
@@ -98,8 +99,10 @@
             <li><a href="#" style="text-decoration: none">ПОЛЬЗОВАТЕЛИ</a>
                 <ul>
                     <li><a href="/pages/users.jsp" style="text-decoration: none">Список пользователей</a></li>
-                    <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписки</a></li>
-                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подпищики</a></li>
+                    <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
+                           style="text-decoration: none">Подписки</a></li>
+                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
+                           style="text-decoration: none">Подпищики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -144,7 +147,7 @@
                         </a></h3>
                     <div class="meta">
                         <span class="user"><%=userCourseList.get(i).getStatus().toUpperCase()%> | </span>
-                        <span class="comments"><%=MethodUtil.getNameCourseCategoryByid(userCourseList.get(i).getCategory()).toUpperCase()%></span>
+                        <span class="comments"><%=Objects.requireNonNull(MethodUtil.getNameCourseCategoryByid(userCourseList.get(i).getCategory())).toUpperCase()%></span>
                     </div>
                 </div>
                 <div class="feature-image">
@@ -152,15 +155,8 @@
                         <img src="/resources/img/slides/01.jpg" alt="<%=userCourseList.get(i).getNameCourse()%>"/>
                     </a>
                 </div>
-                <div class="excerpt" style="width: 480px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                    malesuada neque non mi maximus
-                    mattis. Etiam nulla turpis, placerat sed turpis a, malesuada interdum nibh. Vivamus tristique,
-                    diam vitae tincidunt scelerisque, est ligula dictum mauris, in suscipit orci nunc ut massa. Cras
-                    sagittis nisl blandit leo facilisis accumsan. Maecenas egestas, ante ac finibus mollis, velit
-                    nulla faucibus odio, quis egestas massa dolor in arcu. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Cras tincidunt vel dui et pharetra. Maecenas odio risus, ultrices sollicitudin
-                    tempor sed, pulvinar id mi. Suspendisse at magna sit amet velit lobortis tempor. Suspendisse
-                    potenti.
+                <div class="excerpt"
+                     style="width: 480px"><%=Objects.requireNonNull(MethodUtil.getCourseInfFromJson(userCourseList.get(i).getUuid())).getDescriptionCourse()%>
                 </div>
             </article>
             <%

@@ -75,7 +75,6 @@
         String uuidCourse = null;
         String uuidSection = null;
         String uuidResource = null;
-        SectionTO sectionInformations = null;
         List<ResourceCategoryEntity> resourceCategoryList = null;
 
         if (cookieUtil.isFindCookie()) {
@@ -84,9 +83,6 @@
             uuidSection = String.valueOf(request.getParameter("uuidSection")).trim();
             uuidResource = String.valueOf(request.getParameter("uuidResource")).trim();
             sections = new SectionInformation().getCourseSection(uuidCourse);
-/*
-            sectionInformations = new SectionInformation().getSectionInformation(uuidCourse, uuidSection);
-*/
             try {
                 resource = new ResourceInformation().getResourceInformation(uuidCourse, uuidSection, uuidResource);
             } catch (Exception ex) {
@@ -246,7 +242,7 @@
                                                                   name="currentSection"
                                                                   required
                                                                   maxlength="50"
-                                                                  value="<%=new MethodUtil().getSectionNameByUuid(uuidCourse,resource.getUuidSection())%>"
+                                                                  value="<%=MethodUtil.getSectionNameByUuid(uuidCourse,resource.getUuidSection())%>"
                                                                   disabled>
                     </div>
                     <div class="form-group">
@@ -304,7 +300,7 @@
         </div>
     </div>
 </div>
-<div id="editResource" class="modal fade">
+<div id="editeditResource" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -351,7 +347,7 @@
                     </div>
                     <div class="form-group">
                                     <textarea class="form-control" name="desc" id="desc"
-                                              placeholder="Описание" maxlength="100"
+                                              placeholder="Описание"maxlength="200"
                                               rows="7"><%=resource.getDescriptionResource()%></textarea>
                     </div>
                     <button type="submit" class="btn-modal" id="btnContactUs">
@@ -359,7 +355,6 @@
                     </button>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

@@ -30,6 +30,7 @@ public class Authorization extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("UTF-8");
         this.type = MethodUtil.loginOrEmail(req.getParameter("login_or_email")).toLowerCase();
         if (isPasswordValid(req.getParameter("login_or_email"), req.getParameter("password"))) {
             Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());

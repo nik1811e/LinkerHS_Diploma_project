@@ -31,16 +31,18 @@ public class ResourceHandler extends HttpServlet implements Serializable {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         String uuidCourse = req.getParameter("uuidCourse");
         String uuidNewResource = UUID.randomUUID().toString();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareAddResource(session, req.getParameter("name_resource"),
                     req.getParameter("link"), req.getParameter("author"), req.getParameter("desc"), Integer.parseInt(req.getParameter("id_category")),
                     uuidCourse, req.getParameter("uuidSection"), new CookieUtil(req).getUserUuidFromToken(), uuidNewResource))
                     ) {
                 resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + req.getParameter("uuidSection") + "&uuidResource=" + uuidNewResource);
+            } else {
+                resp.sendRedirect("/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + req.getParameter("uuidSection"));
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
@@ -69,8 +71,7 @@ public class ResourceHandler extends HttpServlet implements Serializable {
             }
         }
 
-        if (isSectionExist(sections, uuidSection)) {
-            if (isUniqueResource(name, link, uuidSection, uuidCourse)) {
+            if (MethodUtil.isUniqueResource(name, link, uuidSection, uuidCourse,uuidNewResource)) {
                 resourceTO.setName(String.valueOf(name).trim());
                 resourceTO.setLink(String.valueOf(link).trim());
                 resourceTO.setAuthor(String.valueOf(author).trim());
@@ -83,30 +84,9 @@ public class ResourceHandler extends HttpServlet implements Serializable {
 
                 MethodUtil.setSectionResources(uuidSection, sections, tempSectionList, res);
                 courseStructureTOgson.setSection(tempSectionList);
-            }
+                return gson.toJson(courseStructureTOgson);
         }
-        return gson.toJson(courseStructureTOgson);
-    }
-
-
-    private boolean isUniqueResource(String name, String link, String uuidSection, String uuidCourse) {
-
-        List<ResourceTO> resourceTOList = new ResourceInformation().getSectionResource(uuidSection, uuidCourse);
-        for (ResourceTO rc :
-                resourceTOList) {
-            if (rc.getName().trim().equals(name.trim()) || rc.getLink().trim().equals(link.trim())) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean isSectionExist(List<SectionTO> section, String uuid) {
-        for (SectionTO sect : section) {
-            if (sect.getUuidSection().equals(uuid))
-                return true;
-        }
-        return false;
+        return null;
     }
 
 }

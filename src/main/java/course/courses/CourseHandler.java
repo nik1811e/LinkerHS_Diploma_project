@@ -31,6 +31,8 @@ public class CourseHandler extends HttpServlet implements Serializable {
                     String.valueOf(req.getParameter("status").trim()), Integer.parseInt(req.getParameter("id_category")),
                     String.valueOf(req.getParameter("desc").trim()), new CookieUtil(req).getUserUuidFromToken())) {
                 resp.sendRedirect("/pages/course.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidNewCourse);
+            }else {
+                resp.sendRedirect("/pages/catalog.jsp?uuidAuth="+req.getParameter("uuidAuth"));
             }
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
@@ -44,7 +46,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
         int idAuth = MethodUtil.getIdAuthByUUID(session, uuidAuth);
         uuidNewCourse = UUID.randomUUID().toString();
         try {
-            if (MethodUtil.isUniqueNameCourse(session, name, session.load(AuthInfEntity.class, idAuth))) {
+            if (MethodUtil.isUniqueNameCourse(session, name, session.load(AuthInfEntity.class, idAuth),uuidNewCourse)) {
                 CourseEntity courseEntity = new CourseEntity();
                 courseEntity.setAuthById(session.load(AuthInfEntity.class, idAuth));
                 courseEntity.setCategory(idCategory);
@@ -69,7 +71,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
         return "{\n" +
                 "\t\"uuid_user\": \" " + uuid_user + " \",\n" +
                 "\t\"name_course\": \" " + name_course + "  \",\n" +
-                "\t\"description_course\": \" " + description_course + "\",\n" +
+                "\t\"description_course\": \" " + description_course.trim() + "\",\n" +
                 "\t\"date_create\": \" " + date + "  \",\n" +
                 "\t\"status\": \"" + status + " \",\n" +
                 "\t\"section\": [\n" +

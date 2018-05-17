@@ -228,31 +228,16 @@ public class MethodUtil {
         }
     }
 
-    public static boolean isUniqueResource(String name, String link, String uuidCourse, String uuidSection) {
-        List<ResourceTO> resourceTOList = new ResourceInformation().getSectionResource(uuidSection, uuidCourse);
-        for (ResourceTO rc :
-                resourceTOList) {
-            if (rc.getName().trim().equals(name.trim()) || rc.getLink().trim().equals(link.trim())) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static boolean isSectionExist(List<SectionTO> section, String uuid) {
-        for (SectionTO sect : section) {
-            if (sect.getUuidSection().equals(uuid))
-                return true;
-        }
-        return false;
-    }
 
     public static boolean updateJsonStructure(Session session, Transaction transaction, String uuidCourse, String jsonStructure) {
         try {
-            session.createQuery("UPDATE " + FinalValueUtil.ENTITY_COURSE + " c SET c.structure = :newStructure WHERE c.uuid = :uuid")
-                    .setParameter("newStructure", jsonStructure).setParameter("uuid", uuidCourse).executeUpdate();
-            transaction.commit();
-            return true;
+            if (!jsonStructure.isEmpty()) {
+                session.createQuery("UPDATE " + FinalValueUtil.ENTITY_COURSE + " c SET c.structure = :newStructure WHERE c.uuid = :uuid")
+                        .setParameter("newStructure", jsonStructure).setParameter("uuid", uuidCourse).executeUpdate();
+                transaction.commit();
+                return true;
+            }
+            return false;
         } catch (Exception ex) {
             LOGGER.error(ex.getStackTrace());
             return false;
@@ -289,7 +274,7 @@ public class MethodUtil {
     }
 
     public static List<FollowingEntity> getUserFollowers(String uuidFollowing) {
-        try( Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT f FROM " + FinalValueUtil.ENTITY_FOLLOWING + " f where f.idFollowing =:uuidFollowing")
                     .setParameter("uuidFollowing", getIdAuthByUUID(session, uuidFollowing)).list();
@@ -310,10 +295,18 @@ public class MethodUtil {
         }
     }
 
-    public static boolean isUniqueNameCourse(Session session, String name, AuthInfEntity idAuth) {
+    public static boolean isUniqueNameCourse(Session session, String name, AuthInfEntity idAuth, String uuidCourse) {
         try {
-            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c WHERE c.nameCourse = :nameCourse and authById =:idAuth")
-                    .setParameter("nameCourse", name).setParameter("idAuth", idAuth).list().isEmpty();
+            List uuidQ = session.createQuery("SELECT uuid FROM " + FinalValueUtil.ENTITY_COURSE + "  WHERE nameCourse = :nameCourse and authById =:idAuth")
+                    .setParameter("nameCourse", name).setParameter("idAuth", idAuth).list();
+            assert uuidQ != null;
+            if (!uuidQ.isEmpty()) {
+                if (!uuidQ.get(0).equals(uuidCourse)) {
+                    return false;
+                }
+                return true;
+            }
+            return true;
         } catch (Exception ex) {
             LOGGER.error(ex.getStackTrace());
             return false;
@@ -330,19 +323,35 @@ public class MethodUtil {
         }
     }
 
-    public static boolean isUniqueSectionName(String uuidCourse, String nameSection) {
+    public static boolean isUniqueSectionName(String uuidCourse, String nameSection, String uuidSection) {
         List<SectionTO> sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
-        for (SectionTO sn :
-                sectionTOList) {
-            if (sn.getName().equals(nameSection)) {
+        for (SectionTO sn : sectionTOList) {
+            if (sn.getName().equals(nameSection) && !sn.getUuidSection().equals(uuidSection)) {
                 return false;
             }
         }
         return true;
     }
 
+    public static boolean isUniqueResource(String name, String link, String uuidCourse, String uuidSection, String uuidResource) {
+        try {
+            List<ResourceTO> resourceTOList = new ResourceInformation().getSectionResource(uuidCourse,uuidSection);
+            assert resourceTOList != null;
+                for (ResourceTO rc :
+                        resourceTOList) {
+                    if ((rc.getName().trim().equals(name.trim()) || rc.getLink().trim().equals(link.trim())) && !rc.getUuidResource().equals(uuidResource)) {
+                        return false;
+                    }
+            }
+            return true;
+        } catch (Exception ex) {
+            LOGGER.error(ex.getStackTrace());
+            return false;
+        }
+    }
+
     public static List<CourseEntity> getAllCourses() {
-        try ( Session session  = HibernateUtil.getSessionFactory().openSession()){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c").getResultList();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));

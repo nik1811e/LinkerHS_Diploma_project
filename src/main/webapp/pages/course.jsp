@@ -204,7 +204,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Описание</label>
-                                        <textarea class="form-control" type="textarea" name="description"
+                                        <textarea class="form-control" name="description"
                                                   id="description"
                                                   placeholder="Описание" maxlength="6000" rows="7"></textarea>
                                     </div>
@@ -229,10 +229,9 @@
                 <%
                     assert sectionTOList != null;
                     if (!sectionTOList.isEmpty()) {
-                        for (int i = 0; i < sectionTOList.size(); i++) {
-                            String uuidSection = sectionTOList.get(i).getUuidSection();
-                            String desc = sectionTOList.get(i).getDescriptionSection().toUpperCase();
-                            String name = sectionTOList.get(i).getName().toUpperCase();
+                        for (SectionTO aSectionTOList : sectionTOList) {
+                            String uuidSection = aSectionTOList.getUuidSection();
+                            String name = aSectionTOList.getName().toUpperCase();
                 %>
                 <figure>
                     <a href="/pages/section.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>&&uuidCourse=<%=uuidCourse%>&&uuidSection=<%=uuidSection%>"
@@ -240,7 +239,8 @@
                     <figcaption>
                         <strong><%=name%>
                         </strong>
-                        <span><%=desc%></span>
+                        <span>
+                            Ссылок: <%=aSectionTOList.getResource().size()%></span>
                     </figcaption>
                 </figure>
                 <%
@@ -358,9 +358,8 @@
                     </div>
                     <div class="form-group">
                                     <textarea class="form-control" name="courseDescEdit" id="desc"
-                                              placeholder="Описание курса" maxlength="6000" rows="7">
-                                        <%=courseInformationFromJson.getDescriptionCourse().trim()%>
-                                    </textarea>
+                                              placeholder="Описание курса" maxlength="200"
+                                              rows="7"><%=courseInformationFromJson.getDescriptionCourse().trim()%></textarea>
                     </div>
                     <button type="submit" class="btn-modal" id="btnContactUs">
                         Внести изменения

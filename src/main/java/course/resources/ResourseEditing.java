@@ -30,11 +30,11 @@ public class ResourseEditing extends HttpServlet {
         String uuidSection = req.getParameter("uuidSection");
         String uuidResource = req.getParameter("uuidResource");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
-            if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareEditResource(session, uuidCourse, uuidSection, uuidResource, req.getParameter("author"),
-                    req.getParameter("desc"), req.getParameter("link"), req.getParameter("name"), Integer.parseInt(req.getParameter("category"))))) {
+           MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareEditResource(session, uuidCourse, uuidSection, uuidResource, req.getParameter("author"),
+                    req.getParameter("desc"), req.getParameter("link"), req.getParameter("name"), Integer.parseInt(req.getParameter("category"))));
                 resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection + "&&uuidResource=" + uuidResource);
-            }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
@@ -59,27 +59,20 @@ public class ResourseEditing extends HttpServlet {
                 if (!anAList.getUuidResource().equals(uuidResource)) {
                     res.add(anAList);
                 } else {
-                    anAList.setAuthor(author);
-                    anAList.setCategory_link(category);
-                    anAList.setDescriptionResource(desc);
-                    anAList.setLink(link);
-                    anAList.setName(name);
-                    res.add(anAList);
+                    if (MethodUtil.isUniqueResource(name, link, uuidSection, uuidCourse,anAList.getUuidResource())) {
+                        anAList.setAuthor(author);
+                        anAList.setCategory_link(category);
+                        anAList.setDescriptionResource(desc);
+                        anAList.setLink(link);
+                        anAList.setName(name);
+                        res.add(anAList);
+                    } else {
+                        return null;
+                    }
                 }
             }
         }
-
-        for (SectionTO sect : sectionTOList) {
-            if (sect.getUuidSection().equals(uuidSection)) {
-                if (MethodUtil.isUniqueResource(name, link, uuidCourse, uuidSection)) {
-                    sect.setResource(res);
-                    tmpSectionList.add(sect);
-                }
-            } else {
-                tmpSectionList.add(sect);
-            }
-        }
-
+        MethodUtil.setSectionResources(uuidSection,sectionTOList,tmpSectionList,res);
         courseStructureTOgson.setSection(tmpSectionList);
         return gson.toJson(courseStructureTOgson);
     }

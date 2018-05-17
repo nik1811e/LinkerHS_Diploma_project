@@ -20,22 +20,22 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/sectionremoving")
 public class SectionRemoving extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(SectionRemoving.class);
-    Gson gson = new Gson();
+    private static final Logger LOGGER = Logger.getLogger(SectionRemoving.class);
+    private Gson gson = new Gson();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
         String uuidCourse = req.getParameter("uuidCourse");
-        try {
-            if (MethodUtil.updateJsonStructure( session, transaction,uuidCourse, prepareRemoveSection(uuidCourse,
-                    req.getParameter("uuidSection"), session))){
-                resp.sendRedirect("/pages/course.jsp?uuidAuth="+req.getParameter("uuidAuth")+"&&uuidCourse="+uuidCourse);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            req.setCharacterEncoding("UTF-8");
+            Transaction transaction = session.beginTransaction();
+            if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareRemoveSection(uuidCourse,
+                    req.getParameter("uuidSection"), session))) {
+                resp.sendRedirect("/pages/course.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse);
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
 
         }
 
@@ -64,7 +64,7 @@ public class SectionRemoving extends HttpServlet {
             return true;
         } catch (Exception ex) {
             new MailUtil().sendErrorMailForAdmin(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
-            logger.error(ex.getStackTrace());
+            LOGGER.error(ex.getStackTrace());
             return false;
         }
     }

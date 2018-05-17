@@ -147,20 +147,7 @@
                                      alt="<%=sectionInformation.getName()%>"/>
                             </a>
                         </div>
-                        <div class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada
-                            neque non mi maximus
-                            mattis. Etiam nulla turpis, placerat sed turpis a, malesuada interdum nibh. Vivamus
-                            tristique,
-                            diam vitae tincidunt scelerisque, est ligula dictum mauris, in suscipit orci nunc ut massa.
-                            Cras
-                            sagittis nisl blandit leo facilisis accumsan. Maecenas egestas, ante ac finibus mollis,
-                            velit
-                            nulla faucibus odio, quis egestas massa dolor in arcu. Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipiscing elit. Cras tincidunt vel dui et pharetra. Maecenas odio risus, ultrices
-                            sollicitudin
-                            tempor sed, pulvinar id mi. Suspendisse at magna sit amet velit lobortis tempor. Suspendisse
-                            potenti.
+                        <div class="excerpt"><%=sectionInformation.getDescriptionSection()%>
                         </div>
                     </article>
                 </div>
@@ -318,9 +305,7 @@
                     </div>
                     <div class="form-group">
                                     <textarea class="form-control" name="descSection" id="desc"
-                                              placeholder="Описание курса" rows="7">
-                                        <%=sectionInformation.getDescriptionSection().trim()%>
-                                    </textarea>
+                                              placeholder="Описание курса" maxlength="200" rows="7"><%=sectionInformation.getDescriptionSection()%></textarea>
                     </div>
                     <button type="submit" class="btn-modal" id="btnContactUs">
                         Внести изменения
