@@ -6,30 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef4015a-6d3f-42cf-a759-09c86d3ccc18" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/course/courses/CourseHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/course/sections/SectionHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/util/ReCaptchaUtilTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/courses/AccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/courses/AccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/courses/CourseEditing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/courses/CourseEditing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/courses/CourseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/courses/CourseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/courses/CourseRemoving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/courses/CourseRemoving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/courses/CourseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/courses/CourseRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/courses/RequestRemoving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/courses/RequestRemoving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/resources/ResourceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/resources/ResourceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/resources/ResourceRemoving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/resources/ResourceRemoving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/resources/ResourceTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/resources/ResourceTransfer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/admin/jquery-1.10.2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/admin/jquery-1.10.2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/modernizr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/modernizr.js" afterDir="false" />
-    </list>
+    <list default="true" id="3ef4015a-6d3f-42cf-a759-09c86d3ccc18" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,14 +79,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.73059654">
+    <splitter split-orientation="horizontal" split-proportion="0.43417367">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CourseEditingTest.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="CourseEditingTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="734">
-                  <caret line="59" column="5" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="59" selection-end-column="5" />
+                <state relative-caret-position="214">
+                  <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1822#1823#0" expanded="true" />
@@ -119,7 +96,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="course" pinned="false" current-in-tab="true">
+          <file leaf-file-name="course" pinned="false" current-in-tab="false">
             <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
               <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
                 <state>
@@ -163,7 +140,7 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="SectionHandler.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="SectionHandler.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="362">
@@ -250,7 +227,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="course" pinned="false" current-in-tab="false">
+          <file leaf-file-name="course" pinned="false" current-in-tab="true">
             <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
               <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
                 <state>
@@ -606,6 +583,15 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="course" type="462c0819:PsiDirectoryNode" />
+              <item name="courses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
@@ -1051,7 +1037,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="883719000" />
+    <option name="totallyTimeSpent" value="883936000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1064,6 +1050,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="0" weight="0.39106753" />
@@ -1074,7 +1061,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.16897655" />
+      <window_info active="true" anchor="right" id="Database" order="7" visible="true" weight="0.16897655" />
       <window_info anchor="right" id="JSF" order="8" />
       <window_info id="Structure" order="0" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
@@ -1087,22 +1074,54 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5948827" weight="0.34204793" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.16230936" />
+      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.16230936" />
       <window_info id="Persistence" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
       <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.49946696" weight="0.2908497" />
-      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.60890305" visible="true" weight="0.26012793" />
+      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.60890305" visible="true" weight="0.23187633" />
       <window_info anchor="right" id="Bean Validation" order="10" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.30718955" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5948827" weight="0.34204793" />
+      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.16897655" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.16230936" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32893288" />
+      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.60890305" visible="true" weight="0.26012793" />
       <window_info anchor="right" id="Coverage" order="12" side_tool="true" weight="0.32995737" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Structure" order="0" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven Projects" order="11" weight="0.20895523" />
+      <window_info anchor="right" id="CDI" order="9" />
+      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.49946696" weight="0.2908497" />
       <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="0" weight="0.39106753" />
+      <window_info id="Persistence" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.30718955" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
+      <window_info anchor="right" id="JSF" order="8" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.39324617" />
+      <window_info anchor="bottom" id="Debug" order="15" sideWeight="0.49840087" weight="0.3191721" />
     </layout>
     <layout-to-restore>
       <window_info id="Persistence" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
@@ -1713,18 +1732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1822#1823#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionInformation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1765,13 +1772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -1797,10 +1797,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1822#1823#0" expanded="true" />
+            <element signature="e#1913#1914#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
