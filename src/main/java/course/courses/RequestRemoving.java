@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import course.pojo.CourseRequestTO;
 import course.pojo.RequestTO;
 import course.resources.ResourceRemoving;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
 @WebServlet(urlPatterns = "/removerequest")
 public class RequestRemoving extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(ResourceRemoving.class);

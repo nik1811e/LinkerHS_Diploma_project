@@ -49,7 +49,7 @@ public class ResourceTransfer extends HttpServlet implements Serializable {
         try {
             boolean result = MethodUtil.updateJsonStructure(session, transaction, this.uuidCourse, prepareTransferResource(this.uuidCourse, this.uuidResource, this.uuidNewSection));
             if (result) {
-                resp.sendRedirect("/pages/section.jsp?uuidCourse=" + uuidCourse + "&uuidSection=" + uuidNewSection);
+                resp.sendRedirect("/pages/sections.jsp?uuidCourse=" + uuidCourse + "&uuidSection=" + uuidNewSection);
             } else {
                 PrintWriter printWriter = resp.getWriter();
                 printWriter.println(errorMessage);

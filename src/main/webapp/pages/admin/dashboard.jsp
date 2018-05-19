@@ -1,3 +1,4 @@
+<%--suppress JspAbsolutePathInspection --%>
 <%@ page import="entity.AuthInfEntity" %>
 <%@ page import="entity.CourseEntity" %>
 <%@ page import="util.CookieUtil" %>

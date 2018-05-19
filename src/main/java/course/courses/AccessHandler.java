@@ -1,5 +1,6 @@
 package course.courses;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import entity.AccessEntity;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -20,10 +21,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+@SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
 @WebServlet(urlPatterns = "/addaccess")
 public class AccessHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(AccessHandler.class);
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

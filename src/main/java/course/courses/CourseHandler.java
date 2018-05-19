@@ -1,5 +1,6 @@
 package course.courses;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import entity.AuthInfEntity;
 import entity.CourseEntity;
 import org.apache.log4j.Logger;
@@ -17,6 +18,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.UUID;
 
+@SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
 @WebServlet(urlPatterns = "/coursehandler")
 public class CourseHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(CourseHandler.class);
@@ -29,7 +31,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
             Transaction transaction = session.beginTransaction();
             if (addCourse(session, transaction, String.valueOf(req.getParameter("name_course").trim()),
                     String.valueOf(req.getParameter("status").trim()), Integer.parseInt(req.getParameter("id_category")),
-                    String.valueOf(req.getParameter("desc").trim()), new CookieUtil(req).getUserUuidFromToken())) {
+                    String.valueOf(req.getParameter("desc").trim()), "42dd56df-04cb-428d-a37d-8573b68297e5")) {
                 resp.sendRedirect("/pages/course.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidNewCourse);
             }else {
                 resp.sendRedirect("/pages/catalog.jsp?uuidAuth="+req.getParameter("uuidAuth"));
@@ -74,7 +76,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
                 "\t\"description_course\": \" " + description_course.trim() + "\",\n" +
                 "\t\"date_create\": \" " + date + "  \",\n" +
                 "\t\"status\": \"" + status + " \",\n" +
-                "\t\"section\": [\n" +
+                "\t\"sections\": [\n" +
                 "\t]\n" +
                 "}";
     }

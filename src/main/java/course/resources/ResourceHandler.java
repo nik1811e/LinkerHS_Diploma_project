@@ -42,7 +42,7 @@ public class ResourceHandler extends HttpServlet implements Serializable {
                     ) {
                 resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + req.getParameter("uuidSection") + "&uuidResource=" + uuidNewResource);
             } else {
-                resp.sendRedirect("/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + req.getParameter("uuidSection"));
+                resp.sendRedirect("/pages/sections.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + req.getParameter("uuidSection"));
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));

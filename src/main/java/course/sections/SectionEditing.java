@@ -31,7 +31,7 @@ public class SectionEditing extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String uuidCourse = req.getParameter("uuidCourse");
         String uuidSection = req.getParameter("uuidSection");
-        String path = "/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection;
+        String path = "/pages/sections.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection;
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();

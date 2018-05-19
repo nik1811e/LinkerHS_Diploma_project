@@ -2,6 +2,7 @@ package course.courses;
 
 import com.google.gson.Gson;
 import course.pojo.CourseStructureTO;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import entity.AuthInfEntity;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
+@SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
 @WebServlet(urlPatterns = "/editcourse")
 public class CourseEditing extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(CourseEditing.class);

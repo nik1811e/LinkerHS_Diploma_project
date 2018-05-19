@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import course.pojo.CourseStructureTO;
 import course.pojo.ResourceTO;
 import course.pojo.SectionTO;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,6 +21,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+@SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
 @WebServlet(urlPatterns = "/sectionhandler")
 public class SectionHandler extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(SectionHandler.class);
@@ -32,12 +34,13 @@ public class SectionHandler extends HttpServlet implements Serializable {
         String uuidCourse = String.valueOf(req.getParameter("uuidCourse").trim());
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
+            String uuidAuth = req.getParameter("uuidAuth");
             Transaction transaction = session.beginTransaction();
             if (addSection(session, transaction, prepareAddSection(session, String.valueOf(req.getParameter("name").trim()),
                     uuidCourse, String.valueOf(req.getParameter("description")).trim()), uuidCourse)) {
-                resp.sendRedirect("/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidSection=" + uuidNewSection + "&&uuidCourse=" + uuidCourse);
+                resp.sendRedirect("/pages/sections.jsp?uuidAuth=" + uuidAuth + "&&uuidSection=" + uuidNewSection + "&&uuidCourse=" + uuidCourse);
             } else {
-                resp.sendRedirect("/pages/course.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse);
+                resp.sendRedirect("/pages/course.jsp?uuidAuth=" + uuidAuth + "&&uuidCourse=" + uuidCourse);
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));

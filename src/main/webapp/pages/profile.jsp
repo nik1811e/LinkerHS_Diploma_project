@@ -128,7 +128,7 @@
 
         <!-- masthead -->
         <div class="masthead clearfix">
-            <h1>Ваши запросы</h1><span class="subheading">In Photography, Recent work</span>
+            <h1>Личный кабинет</h1><span class="subheading">In Photography, Recent work</span>
         </div>
         <!-- posts list -->
         <div class="row" style="margin: 0" >

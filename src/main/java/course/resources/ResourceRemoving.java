@@ -35,7 +35,7 @@ public class ResourceRemoving extends HttpServlet implements Serializable {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareRemoveResource(session, uuidCourse, uuidSection, req.getParameter("uuidResourceDel")))) {
-                resp.sendRedirect("/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + uuidSection);
+                resp.sendRedirect("/pages/sections.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + uuidSection);
             } else {
                 resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + uuidSection + "&uuidResource=" + req.getParameter("uuidResourceDel"));
 

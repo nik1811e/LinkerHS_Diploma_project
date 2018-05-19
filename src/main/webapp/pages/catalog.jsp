@@ -64,8 +64,8 @@
 
         CookieUtil cookieUtil = new CookieUtil(request);
         String urlRedirect = "/pages/signin.jsp";
-        List<CourseEntity> userCourseList = null;
-        List<CategoryEntity> categoryEntityList = null;
+        List<CourseEntity> userCourseList;
+        List<CategoryEntity> categoryEntityList;
         if (cookieUtil.isFindCookie()) {
             userCourseList = new CourseInformation().getUserCourses(request.getParameter("uuidAuth"));
             categoryEntityList = MethodUtil.getCourseCategory();
@@ -136,10 +136,10 @@
             <!-- Courses -->
             <article class="format-standard">
                 <div class="entry-date">
-                    <div class="number"><%%>
+                    <div class="number"><%=18%>
                     </div>
-                    <div class="month"><%%></div>
-                    <div class="year"><%%></div>
+                    <div class="month"><%=03%></div>
+                    <div class="year"><%=2018%></div>
                     <em></em></div>
                 <div class="post-heading">
                     <h3>
@@ -179,7 +179,7 @@
         <aside id="sidebar">
             <ul>
                 <li class="block">
-                    <h4>Text Widget</h4>
+                    <h4>Раздел с ресурсами</h4>
                     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                     Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
                     amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit
