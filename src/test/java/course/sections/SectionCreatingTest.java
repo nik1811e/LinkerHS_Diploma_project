@@ -18,7 +18,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class SectionHandlerTest {
+public class SectionCreatingTest {
     @Mock
     private SessionFactory sessionFactory;
 
@@ -46,7 +46,7 @@ public class SectionHandlerTest {
 
         when(mockHttpServletRequest.getParameter("uuidCourse")).thenReturn("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
         when(mockHttpServletRequest.getParameter("name")).thenReturn("SectionNameTest");
-        when(mockHttpServletRequest.getParameter("description")).thenReturn("Описание раздела _тест");
+        when(mockHttpServletRequest.getParameter("description")).thenReturn("Description_test");
         when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("e61a37d7-c118-4ae1-abb7-2d61df870c9e");
     }
 

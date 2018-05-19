@@ -36,7 +36,8 @@ public class SectionEditing extends HttpServlet {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse,
-                    prepareEditSection(session, uuidCourse, uuidSection, req.getParameter("nameSection"), req.getParameter("descSection")))) {
+                    prepareEditSection(session, uuidCourse, uuidSection,
+                            req.getParameter("nameSection"), req.getParameter("descSection")))) {
                 resp.sendRedirect(path);
             }
         } catch (Exception ex) {

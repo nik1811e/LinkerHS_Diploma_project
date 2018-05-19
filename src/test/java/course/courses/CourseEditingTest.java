@@ -41,17 +41,17 @@ public class CourseEditingTest {
 
     @Before
     public void init() {
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         initMocks(this);
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
-
         when(mockHttpServletRequest.getParameter("uuidCourseEdit")).thenReturn("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
         when(mockHttpServletRequest.getParameter("nameCourseEdit")).thenReturn("Java");
         when(mockHttpServletRequest.getParameter("statusCourseEdit")).thenReturn("Закрыт");
         when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("e61a37d7-c118-4ae1-abb7-2d61df870c9e");
         when(mockHttpServletRequest.getParameter("courseCategoryEdit")).thenReturn("2");
-        when(mockHttpServletRequest.getParameter("courseDescEdit")).thenReturn("Тест описание: "+ UUID.randomUUID().toString());
+        when(mockHttpServletRequest.getParameter("courseDescEdit")).thenReturn("Description test: "+ UUID.randomUUID().toString());
     }
 
     @Test

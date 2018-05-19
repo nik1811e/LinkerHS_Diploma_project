@@ -1,29 +1,14 @@
-package user;
+package course.sections;
 
-import org.apache.struts.mock.MockHttpServletRequest;
-import org.apache.struts.mock.MockHttpServletResponse;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
-import user.profile.Authorization;
-
-import java.io.IOException;
-
-import static org.mockito.MockitoAnnotations.initMocks;
-import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class AuthorizationTest {
-
-    @Mock
+public class SectionInformationTest {
+/*    @Mock
     private SessionFactory sessionFactory;
 
     @Mock
@@ -43,17 +28,19 @@ public class AuthorizationTest {
 
     @Before
     public void init() {
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         initMocks(this);
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
-
-        when(mockHttpServletRequest.getParameter("login_or_email")).thenReturn("qwe");
-        when(mockHttpServletRequest.getParameter("password")).thenReturn("qwe");
-    }
+       }*/
 
     @Test
-    public void test() throws IOException {
-        new Authorization().doPost(mockHttpServletRequest, mockHttpServletResponse);
+    public void testGetCourseSection() {
+        new SectionInformation().getCourseSection("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
+    }
+    @Test
+    public void testGetSectionInformation() {
+        new SectionInformation().getSectionInformation("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c","254a640d-db85-4120-8bd0-4432ad945014");
     }
 }

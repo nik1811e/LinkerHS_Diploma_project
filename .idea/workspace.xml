@@ -6,7 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef4015a-6d3f-42cf-a759-09c86d3ccc18" name="Default" comment="" />
+    <list default="true" id="3ef4015a-6d3f-42cf-a759-09c86d3ccc18" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/course/courses/CourseInformationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/course/sections/SectionEditingTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/course/sections/SectionInformationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/user/RegistrationAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/user/RegistrationAPITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/course/courses/CourseHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/course/courses/CourseCreatingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/course/sections/SectionHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/course/sections/SectionCreatingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/user/AuthorizationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/user/AuthorizationTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,6 +33,9 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/LinkerHS_diploma$CourseHandlerTest.ic" NAME="CourseHandlerTest Coverage Results" MODIFIED="1526744075771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>course.courses.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/LinkerHS_diploma$SectionEditingTest.ic" NAME="SectionEditingTest Coverage Results" MODIFIED="1526758337902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>course.sections.*</FILTER>
     </SUITE>
   </component>
   <component name="DatabaseView">
@@ -79,166 +93,100 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43417367">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CourseEditingTest.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="214">
-                  <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1822#1823#0" expanded="true" />
-                    <element signature="e#1913#1914#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="course" pinned="false" current-in-tab="false">
-            <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SectionHandlerTest.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionHandlerTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
-                  <caret line="55" selection-start-line="55" selection-end-line="55" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1873#1874#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TestMethod.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/TestMethod.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="64" selection-start-line="64" selection-end-line="64" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PowerMockJUnit44RunnerDelegateImpl.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-module-junit4/1.7.4/powermock-module-junit4-1.7.4.jar!/org/powermock/modules/junit4/internal/impl/PowerMockJUnit44RunnerDelegateImpl.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="301" column="21" lean-forward="true" selection-start-line="301" selection-start-column="21" selection-end-line="301" selection-end-column="21" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="SectionHandler.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="362">
-                  <caret line="48" selection-start-line="48" selection-end-line="48" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CourseStructureTO.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/course/pojo/CourseStructureTO.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#1531#1532#0" expanded="true" />
-                    <element signature="e#1561#1562#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MethodUtil.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="294">
-                  <caret line="332" selection-start-line="332" selection-end-line="332" />
-                  <folding>
-                    <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
-                    <element signature="method#getUuudAuthById#0;class#MethodUtil#0" />
-                    <element signature="method#getAuthInfByUuid#0;class#MethodUtil#0" />
-                    <element signature="method#getIdCourseByUUID#0;class#MethodUtil#0" />
-                    <element signature="method#getNameCourseCategoryByid#0;class#MethodUtil#0" />
-                    <element signature="method#getNameResourceCategoryByid#0;class#MethodUtil#0" />
-                    <element signature="method#getJsonRequest#0;class#MethodUtil#0" />
-                    <element signature="method#getResourceCategory#0;class#MethodUtil#0" />
-                    <element signature="method#showMessage#0;class#MethodUtil#0" />
-                    <element signature="method#getAccessInformation#0;class#MethodUtil#0" />
-                    <element signature="method#checkAccess#0;class#MethodUtil#0" />
-                    <element signature="method#getCourseNameByUuid#0;class#MethodUtil#0" />
-                    <element signature="method#getSectionNameByUuid#0;class#MethodUtil#0" />
-                    <element signature="method#getUsersFromDb#0;class#MethodUtil#0" />
-                    <element signature="method#isExistFollowing#0;class#MethodUtil#0" />
-                    <element signature="method#getUserFollowings#0;class#MethodUtil#0" />
-                    <element signature="method#getUserFollowers#0;class#MethodUtil#0" />
-                    <element signature="method#updateRequest#0;class#MethodUtil#0" />
-                    <element signature="method#getCourseByUuid#0;class#MethodUtil#0" />
-                    <element signature="method#getAllCourses#0;class#MethodUtil#0" />
-                    <element signature="method#prepareExcelFileForAttach#0;class#MethodUtil#0" />
-                    <element signature="method#createExcelFile#0;class#MethodUtil#0" />
-                    <element signature="method#prepareFileForAttach#0;class#MethodUtil#0" />
-                    <element signature="method#updateAuthInf#0;class#MethodUtil#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SectionInformation.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionInformation.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="23" selection-start-line="23" selection-end-line="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CourseEditing.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseEditing.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="auth_inf" pinned="false" current-in-tab="false">
-            <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/auth_inf">
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="course" pinned="false" current-in-tab="true">
-            <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CourseEditingTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="53" column="96" selection-start-line="53" selection-start-column="96" selection-end-line="53" selection-end-column="96" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth_inf" pinned="false" current-in-tab="false">
+        <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/auth_inf">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SectionCreatingTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionCreatingTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-141">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SectionInformationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionInformationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="10" column="2" selection-start-line="10" selection-end-line="35" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SectionEditingTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionEditingTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="52" column="49" lean-forward="true" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseInformationTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseInformationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="e#1604#1605#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseCreatingTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseCreatingTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="course" pinned="false" current-in-tab="false">
+        <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -250,9 +198,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindBugs-IDEA-Workspace">
-    <toolWindowEditorPreview>false</toolWindowEditorPreview>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -294,11 +239,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/user/profile/RegistrationAPITest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RegistrationAPITest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/api/user/RegistrationAPITest.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/skin.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/admin/themify-icons.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/admin/font-awesome.min.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/admin/font-muli.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/profile.jsp" />
@@ -312,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/admin/chart.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/admin/chart.js" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/RequestInformation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionRemoving.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/following/FollowingHandler.java" />
@@ -332,7 +271,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" />
         <option value="$PROJECT_DIR$/src/test/java/util/ReCaptchaUtilTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/course/courses/CourseHandlerTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/AccessHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/CourseEditing.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/CourseHandler.java" />
@@ -340,11 +278,18 @@
         <option value="$PROJECT_DIR$/src/main/java/course/courses/CourseRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/RequestRemoving.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java" />
-        <option value="$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/course/sections/SectionHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/pojo/CourseStructureTO.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" />
+        <option value="$PROJECT_DIR$/src/test/java/course/sections/SectionHandlerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/user/AuthorizationTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/api/user/RegistrationAPITest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/course/sections/SectionEditingTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java" />
+        <option value="$PROJECT_DIR$/src/test/java/course/sections/SectionInformationTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/course/courses/CourseInformationTest.java" />
       </list>
     </option>
   </component>
@@ -401,9 +346,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -479,6 +424,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="course" type="462c0819:PsiDirectoryNode" />
+              <item name="courses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
@@ -582,6 +536,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -592,6 +563,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
               <item name="courses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="course" type="462c0819:PsiDirectoryNode" />
+              <item name="sections" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
@@ -671,7 +651,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tom">
+  <component name="RunManager" selected="JUnit.SectionInformationTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -698,7 +678,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CourseHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseInformationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diploma" />
       <extension name="coverage">
         <pattern>
@@ -709,7 +689,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="course.courses" />
-      <option name="MAIN_CLASS_NAME" value="course.courses.CourseHandlerTest" />
+      <option name="MAIN_CLASS_NAME" value="course.courses.CourseInformationTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -721,30 +701,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CourseHandlerTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diploma" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="course.courses.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="course.courses" />
-      <option name="MAIN_CLASS_NAME" value="course.courses.CourseHandlerTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="SectionHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SectionCreatingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diploma" />
       <extension name="coverage">
         <pattern>
@@ -755,7 +712,53 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="course.sections" />
-      <option name="MAIN_CLASS_NAME" value="course.sections.SectionHandlerTest" />
+      <option name="MAIN_CLASS_NAME" value="course.sections.SectionCreatingTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="SectionEditingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diploma" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="course.sections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="course.sections" />
+      <option name="MAIN_CLASS_NAME" value="course.sections.SectionEditingTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="SectionInformationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diploma" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="course.sections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="course.sections" />
+      <option name="MAIN_CLASS_NAME" value="course.sections.SectionInformationTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -783,7 +786,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="index.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/LinkerHS_diploma/diploma/target/jacoco-ut/index.html" />
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="diplomaS" />
       <option name="VM_PARAMETERS" />
@@ -890,19 +892,19 @@
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.Tom" />
-      <item itemvalue="JavaScript Debug.index.html (1)" />
-      <item itemvalue="JUnit.CourseHandlerTest" />
-      <item itemvalue="JUnit.CourseHandlerTest.test" />
       <item itemvalue="JUnit.CourseEditingTest" />
-      <item itemvalue="JUnit.SectionHandlerTest" />
+      <item itemvalue="JUnit.SectionCreatingTest" />
+      <item itemvalue="JUnit.SectionEditingTest" />
+      <item itemvalue="JUnit.CourseInformationTest" />
+      <item itemvalue="JUnit.SectionInformationTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SectionHandlerTest" />
+        <item itemvalue="JUnit.SectionInformationTest" />
+        <item itemvalue="JUnit.CourseInformationTest" />
+        <item itemvalue="JUnit.SectionEditingTest" />
+        <item itemvalue="JUnit.SectionCreatingTest" />
         <item itemvalue="JUnit.CourseEditingTest" />
-        <item itemvalue="JUnit.CourseHandlerTest" />
-        <item itemvalue="JUnit.CourseHandlerTest.test" />
-        <item itemvalue="JavaScript Debug.index.html (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -1001,28 +1003,11 @@
       <workItem from="1526732722091" duration="1933000" />
       <workItem from="1526742872985" duration="2955000" />
       <workItem from="1526746830974" duration="4773000" />
+      <workItem from="1526756703465" duration="4874000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 22m 43s.xml">
-      <configuration name="SectionHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 24m 34s.xml">
-      <configuration name="SectionHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 25m 36s.xml">
-      <configuration name="SectionHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 26m 25s.xml">
-      <configuration name="SectionHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 31m 18s.xml">
-      <configuration name="SectionHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 31m 46s.xml">
-      <configuration name="SectionHandlerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 32m 02s.xml">
       <configuration name="SectionHandlerTest" configurationId="JUnit" />
     </history-entry>
@@ -1035,9 +1020,27 @@
     <history-entry file="SectionHandlerTest - 2018.05.19 at 20h 37m 00s.xml">
       <configuration name="SectionHandlerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SectionEditingTest - 2018.05.19 at 22h 27m 42s.xml">
+      <configuration name="SectionEditingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SectionEditingTest - 2018.05.19 at 22h 29m 50s.xml">
+      <configuration name="SectionEditingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SectionEditingTest - 2018.05.19 at 22h 32m 23s.xml">
+      <configuration name="SectionEditingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseInformationTest - 2018.05.19 at 23h 18m 09s.xml">
+      <configuration name="CourseInformationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CourseInformationTest - 2018.05.19 at 23h 20m 54s.xml">
+      <configuration name="CourseInformationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SectionInformationTest - 2018.05.19 at 23h 24m 34s.xml">
+      <configuration name="SectionInformationTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="883936000" />
+    <option name="totallyTimeSpent" value="888810000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1050,7 +1053,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="0" weight="0.39106753" />
@@ -1061,7 +1063,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" anchor="right" id="Database" order="7" visible="true" weight="0.16897655" />
+      <window_info anchor="right" id="Database" order="7" sideWeight="0.49769586" visible="true" weight="0.16897655" />
       <window_info anchor="right" id="JSF" order="8" />
       <window_info id="Structure" order="0" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
@@ -1074,54 +1076,22 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5948827" weight="0.34204793" />
-      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32897604" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.16230936" />
-      <window_info id="Persistence" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.49946696" weight="0.2908497" />
-      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.60890305" visible="true" weight="0.23187633" />
-      <window_info anchor="right" id="Bean Validation" order="10" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.30718955" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5948827" weight="0.34204793" />
-      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.16897655" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.16230936" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32893288" />
-      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.60890305" visible="true" weight="0.26012793" />
-      <window_info anchor="right" id="Coverage" order="12" side_tool="true" weight="0.32995737" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="Structure" order="0" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven Projects" order="11" weight="0.20895523" />
-      <window_info anchor="right" id="CDI" order="9" />
-      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.49946696" weight="0.2908497" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="0" weight="0.39106753" />
-      <window_info id="Persistence" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.30718955" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info anchor="right" id="Bean Validation" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
-      <window_info anchor="right" id="JSF" order="8" />
+      <window_info anchor="right" id="Coverage" order="12" sideWeight="0.50230414" side_tool="true" weight="0.16897655" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.16230936" />
+      <window_info id="Persistence" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
+      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.49946696" weight="0.2908497" />
+      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.60890305" visible="true" weight="0.26972282" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.30718955" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.39324617" />
-      <window_info anchor="bottom" id="Debug" order="15" sideWeight="0.49840087" weight="0.3191721" />
     </layout>
     <layout-to-restore>
       <window_info id="Persistence" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
@@ -1246,7 +1216,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java</url>
-          <line>52</line>
+          <line>53</line>
           <properties />
           <option name="timeStamp" value="270" />
         </line-breakpoint>
@@ -1407,35 +1377,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/admin/chart.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/admin/chart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/ReCaptchaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/MailUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/admin/user/ChangePermission.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1478,13 +1419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1625,13 +1559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="134" column="21" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/AccessHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1673,23 +1600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1704,16 +1614,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/auth_inf">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseEditing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="799">
           <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1723,25 +1626,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/course/pojo/CourseStructureTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="425">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
+        <state relative-caret-position="2669">
           <caret line="332" selection-start-line="332" selection-end-line="332" />
           <folding>
             <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
@@ -1772,35 +1664,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1873#1874#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-module-junit4/1.7.4/powermock-module-junit4-1.7.4.jar!/org/powermock/modules/junit4/internal/impl/PowerMockJUnit44RunnerDelegateImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="301" column="21" lean-forward="true" selection-start-line="301" selection-start-column="21" selection-end-line="301" selection-end-column="21" />
+        <state relative-caret-position="4097">
+          <caret line="301" column="21" selection-start-line="301" selection-start-column="21" selection-end-line="301" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/TestMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
+        <state relative-caret-position="782">
           <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
+        <state relative-caret-position="493">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="60" lean-forward="true" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/user/AuthorizationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="58" column="1" lean-forward="true" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/api/user/RegistrationAPITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="53" column="96" selection-start-line="53" selection-start-column="96" selection-end-line="53" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseCreatingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/sections/SectionInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/auth_inf">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1811,14 +1761,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseEditingTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionCreatingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="-141">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1822#1823#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionInformationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="10" column="2" selection-start-line="10" selection-end-line="35" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/course/sections/SectionEditingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="52" column="49" lean-forward="true" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseInformationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1604#1605#0" expanded="true" />
           </folding>
         </state>
       </provider>

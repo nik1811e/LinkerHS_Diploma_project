@@ -1,4 +1,4 @@
-package course.courses;
+package course.sections;
 
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
@@ -13,16 +13,15 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.IOException;
+import java.util.UUID;
 
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class CourseHandlerTest {
-
+public class SectionEditingTest {
     @Mock
     private SessionFactory sessionFactory;
 
@@ -42,22 +41,21 @@ public class CourseHandlerTest {
     private MockHttpServletResponse mockHttpServletResponse;
 
     @Before
-    public void init() throws Exception {
+    public void init() {
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         initMocks(this);
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
-
-        when(mockHttpServletRequest.getParameter("status")).thenReturn("Открыт");
-        when(mockHttpServletRequest.getParameter("name_course")).thenReturn("NameCourseTest");
-        when(mockHttpServletRequest.getParameter("id_category")).thenReturn("1");
-        when(mockHttpServletRequest.getParameter("desc")).thenReturn("Описание курса _тест");
-        when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("42dd56df-04cb-428d-a37d-8573b68297e5");
-        when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
+        when(mockHttpServletRequest.getParameter("uuidCourse")).thenReturn("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
+        when(mockHttpServletRequest.getParameter("uuidSection")).thenReturn("254a640d-db85-4120-8bd0-4432ad945014");
+        when(mockHttpServletRequest.getParameter("nameSection")).thenReturn("test");
+        when(mockHttpServletRequest.getParameter("descSection")).thenReturn("editDescriptionTest"+UUID.randomUUID().toString());
+        when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("e61a37d7-c118-4ae1-abb7-2d61df870c9e");
     }
 
     @Test
-    public void test() {
-        new CourseHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+    public void test() throws IOException {
+        new SectionEditing().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 }
