@@ -1,4 +1,4 @@
-package course.courses;
+package admin.category;
 
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
@@ -20,7 +20,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class CourseEditingTest {
+public class CourseCategoryCreatingTest {
     @Mock
     private SessionFactory sessionFactory;
 
@@ -46,16 +46,16 @@ public class CourseEditingTest {
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
-        when(mockHttpServletRequest.getParameter("uuidCourseEdit")).thenReturn("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
-        when(mockHttpServletRequest.getParameter("nameCourseEdit")).thenReturn("Java");
-        when(mockHttpServletRequest.getParameter("statusCourseEdit")).thenReturn("Закрыт");
-        when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("e61a37d7-c118-4ae1-abb7-2d61df870c9e");
-        when(mockHttpServletRequest.getParameter("courseCategoryEdit")).thenReturn("2");
-        when(mockHttpServletRequest.getParameter("courseDescEdit")).thenReturn("Description test: " + UUID.randomUUID().toString());
     }
 
     @Test
-    public void test() {
-        new CourseEditing().doPost(mockHttpServletRequest, mockHttpServletResponse);
+    public void testCourseCategory(){
+        when(mockHttpServletRequest.getParameter("name_category")).thenReturn("category "+UUID.randomUUID().toString());
+        new CourseCategoryHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+    }
+    @Test
+    public void testResourceCategory(){
+        when(mockHttpServletRequest.getParameter("name_category_link")).thenReturn("category "+UUID.randomUUID().toString());
+        new ResourceCategoryHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

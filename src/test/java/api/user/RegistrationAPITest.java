@@ -51,6 +51,7 @@ public class RegistrationAPITest {
     @Before
     public void init() throws Exception {
         initMocks(this);
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();

@@ -217,7 +217,7 @@
             </div>
             <div class="modal-body">
                 <form role="form" method="post" action="/resourcehandler">
-                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
+                    <input type="hidden" name="uuidAuth" value="<%=cookieUtil.getUserUuidFromToken()%>">
 
                     <input type="hidden" name="uuidCourse" value="<%=request.getParameter("uuidCourse")%>">
                     <input type="hidden" name="uuidSection"

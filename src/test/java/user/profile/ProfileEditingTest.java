@@ -1,4 +1,4 @@
-package course.courses;
+package user.profile;
 
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
@@ -20,7 +20,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class CourseEditingTest {
+public class ProfileEditingTest {
     @Mock
     private SessionFactory sessionFactory;
 
@@ -40,22 +40,26 @@ public class CourseEditingTest {
     private MockHttpServletResponse mockHttpServletResponse;
 
     @Before
-    public void init() {
+    public void init(){
         initMocks(this);
         mockHttpServletRequest.setCharacterEncoding("UTF-8");
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
-        when(mockHttpServletRequest.getParameter("uuidCourseEdit")).thenReturn("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
-        when(mockHttpServletRequest.getParameter("nameCourseEdit")).thenReturn("Java");
-        when(mockHttpServletRequest.getParameter("statusCourseEdit")).thenReturn("Закрыт");
-        when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("e61a37d7-c118-4ae1-abb7-2d61df870c9e");
-        when(mockHttpServletRequest.getParameter("courseCategoryEdit")).thenReturn("2");
-        when(mockHttpServletRequest.getParameter("courseDescEdit")).thenReturn("Description test: " + UUID.randomUUID().toString());
+
+        when(mockHttpServletRequest.getParameter("login")).thenReturn("qwe");
+        when(mockHttpServletRequest.getParameter("password")).thenReturn("qwe");
+        when(mockHttpServletRequest.getParameter("email")).thenReturn("qwe@test.com");
+        when(mockHttpServletRequest.getParameter("fname")).thenReturn("w");
+        when(mockHttpServletRequest.getParameter("lname")).thenReturn("w");
+        when(mockHttpServletRequest.getParameter("bday")).thenReturn("2011-11-11");
+        when(mockHttpServletRequest.getParameter("desc")).thenReturn("description user "+UUID.randomUUID().toString());
+        when(mockHttpServletRequest.getParameter("uuid")).thenReturn("42dd56df-04cb-428d-a37d-8573b68297e5");
+        when(mockHttpServletRequest.getParameter("dateReg")).thenReturn("19/05/2018");
     }
 
     @Test
     public void test() {
-        new CourseEditing().doPost(mockHttpServletRequest, mockHttpServletResponse);
+        new Profile().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

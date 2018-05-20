@@ -1,4 +1,4 @@
-package user;
+package user.following;
 
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
@@ -12,17 +12,13 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
-import user.profile.Authorization;
-
-import java.io.IOException;
 
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class AuthorizationTest {
-
+public class FollowingHandlerTest {
     @Mock
     private SessionFactory sessionFactory;
 
@@ -41,19 +37,26 @@ public class AuthorizationTest {
     @Mock
     private MockHttpServletResponse mockHttpServletResponse;
 
+    @SuppressWarnings("Duplicates")
     @Before
-    public void init() {
+    public void init(){
         initMocks(this);
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
 
-        when(mockHttpServletRequest.getParameter("login_or_email")).thenReturn("qwe");
-        when(mockHttpServletRequest.getParameter("password")).thenReturn("qwe");
+        when(mockHttpServletRequest.getParameter("uuidFollower")).thenReturn("42dd56df-04cb-428d-a37d-8573b68297e5");
+        when(mockHttpServletRequest.getParameter("uuidFollowing")).thenReturn("e61a37d7-c118-4ae1-abb7-2d61df870c9e");
     }
 
     @Test
-    public void test() throws IOException {
-        new Authorization().doPost(mockHttpServletRequest, mockHttpServletResponse);
+    public void testAddFollowing() {
+        new FollowingHandler().doPost(mockHttpServletRequest,mockHttpServletResponse);
+    }
+
+    @Test
+    public void testDeleteFollowing() {
+        new FollowingHandler().doPost(mockHttpServletRequest,mockHttpServletResponse);
     }
 }

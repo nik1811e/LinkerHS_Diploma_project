@@ -219,7 +219,7 @@
             </div>
             <div class="modal-body">
                 <form action="/coursehandler" role="form" method="post">
-                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
+                    <input type="hidden" name="uuidAuth" value="<%=cookieUtil.getUserUuidFromToken()%>">
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" name="name_course" required
                                maxlength="50" placeholder="Название">

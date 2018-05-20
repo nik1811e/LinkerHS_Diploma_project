@@ -40,6 +40,7 @@ public class SectionCreatingTest {
     @Before
     public void init() {
         initMocks(this);
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();

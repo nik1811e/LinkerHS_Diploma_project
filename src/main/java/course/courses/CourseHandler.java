@@ -31,7 +31,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
             Transaction transaction = session.beginTransaction();
             if (addCourse(session, transaction, String.valueOf(req.getParameter("name_course").trim()),
                     String.valueOf(req.getParameter("status").trim()), Integer.parseInt(req.getParameter("id_category")),
-                    String.valueOf(req.getParameter("desc").trim()), "42dd56df-04cb-428d-a37d-8573b68297e5")) {
+                    String.valueOf(req.getParameter("desc").trim()),req.getParameter("uuidAuth"))) {
                 resp.sendRedirect("/pages/course.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidNewCourse);
             }else {
                 resp.sendRedirect("/pages/catalog.jsp?uuidAuth="+req.getParameter("uuidAuth"));

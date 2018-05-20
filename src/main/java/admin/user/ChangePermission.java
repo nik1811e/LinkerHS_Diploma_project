@@ -22,8 +22,10 @@ public class ChangePermission extends HttpServlet {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
+            String role = req.getParameter("role");
+            role = (role.equals("admin")) ? FinalValueUtil.ROLE_USER : FinalValueUtil.ROLE_ADMIN;
             if (changePermission(session, transaction,
-                    req.getParameter("uuidAuth"),req.getParameter("role"))) {
+                    req.getParameter("uuidAuth"), role)) {
                 resp.sendRedirect("/pages/admin/tables.jsp");
             }
         } catch (Exception ex) {
@@ -34,22 +36,14 @@ public class ChangePermission extends HttpServlet {
 
     private static boolean changePermission(Session session, Transaction transaction, String uuidAuth, String role) {
         try {
-            if (role.equals("admin")) {
-                session.createQuery("UPDATE " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " + " a.role=:role WHERE a.uuid=:uuid")
-                        .setParameter("role", FinalValueUtil.ROLE_USER).setParameter("uuid", uuidAuth).executeUpdate();
-                transaction.commit();
-                return true;
-            } else if (role.equals("user")) {
-                session.createQuery("UPDATE " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " + " a.role=:role WHERE a.uuid=:uuid")
-                        .setParameter("role", FinalValueUtil.ROLE_ADMIN).setParameter("uuid", uuidAuth).executeUpdate();
-                transaction.commit();
-                return true;
-            }
+            session.createQuery("UPDATE " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " + " a.role=:role WHERE a.uuid=:uuid")
+                    .setParameter("role", role).setParameter("uuid", uuidAuth).executeUpdate();
+            transaction.commit();
+            return true;
         } catch (Exception ex) {
             new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
             return false;
         }
-        return false;
     }
 }

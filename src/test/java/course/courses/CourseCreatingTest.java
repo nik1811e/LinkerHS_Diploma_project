@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
+import util.CookieUtil;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -22,6 +23,8 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
 public class CourseCreatingTest {
+    @Mock
+    private CookieUtil cookie;
 
     @Mock
     private SessionFactory sessionFactory;
@@ -44,6 +47,7 @@ public class CourseCreatingTest {
     @Before
     public void init() throws Exception {
         initMocks(this);
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();

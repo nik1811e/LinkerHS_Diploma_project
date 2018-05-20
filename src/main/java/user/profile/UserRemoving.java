@@ -1,3 +1,4 @@
+/*
 package user.profile;
 
 import org.apache.log4j.Logger;
@@ -43,3 +44,4 @@ public class UserRemoving extends HttpServlet {
         }
     }
 }
+*/

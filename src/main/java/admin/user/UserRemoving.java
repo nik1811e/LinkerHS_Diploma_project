@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/removeuser")
+@WebServlet(urlPatterns = "/userremove")
 public class UserRemoving extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(UserRemoving.class);
 
@@ -24,7 +24,7 @@ public class UserRemoving extends HttpServlet {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (removeUserAndDepends(session, transaction, req.getParameter("uuidUser"))) {
-                resp.sendRedirect("");
+                resp.sendRedirect("/pages/admin/tables.jsp");
             }
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());

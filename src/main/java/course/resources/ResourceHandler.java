@@ -7,7 +7,6 @@ import course.pojo.SectionTO;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.CookieUtil;
 import util.HibernateUtil;
 import util.MailUtil;
 import util.MethodUtil;
@@ -16,7 +15,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +28,7 @@ public class ResourceHandler extends HttpServlet implements Serializable {
     private Gson gson = new Gson();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
         String uuidCourse = req.getParameter("uuidCourse");
         String uuidNewResource = UUID.randomUUID().toString();
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -38,7 +36,7 @@ public class ResourceHandler extends HttpServlet implements Serializable {
             Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateJsonStructure(session, transaction, uuidCourse, prepareAddResource(session, req.getParameter("name_resource"),
                     req.getParameter("link"), req.getParameter("author"), req.getParameter("desc"), Integer.parseInt(req.getParameter("id_category")),
-                    uuidCourse, req.getParameter("uuidSection"), new CookieUtil(req).getUserUuidFromToken(), uuidNewResource))
+                    uuidCourse, req.getParameter("uuidSection"), req.getParameter("uuidAuth"), uuidNewResource))
                     ) {
                 resp.sendRedirect("/pages/resource.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&uuidSection=" + req.getParameter("uuidSection") + "&uuidResource=" + uuidNewResource);
             } else {

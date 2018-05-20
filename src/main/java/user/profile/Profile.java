@@ -26,7 +26,7 @@ public class Profile extends HttpServlet implements Serializable {
                     req.getParameter("login"), req.getParameter("password"),
                     req.getParameter("email"), req.getParameter("fname"), req.getParameter("lname"),
                     req.getParameter("bday"), req.getParameter("uuid"), req.getParameter("desc"),
-                    req.getParameter("dateReg"), req.getParameter("statusO"))) {
+                    req.getParameter("dateReg"))) {
                 resp.sendRedirect("/pages/profile.jsp?uuidAuth" + req.getParameter("uuid"));
             }
         } catch (Exception ex) {

@@ -60,8 +60,6 @@ public class Registration extends HttpServlet implements IParseJsonString {
     }
 
     public boolean doRegistration(String login, String password, String email, String first_name, String last_name, String dbay) {
-
-
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             LOGGER.debug(this.getClass().getName() + ", method: doRegistration");
             session.beginTransaction();

@@ -200,10 +200,14 @@ public class MethodUtil {
     public static boolean checkAccess(String status, AuthInfEntity idCourseOwner, String uuidAuth, String uuidCourse) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            boolean accessEntity = getAccessInformation(uuidCourse, uuidAuth);
-            if (status.equals("Открыт")) return true;
-            if (!accessEntity) return true;
-            return idCourseOwner.getId() == (getIdAuthByUUID(session, uuidAuth));
+            if(idCourseOwner.getId() != (getIdAuthByUUID(session, uuidAuth))){
+                if (status.equals("Закрыт")){
+                    if (getAccessInformation(uuidCourse, uuidAuth)){
+                        return true;
+                    }
+                }
+            }
+             return true;
         } catch (Exception ex) {
             return false;
         }
@@ -227,7 +231,6 @@ public class MethodUtil {
             return null;
         }
     }
-
 
     public static boolean updateJsonStructure(Session session, Transaction transaction, String uuidCourse, String jsonStructure) {
         try {
@@ -424,16 +427,16 @@ public class MethodUtil {
         }
     }
 
-    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String password, String email, String fname, String lname, String bday, String uuid, String desc, String date, String status) {
+    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String password, String email, String fname, String lname, String bday, String uuid, String desc, String date) {
         try {
             session.createQuery("UPDATE  " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " +
                     "a.login=:login, a.password=:password,a.email=:email," +
                     "a.FName =:fname,a.LName =:lname,a.BDay=:bday,a.about=:about," +
-                    "a.role=:status,a.dateReg=:date WHERE a.uuid =:uuid")
+                    "a.dateReg=:date WHERE a.uuid =:uuid")
                     .setParameter("login", login).setParameter("password", password).setParameter("email", email)
                     .setParameter("fname", fname).setParameter("lname", lname)
                     .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc)
-                    .setParameter("date", date).setParameter("status", status).executeUpdate();
+                    .setParameter("date", date).executeUpdate();
             transaction.commit();
             return true;
         } catch (Exception ex) {
