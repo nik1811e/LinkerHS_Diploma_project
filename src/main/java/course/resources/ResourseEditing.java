@@ -44,7 +44,7 @@ public class ResourseEditing extends HttpServlet {
     }
 
     private String prepareEditResource(Session session, String uuidCourse, String uuidSection, String uuidResource, String author, String desc, String link, String name, int category) {
-        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
         List<SectionTO> sectionTOList = new ArrayList<>(courseStructureTOgson.getSection());
         List<SectionTO> tmpSectionList = new ArrayList<>();
 

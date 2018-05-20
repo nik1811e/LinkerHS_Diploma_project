@@ -49,7 +49,7 @@ public class SectionHandler extends HttpServlet implements Serializable {
     }
 
     private String prepareAddSection(Session session, String name, String uuidCourse, String desc) {
-        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
         List<SectionTO> sections = new ArrayList<>(courseStructureTOgson.getSection());
         List<ResourceTO> resources = new ArrayList<>();
         SectionTO sectionTO = new SectionTO();

@@ -46,7 +46,7 @@ public class DocumentHandler extends HttpServlet {
             Map<String, String> map = new HashMap<>();
             map.put(columnList.get(0), course.getNameCourse());
             map.put(columnList.get(1), course.getStatus());
-            map.put(columnList.get(2), MethodUtil.getNameCourseCategoryByid(course.getCategory()));
+            map.put(columnList.get(2), Objects.requireNonNull(MethodUtil.getCourseCategoryByid(course.getCategory())).getName());
             map.put(columnList.get(4), course.getNameCourse());
             dataList.add(map);
         }

@@ -43,7 +43,7 @@ public class SectionRemoving extends HttpServlet {
 
     private String prepareRemoveSection(String uuidCourse, String uuidSection, Session session) {
 
-        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
         List<SectionTO> sectionTOList = new ArrayList<>(courseStructureTOgson.getSection());
         List<SectionTO> resultSectionList = new ArrayList<>();
 

@@ -67,7 +67,7 @@
         List<AuthInfEntity> authInfEntityList = new ArrayList<>();
         if (cookieUtil.isFindCookie()) {
             try {
-                authInfEntityList = MethodUtil.getUsersFromDb();
+                authInfEntityList = MethodUtil.getAllUsers();
             } catch (Exception ex) {
                 new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             }

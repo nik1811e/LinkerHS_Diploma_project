@@ -71,11 +71,11 @@ public class CourseHandler extends HttpServlet implements Serializable {
             status, String date) {
 
         return "{\n" +
-                "\t\"uuid_user\": \" " + uuid_user + " \",\n" +
-                "\t\"name_course\": \" " + name_course + "  \",\n" +
+                "\t\"uuid_user\": \" " + uuid_user.trim() + " \",\n" +
+                "\t\"name_course\": \" " + name_course.trim() + "  \",\n" +
                 "\t\"description_course\": \" " + description_course.trim() + "\",\n" +
-                "\t\"date_create\": \" " + date + "  \",\n" +
-                "\t\"status\": \"" + status + " \",\n" +
+                "\t\"date_create\": \" " + date.trim() + "  \",\n" +
+                "\t\"status\": \"" + status.trim() + " \",\n" +
                 "\t\"sections\": [\n" +
                 "\t]\n" +
                 "}";

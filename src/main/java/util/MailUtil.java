@@ -80,40 +80,4 @@ public class MailUtil {
         this.attachments.put(UUID.randomUUID().toString(), file);
     }
 
-
-   /* public void sendMailRegistration(String email, String login, String password_, HttpServletRequest request) {
-        try {
-            url = new URL(request.getRequestURL().toString());
-            String subject = "Successfully registration";
-            String mailBody = "<p>Hello,</p>" +
-                    "<p>Вы успешно зарегистрировались на Helper Service</p>" +
-                    "<p>" +
-                    "<b>Ваш логин: </b>" + login + "" +
-                    "<br/><b>Ваш пароль: </b>" + password_ + "" +
-                    "</p>";
-
-            setupMessageParameters(email, subject, mailBody);
-        } catch (MalformedURLException e) {
-            LOGGER.error(e.getMessage());
-        }
-    }*/
-
-   /* public void sendMailCourseRequest(String email, String uuidAuthReq, String uuidAuthOwn, String uuidCourse) {
-        try {
-            url = new URL(" http://localhost:8080/course.jsp?uuidAuth=" + uuidAuthReq + "&&uuidCourse=" + uuidCourse);
-            String subject = "Access to the course is available.";
-            String mailBody = "<p>Hello,</p>" +
-                    "<p>Вам открыт доступ к курсу</p>" +
-                    "<p>" +
-                    "<b>Создатель курса: </b>" + Objects.requireNonNull(MethodUtil.getAuthInfByUuid(uuidAuthOwn)).get(0).getLogin() + "" +
-                    "<br/><b>Курс: </b>" + MethodUtil.getCourseNameByUuid(uuidCourse) + "" +
-                    "<br/><b>Курс по ссылке:  </b>" + url.getPath() + "" +
-                    "</p>";
-            setupMessageParameters(email, subject, mailBody);
-        } catch (MalformedURLException e) {
-            LOGGER.error(e.getMessage());
-        }
-    }
-*/
-
 }

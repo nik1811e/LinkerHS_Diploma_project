@@ -1,4 +1,5 @@
 <%--suppress ALL --%>
+<%@ page import="course.courses.CourseInformation" %>
 <%@ page import="course.pojo.ResourceTO" %>
 <%@ page import="course.pojo.SectionTO" %>
 <%@ page import="course.resources.ResourceInformation" %>
@@ -137,7 +138,7 @@
                                style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
                             </a>
                             <div class="meta">
-                                <span class="user"><%=Objects.requireNonNull(MethodUtil.getCourseNameByUuid(sectionInformation.getUuidCourse())).toUpperCase()%> |</span>
+                                <span class="user"><%=Objects.requireNonNull(new CourseInformation().getCourseInformation((sectionInformation.getUuidCourse())).getNameCourse().toUpperCase())%> |</span>
                                 <span class="comments"><%=sectionInformation.getDateLastUpdate().toUpperCase()%></span>
                             </div>
                         </div>

@@ -49,7 +49,7 @@ public class SectionEditing extends HttpServlet {
     }
 
     private String prepareEditSection(Session session, String uuidCourse, String uuidSection, String nameSection, String descriptionSection) throws Exception {
-        CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
         List<SectionTO> sectionTOList = new ArrayList<>(courseStructure.getSection());
         if (MethodUtil.isUniqueSectionName(uuidCourse, nameSection, uuidSection)) {
             for (SectionTO sect : sectionTOList) {

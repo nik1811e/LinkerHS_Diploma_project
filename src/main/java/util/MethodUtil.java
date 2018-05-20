@@ -1,7 +1,5 @@
 package util;
 
-import com.google.gson.Gson;
-import course.pojo.CourseStructureTO;
 import course.pojo.ResourceTO;
 import course.pojo.SectionTO;
 import course.resources.ResourceInformation;
@@ -16,12 +14,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -56,11 +53,11 @@ public class MethodUtil {
         return result;
     }
 
-    public static List<AuthInfEntity> getAuthInfByUuid(String uuidAuth) {
+    public static AuthInfEntity getAuthInfByUuid(String uuidAuth) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createQuery("SELECT a FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a WHERE uuid =:uuid").
-                    setParameter("uuid", uuidAuth).getResultList();
+            return session.createQuery("SELECT a FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a WHERE uuid =:uuid", AuthInfEntity.class).
+                    setParameter("uuid", uuidAuth).list().get(0);
         } catch (Exception ex) {
             return null;
         }
@@ -72,29 +69,18 @@ public class MethodUtil {
         return result;
     }
 
-    public static String getNameCourseCategoryByid(int id) {
-
+    public static CategoryEntity getCourseCategoryByid(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return String.valueOf(session.createQuery("SELECT name FROM " + FinalValueUtil.ENTITY_COURSE_CATEGORY + " WHERE id =:id")
-                    .setParameter("id", id).list().get(0));
+            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE_CATEGORY + " c WHERE id =:id",CategoryEntity.class)
+                    .setParameter("id", id).list().get(0);
         } catch (Exception ex) {
             return null;
         }
     }
 
-    public static String getNameResourceCategoryByid(int id) {
+    public static String getJsonCourseStructure(String uuidCourse) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            return String.valueOf(session.createQuery("SELECT name FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " WHERE id =:id")
-                    .setParameter("id", id).list().get(0));
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
-    public static String getJsonCourseStructure(Session session, String uuidCourse) {
-        try {
             return String.valueOf(session.createQuery("SELECT s.structure FROM " + FinalValueUtil.ENTITY_COURSE + " s WHERE uuid = :uuid")
                     .setParameter("uuid", uuidCourse).list().get(0));
         } catch (Exception ex) {
@@ -102,37 +88,6 @@ public class MethodUtil {
             LOGGER.error(ex.getStackTrace());
             return null;
         }
-    }
-
-    public static CourseStructureTO getCourseInfFromJson(String uuidCourse) {
-        Gson gson = new Gson();
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            return gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
-        } catch (Exception ex) {
-            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
-            LOGGER.error(ex.getStackTrace());
-            return null;
-        }
-    }
-
-    public static Integer[] getDateCourse(String dataCreate) throws ParseException {
-        int day;
-        int month;
-        int year;
-        Integer[] dateArr = null;
-
-        SimpleDateFormat format = new SimpleDateFormat();
-        format.applyPattern("dd/MM/yyyy");
-        Date date = format.parse(dataCreate);
-        day = date.getDay();
-        month = date.getMonth();
-        year = date.getYear();
-
-        dateArr[0] = day;
-        dateArr[1] = month;
-        dateArr[2] = year;
-        return dateArr;
     }
 
     public static String getJsonRequest(Session session, String uuidAuth) {
@@ -177,16 +132,6 @@ public class MethodUtil {
         }
     }
 
-    public static void showMessage(HttpServletResponse resp, boolean success, String errorMessage, String successMessage) throws IOException {
-        if (success) {
-            PrintWriter printWriter = resp.getWriter();
-            printWriter.println(successMessage);
-        } else {
-            PrintWriter printWriter = resp.getWriter();
-            printWriter.println(errorMessage);
-        }
-    }
-
     public static boolean getAccessInformation(String uuidCourse, String uuidAuth) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -197,38 +142,20 @@ public class MethodUtil {
         }
     }
 
-    public static boolean checkAccess(String status, AuthInfEntity idCourseOwner, String uuidAuth, String uuidCourse) {
+    public static boolean checkAccess(String status, AuthInfEntity owner, String uuidAuth, String uuidCourse) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            if(idCourseOwner.getId() != (getIdAuthByUUID(session, uuidAuth))){
-                if (status.equals("Закрыт")){
-                    if (getAccessInformation(uuidCourse, uuidAuth)){
+            if (owner.getId() != (getIdAuthByUUID(session, uuidAuth))) {
+                if (status.equals("Закрыт")) {
+                    if (getAccessInformation(uuidCourse, uuidAuth)) {
                         return true;
                     }
+                    return false;
                 }
             }
-             return true;
+            return true;
         } catch (Exception ex) {
             return false;
-        }
-    }
-
-    public static String getCourseNameByUuid(String uuidCourse) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.getTransaction();
-            return String.valueOf(session.createQuery("SELECT nameCourse FROM " + FinalValueUtil.ENTITY_COURSE + "  WHERE uuid =:uuid")
-                    .setParameter("uuid", uuidCourse).list().get(0));
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
-    public static String getSectionNameByUuid(String uuidCourse, String uuidSection) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.getTransaction();
-            return new SectionInformation().getSectionInformation(uuidCourse, uuidSection).getName();
-        } catch (Exception ex) {
-            return null;
         }
     }
 
@@ -247,14 +174,6 @@ public class MethodUtil {
         }
     }
 
-    public static List<AuthInfEntity> getUsersFromDb() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            return session.createQuery("SELECT a FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " a").getResultList();
-        } catch (Exception ex) {
-            return null;
-        }
-    }
 
     public static boolean isExistFollowing(String uuiddFollower, String uuididFollowing) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -316,16 +235,6 @@ public class MethodUtil {
         }
     }
 
-    public static List<CourseEntity> getCourseByUuid(Session session, String uuidCourse) {
-        try {
-            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c WHERE uuid =:uuidCourse")
-                    .setParameter("uuidCourse", uuidCourse).list();
-        } catch (Exception ex) {
-            LOGGER.error(ex.getStackTrace());
-            return null;
-        }
-    }
-
     public static boolean isUniqueSectionName(String uuidCourse, String nameSection, String uuidSection) {
         List<SectionTO> sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
         for (SectionTO sn : sectionTOList) {
@@ -338,13 +247,13 @@ public class MethodUtil {
 
     public static boolean isUniqueResource(String name, String link, String uuidCourse, String uuidSection, String uuidResource) {
         try {
-            List<ResourceTO> resourceTOList = new ResourceInformation().getSectionResource(uuidCourse,uuidSection);
+            List<ResourceTO> resourceTOList = new ResourceInformation().getSectionResource(uuidCourse, uuidSection);
             assert resourceTOList != null;
-                for (ResourceTO rc :
-                        resourceTOList) {
-                    if ((rc.getName().trim().equals(name.trim()) || rc.getLink().trim().equals(link.trim())) && !rc.getUuidResource().equals(uuidResource)) {
-                        return false;
-                    }
+            for (ResourceTO rc :
+                    resourceTOList) {
+                if ((rc.getName().trim().equals(name.trim()) || rc.getLink().trim().equals(link.trim())) && !rc.getUuidResource().equals(uuidResource)) {
+                    return false;
+                }
             }
             return true;
         } catch (Exception ex) {

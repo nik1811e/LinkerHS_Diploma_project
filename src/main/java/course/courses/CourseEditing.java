@@ -45,7 +45,7 @@ public class CourseEditing extends HttpServlet {
     }
 
     private String prepareEditCourse(Session session, String uuidCourse, String nameCourse, String status, String courseDesc, String uuidAuth) {
-        CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
         if (MethodUtil.isUniqueNameCourse(session, nameCourse, session.load(AuthInfEntity.class, MethodUtil.getIdAuthByUUID(session, uuidAuth)), uuidCourse)) {
             courseStructure.setNameCourse(nameCourse.trim());
             courseStructure.setDescriptionCourse(courseDesc.trim());

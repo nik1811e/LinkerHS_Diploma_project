@@ -40,10 +40,10 @@ public class SectionCreatingTest {
     @Before
     public void init() {
         initMocks(this);
-        mockHttpServletRequest.setCharacterEncoding("UTF-8");
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
+        mockHttpServletRequest.setCharacterEncoding("UTF-8");
 
         when(mockHttpServletRequest.getParameter("uuidCourse")).thenReturn("b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
         when(mockHttpServletRequest.getParameter("name")).thenReturn("SectionNameTest");

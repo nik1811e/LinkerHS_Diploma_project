@@ -37,6 +37,7 @@ public class CourseRequest extends HttpServlet implements Serializable {
             String uuidAuthReq = req.getParameter("uuidAuthReq");
             if(MethodUtil.updateRequest(session, transaction, prepareAddRequest(session,req.getParameter("uuidCourseReq"), uuidAuthReq, uuidAuthOwner), uuidAuthOwner)){
                 resp.sendRedirect("/pages/catalog.jsp?uuidAuth=" + uuidAuthOwner);
+
             }
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + Arrays.toString(ex.getStackTrace()));

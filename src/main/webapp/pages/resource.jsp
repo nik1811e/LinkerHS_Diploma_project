@@ -242,7 +242,7 @@
                                                                   name="currentSection"
                                                                   required
                                                                   maxlength="50"
-                                                                  value="<%=MethodUtil.getSectionNameByUuid(uuidCourse,resource.getUuidSection())%>"
+                                                                  value="<%=new SectionInformation().getSectionInformation(uuidCourse,resource.getUuidSection()).getName()%>"
                                                                   disabled>
                     </div>
                     <div class="form-group">

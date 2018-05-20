@@ -20,7 +20,7 @@ public class SectionInformation extends HttpServlet {
     public List<SectionTO> getCourseSection(String uuidCourse) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            CourseStructureTO courseStructureTO = new Gson().fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+            CourseStructureTO courseStructureTO = new Gson().fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
             return new ArrayList<>(courseStructureTO.getSection());
         } catch (Exception ex) {
             return null;

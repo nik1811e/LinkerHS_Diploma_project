@@ -156,7 +156,7 @@
                     </a>
                 </div>
                 <div class="excerpt"
-                     style="width: 480px"><%=Objects.requireNonNull(MethodUtil.getCourseInfFromJson(userCourseList.get(i).getUuid())).getDescriptionCourse()%>
+                     style="width: 480px"><%=MethodUtil.getJsonCourseStructure(userCourseList.get(i).getUuid())%>
                 </div>
             </article>
             <%

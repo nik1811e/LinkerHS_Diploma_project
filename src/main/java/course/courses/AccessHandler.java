@@ -40,8 +40,8 @@ public class AccessHandler extends HttpServlet implements Serializable {
                         "<p>Здравствуйте,</p>" +
                         "<p>Вам открыт доступ к курсу</p>" +
                         "<p>" +
-                        "<b>Создатель курса: </b>" + Objects.requireNonNull(MethodUtil.getAuthInfByUuid(uuidOwner)).get(0).getLogin() + "" +
-                        "<br/><b>Курс: </b>" + MethodUtil.getCourseNameByUuid(uuidCourse) + "" +
+                        "<b>Создатель курса: </b>" + Objects.requireNonNull(MethodUtil.getAuthInfByUuid(uuidOwner)).getLogin() + "" +
+                        "<br/><b>Курс: </b>" + new CourseInformation().getCourseInformation(uuidCourse).getNameCourse() + "" +
                         "<p>Курс по ссылке: <a href=\"" + url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/pages/course?uuidAuth=" + uuidAuth + "&&uuidCourse" + uuidCourse + "\">" +
                          "[ Перейти ] </a></p>";
 

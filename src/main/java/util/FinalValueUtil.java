@@ -18,6 +18,8 @@ public final class FinalValueUtil {
     static final String EMAIL_HOST = "smtp.gmail.com";
     static final String EMAIL_PORT = "587";
     static final String EMAIL_CONTENT_TYPE_HTML = "text/html; charset=utf-8";
+    public static final String TEST_URL = "http://localhost:8080/";
+
 
     public static final String PATTERN_DATE = "dd/MM/yyyy";
 

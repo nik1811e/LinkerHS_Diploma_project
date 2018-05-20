@@ -50,7 +50,7 @@ public class ResourceHandler extends HttpServlet implements Serializable {
     }
 
     private String prepareAddResource(Session session, String name, String link, String author, String description, int id_category, String uuidCourse, String uuidSection, String uuidAuth, String uuidNewResource) {
-        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(session, uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
         List<SectionTO> sections = new ArrayList<>(courseStructureTOgson.getSection());
         List<SectionTO> tempSectionList = new ArrayList<>();
         ResourceTO resourceTO = new ResourceTO();

@@ -7,6 +7,7 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Objects" %>
+<%@ page import="course.courses.CourseInformation" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -145,7 +146,7 @@
                             <div class="post-heading">
 
                                 <a href="/pages/course.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>&&uuidCourse=<%=req.getUuidCourse()%>"
-                                   style="font-size: 20px"><%=MethodUtil.getCourseNameByUuid(req.getUuidCourse())%>
+                                   style="font-size: 20px"><%=new CourseInformation().getCourseInformation(req.getUuidCourse())%>
                                 </a>
                             </div>
                             <div class="excerpt" style="display: inline-block">На ваш курс пришел запрос от пользователя

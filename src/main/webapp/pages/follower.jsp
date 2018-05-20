@@ -132,8 +132,7 @@
                 <%
                     if (followingEntities != null) {
                         for (FollowingEntity fol : followingEntities) {
-                            for (AuthInfEntity auth : Objects.requireNonNull(MethodUtil.getAuthInfByUuid(MethodUtil
-                                    .getUuudAuthById(fol.getIdAuth())))) {
+                            AuthInfEntity auth = MethodUtil.getAuthInfByUuid(MethodUtil.getUuudAuthById(fol.getIdAuth()));
 
                 %>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
@@ -155,7 +154,6 @@
                 </div>
                 <%
                         }
-                    }
                 } else {
                 %>
                 <h4 style="text-align: center">Пусто</h4>
