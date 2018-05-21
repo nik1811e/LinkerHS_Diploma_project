@@ -16,12 +16,13 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import util.FinalValueUtil;
 
 import javax.mail.Transport;
+import java.net.ServerSocket;
 
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest( Transport.class )
+@PrepareForTest( {Transport.class,ServerSocket.class})
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
 public class AccessCreatingTest {
     @Mock

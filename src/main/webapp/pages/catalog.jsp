@@ -147,7 +147,7 @@
                         </a></h3>
                     <div class="meta">
                         <span class="user"><%=userCourseList.get(i).getStatus().toUpperCase()%> | </span>
-                        <span class="comments"><%=Objects.requireNonNull(MethodUtil.getNameCourseCategoryByid(userCourseList.get(i).getCategory())).toUpperCase()%></span>
+                        <span class="comments"><%=Objects.requireNonNull(MethodUtil.getCourseCategoryByid(userCourseList.get(i).getCategory())).getName().toUpperCase()%></span>
                     </div>
                 </div>
                 <div class="feature-image">

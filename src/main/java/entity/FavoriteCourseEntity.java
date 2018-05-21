@@ -42,25 +42,5 @@ public class FavoriteCourseEntity {
         this.idCourse = idCourse;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        FavoriteCourseEntity that = (FavoriteCourseEntity) o;
-
-        if (idAuth != that.idAuth) return false;
-        if (id != that.id) return false;
-        if (idCourse != that.idCourse) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = idAuth;
-        result = 31 * result + id;
-        result = 31 * result + idCourse;
-        return result;
-    }
 }

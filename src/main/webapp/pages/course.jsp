@@ -76,12 +76,12 @@
         String urlRedirect = "/pages/signin.jsp";
 
         String uuidCourse = String.valueOf(request.getParameter("uuidCourse")).trim();
-        List<CourseEntity> courseInformationList = null;
+        CourseEntity courseInformationList = null;
         CourseStructureTO courseInformationFromJson = null;
         List<SectionTO> sectionTOList = null;
         List<RequestTO> requests = new ArrayList<>();
         List<CategoryEntity> categoryEntityList = null;
-        String currentCategory = null;
+        CategoryEntity currentCategory = null;
         boolean exist = false;
         if (cookieUtil.isFindCookie()) {
             try {
@@ -90,7 +90,7 @@
                 courseInformationFromJson = new CourseInformation().getCourseInformationFromJson(uuidCourse);
                 sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
                 categoryEntityList = MethodUtil.getCourseCategory();
-                currentCategory = MethodUtil.getNameCourseCategoryByid(courseInformationList.get(0).getCategory());
+                currentCategory = MethodUtil.getCourseCategoryByid(courseInformationList.getCategory());
             } catch (Exception ex) {
                 new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             }
@@ -151,7 +151,7 @@
                     <article class="format-standard" style="padding-right: 80px">
                         <div class="post-heading">
                             <h3 style="display: inline-block">
-                                <%=courseInformationList.get(0).getNameCourse()%><br>
+                                <%=courseInformationList.getNameCourse()%><br>
                             </h3>
                             <div style="float: right;display: inline-block">
                                 <a href="#removeCourse" id="btnRemove" class="btn-modal"
@@ -163,15 +163,14 @@
                             </div>
                             <br>
                             <div class="meta">
-                                <span class="user"><%=courseInformationList.get(0).getStatus().toUpperCase()%> |</span>
-                                <span class="comments"><%=Objects.requireNonNull(MethodUtil
-                                        .getNameCourseCategoryByid(courseInformationList.get(0).getCategory())).toUpperCase()%></span>
+                                <span class="user"><%=courseInformationList.getStatus().toUpperCase()%> |</span>
+                                <span class="comments"><%=Objects.requireNonNull(MethodUtil.getCourseCategoryByid(courseInformationList.getCategory())).getName().toUpperCase()%></span>
                             </div>
                         </div>
                         <div class="feature-image" style="width: 100%;height: 60%; ">
                             <a href="" data-rel="prettyPhoto">
                                 <img src="/resources/img/slides/01.jpg"
-                                     alt="<%=courseInformationList.get(0).getNameCourse()%>"/>
+                                     alt="<%=courseInformationList.getNameCourse()%>"/>
                             </a>
                         </div>
                         <div class="excerpt"><%=courseInformationFromJson.getDescriptionCourse()%>
@@ -220,8 +219,8 @@
                 </div>
                 <%
                     if (MethodUtil.checkAccess(
-                            courseInformationList.get(0).getStatus(),
-                            courseInformationList.get(0).getAuthById(),
+                            courseInformationList.getStatus(),
+                            courseInformationList.getAuthById(),
                             cookieUtil.getUserUuidFromToken(),
                             uuidCourse)
                             ) { %>
@@ -256,7 +255,7 @@
                 <%
                     for (RequestTO reqst : requests) {
                         if (reqst.getUuidAuth().equals(cookieUtil.getUserUuidFromToken()) &&
-                                reqst.getUuidCourse().equals(courseInformationList.get(0).getUuid())) {
+                                reqst.getUuidCourse().equals(courseInformationList.getUuid())) {
                             exist = true;
                         }
                     }
@@ -322,11 +321,11 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="nameCourseEdit" required
                                maxlength="50" placeholder="Название"
-                               value="<%=courseInformationList.get(0).getNameCourse()%>">
+                               value="<%=courseInformationList.getNameCourse()%>">
                     </div>
                     <div class="form-group">
                         <select class="form-control" id="status" name="statusCourseEdit">
-                            <%if (courseInformationList.get(0).getStatus().equals("Открыт")) {%>
+                            <%if (courseInformationList.getStatus().equals("Открыт")) {%>
                             <option selected>Открыт</option>
                             <option>Закрыт</option>
                             <%} else {%>
@@ -339,17 +338,19 @@
                         <select class="form-control" id="id_category" name="courseCategoryEdit">
                             <%
                                 assert categoryEntityList != null;
-                                for (int i = 0; i < categoryEntityList.size(); i++) {
-                                    int id = categoryEntityList.get(i).getId();
-                                    String name = categoryEntityList.get(i).getName();
+                                for (CategoryEntity aCategoryEntityList : categoryEntityList) {
+                                    int id = aCategoryEntityList.getId();
+                                    String name = aCategoryEntityList.getName();
                                     assert currentCategory != null;
-                                    if (!currentCategory.equals(name)) {
+                                    if (!currentCategory.getName().equals(name)) {
                             %>
                             <option value="<%=id%>"><%=name%>
                             </option>
+
                             <%} else {%>
                             <option selected value="<%=id%>"><%=name%>
                             </option>
+
                             <%
                                     }
                                 }

@@ -133,7 +133,7 @@
                 <div class="clearfix" style="float: left;width: 100%">
                     <%
                         for (RequestTO req : requestTOList) {
-                            courseStructureTO = MethodUtil.getCourseInfFromJson(req.getUuidCourse());
+                            courseStructureTO = new CourseInformation().getCourseInformationFromJson(req.getUuidCourse());
                             assert courseStructureTO != null;%>
                     <div style="width: 100%;clear: both">
                         <article class="format-standard" style="display: inline-block">
@@ -151,7 +151,7 @@
                             </div>
                             <div class="excerpt" style="display: inline-block">На ваш курс пришел запрос от пользователя
                                 <a href="/pages/profile.jsp?uuidAuth=<%=req.getUuidAuth()%>"
-                                   style="font-size:16px">@<%=Objects.requireNonNull(MethodUtil.getAuthInfByUuid(req.getUuidAuth())).get(0).getLogin()%>
+                                   style="font-size:16px">@<%=Objects.requireNonNull(MethodUtil.getAuthInfByUuid(req.getUuidAuth())).getLogin()%>
                                 </a>
                             </div>
                             <div>

@@ -100,11 +100,13 @@
                     <li><a href="" style="text-decoration: none">Избранное</a></li>
                 </ul>
             </li>
-            <li  class="current-menu-item"><a href="#" style="text-decoration: none">ПОЛЬЗОВАТЕЛИ</a>
+            <li class="current-menu-item"><a href="#" style="text-decoration: none">ПОЛЬЗОВАТЕЛИ</a>
                 <ul>
                     <li><a href="/pages/users.jsp" style="text-decoration: none">Список пользователей</a></li>
-                    <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписки</a></li>
-                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подпищики</a></li>
+                    <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
+                           style="text-decoration: none">Подписки</a></li>
+                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
+                           style="text-decoration: none">Подпищики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -131,8 +133,8 @@
                 <%
                     if (followingEntities != null) {
                         for (FollowingEntity fol : followingEntities) {
-                            for (AuthInfEntity auth : Objects.requireNonNull(MethodUtil.getAuthInfByUuid(MethodUtil
-                                    .getUuudAuthById(fol.getIdFollowing())))) {
+                            AuthInfEntity auth = Objects.requireNonNull(MethodUtil.getAuthInfByUuid(MethodUtil
+                                    .getUuudAuthById(fol.getIdFollowing())));
 
                 %>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
@@ -153,7 +155,6 @@
                     </div>
                 </div>
                 <%
-                        }
                     }
                 } else {
                 %>

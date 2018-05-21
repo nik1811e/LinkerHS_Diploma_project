@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+
 public class MailUtil {
     private static final Logger LOGGER = Logger.getLogger(MailUtil.class);
     private static String timeNow

@@ -5,7 +5,6 @@ import entity.AccessEntity;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.FinalValueUtil;
 import util.HibernateUtil;
 import util.MailUtil;
 import util.MethodUtil;
@@ -15,11 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
-import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.Objects;
 
 @SuppressFBWarnings("HRS_REQUEST_PARAMETER_TO_HTTP_HEADER")
 @WebServlet(urlPatterns = "/addaccess")
@@ -35,7 +30,7 @@ public class AccessHandler extends HttpServlet implements Serializable {
             String uuidOwner = req.getParameter("uuidAuthOwnerdAc");
             if (addAccess(session, transaction, uuidAuth, uuidCourse)) {
                 MethodUtil.updateRequest(session, transaction, new RequestRemoving().prepareRemoveRequest(session, uuidCourse, uuidAuth, uuidOwner), uuidOwner);
-                URL url = new URL(req.getRequestURL().toString());
+                /*URL url = new URL(req.getRequestURL().toString());
                 String body = "<br/> " + new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                         "<p>Здравствуйте,</p>" +
                         "<p>Вам открыт доступ к курсу</p>" +
@@ -46,7 +41,7 @@ public class AccessHandler extends HttpServlet implements Serializable {
                          "[ Перейти ] </a></p>";
 
                 String subject = "Доступ открыт";
-                new MailUtil().sendMail(req.getParameter("email"), body, subject);
+                new MailUtil().sendMail(req.getParameter("email"), body, subject);*/
                 resp.sendRedirect("/pages/requests.jsp?uuidAuth=" + uuidOwner);
             }
         } catch (Exception ex) {

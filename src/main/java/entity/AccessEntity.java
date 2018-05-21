@@ -40,25 +40,4 @@ public class AccessEntity {
         this.idAuth = idAuth;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AccessEntity that = (AccessEntity) o;
-
-        if (idCourse != that.idCourse) return false;
-        if (idAuth != that.idAuth) return false;
-        if (id != that.id) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = idCourse;
-        result = 31 * result + idAuth;
-        result = 31 * result + id;
-        return result;
-    }
 }

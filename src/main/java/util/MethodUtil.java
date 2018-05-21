@@ -79,6 +79,16 @@ public class MethodUtil {
         }
     }
 
+    public static ResourceCategoryEntity getResourceCategoryByid(int id) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            return session.createQuery("SELECT name FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " WHERE id =:id",ResourceCategoryEntity.class)
+                    .setParameter("id", id).list().get(0);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
     public static String getJsonCourseStructure(String uuidCourse) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return String.valueOf(session.createQuery("SELECT s.structure FROM " + FinalValueUtil.ENTITY_COURSE + " s WHERE uuid = :uuid")

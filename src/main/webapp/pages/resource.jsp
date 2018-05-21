@@ -8,6 +8,7 @@
 <%@ page import="util.MethodUtil" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html class="no-js">
@@ -179,7 +180,7 @@
                     <p>Ссылка: <a href="<%=resource.getLink()%>"
                                   style="text-decoration: #f1d76e"><%=resource.getLink()%>
                     </a></p>
-                    <p>Категория: <%=MethodUtil.getNameResourceCategoryByid(resource.getCategory_link())%>
+                    <p>Категория: <%=Objects.requireNonNull(MethodUtil.getResourceCategoryByid(resource.getCategory_link())).getName()%>
                     </p>
                 </li>
             </ul>

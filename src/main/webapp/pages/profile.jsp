@@ -71,7 +71,7 @@
         if (MethodUtil.isExistFollowing(myUuid, request.getParameter("uuidAuth"))) {
             fbutton_text = "Отписаться";
         }
-        List<AuthInfEntity> authInfEntityList = null;
+        AuthInfEntity authInfEntityList = null;
         if (cookieUtil.isFindCookie()) {
             try {
                 authInfEntityList = MethodUtil.getAuthInfByUuid(request.getParameter("uuidAuth"));
@@ -143,21 +143,21 @@
                                 <div class="author">
                                     <img class="avatar border-white" src="/resources/img/avatar.png"
                                          alt="..."/>
-                                    <h4 class="title"><%=authInfEntityList.get(0).getFName()%> <%=authInfEntityList.get(0).getLName()%>
+                                    <h4 class="title"><%=authInfEntityList.getFName()%> <%=authInfEntityList.getLName()%>
                                         <br/>
                                         <a href="#">
-                                            <small><%=authInfEntityList.get(0).getEmail()%>
+                                            <small><%=authInfEntityList.getEmail()%>
                                             </small>
                                         </a>
                                     </h4>
                                 </div>
                                 <br>
-                                <%if (!cookieUtil.getUserUuidFromToken().equals(authInfEntityList.get(0).getUuid())) {%>
+                                <%if (!cookieUtil.getUserUuidFromToken().equals(authInfEntityList.getUuid())) {%>
                                 <form method="post" action="/follow">
                                     <input type="hidden" name="uuidFollower"
                                            value="<%=cookieUtil.getUserUuidFromToken()%>">
                                     <input type="hidden" name="uuidFollowing"
-                                           value="<%=authInfEntityList.get(0).getUuid()%>">
+                                           value="<%=authInfEntityList.getUuid()%>">
                                     <input type="submit" class="btn-modal"
                                            value="<%=fbutton_text%>">
                                 </form>
@@ -202,18 +202,18 @@
                                 <form method="post" action="/editprofile">
                                     <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
                                     <input type="hidden" name="bday"
-                                           value="<%=authInfEntityList.get(0).getBDay()%>">
+                                           value="<%=authInfEntityList.getBDay()%>">
                                     <input type="hidden" name="statusO"
-                                           value="<%=authInfEntityList.get(0).getRole() %>">
+                                           value="<%=authInfEntityList.getRole() %>">
                                     <input type="hidden" name="dateReg"
-                                           value="<%=authInfEntityList.get(0).getDateReg()%>">
+                                           value="<%=authInfEntityList.getDateReg()%>">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Статус</label>
                                                 <input type="text" class="form-control border-input" disabled
                                                        placeholder="status" name="status"
-                                                       value="<%=authInfEntityList.get(0).getRole()%>">
+                                                       value="<%=authInfEntityList.getRole()%>">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -221,7 +221,7 @@
                                                 <label>Логин</label>
                                                 <input type="text" class="form-control border-input"
                                                        placeholder="login"
-                                                       value="<%=authInfEntityList.get(0).getLogin()%>"
+                                                       value="<%=authInfEntityList.getLogin()%>"
                                                        name="login">
                                             </div>
                                         </div>
@@ -229,7 +229,7 @@
                                             <div class="form-group">
                                                 <label>Email</label>
                                                 <input type="email" class="form-control border-input"
-                                                       placeholder="<%=authInfEntityList.get(0).getEmail()%>"
+                                                       placeholder="<%=authInfEntityList.getEmail()%>"
                                                        name="email">
                                             </div>
                                         </div>
@@ -241,7 +241,7 @@
                                                 <label>Имя</label>
                                                 <input type="text" class="form-control border-input"
                                                        placeholder="First name"
-                                                       value="<%=authInfEntityList.get(0).getFName()%>"
+                                                       value="<%=authInfEntityList.getFName()%>"
                                                        name="fname">
                                             </div>
                                         </div>
@@ -250,7 +250,7 @@
                                                 <label>Фамилия</label>
                                                 <input type="text" class="form-control border-input"
                                                        placeholder="Last Name"
-                                                       value="<%=authInfEntityList.get(0).getLName()%>"
+                                                       value="<%=authInfEntityList.getLName()%>"
                                                        name="lname">
                                             </div>
                                         </div>
@@ -270,13 +270,13 @@
                                                 <label>Обо мне</label>
                                                 <textarea rows="5" class="form-control border-input"
                                                           placeholder="Здесь вы можете написать о себе"
-                                                          value="<%=authInfEntityList.get(0).getAbout()%>"
+                                                          value="<%=authInfEntityList.getAbout()%>"
                                                           name="desc"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <%if (authInfEntityList.get(0).getUuid().equals(cookieUtil.getUserUuidFromToken())) {%>
+                                        <%if (authInfEntityList.getUuid().equals(cookieUtil.getUserUuidFromToken())) {%>
                                         <button type="submit" class="btn-modal">Update Profile
                                         </button>
                                         <%}%>
