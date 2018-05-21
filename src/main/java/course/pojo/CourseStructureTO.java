@@ -26,6 +26,18 @@ public class CourseStructureTO {
     @Expose
     private List<SectionTO> section = null;
 
+    public String getUuidUser() {
+        return uuidUser;
+    }
+
+    public void setUuidUser(String uuidUser) {
+        this.uuidUser = uuidUser;
+    }
+
+    public String getNameCourse() {
+        return nameCourse;
+    }
+
     public void setNameCourse(String nameCourse) {
         this.nameCourse = nameCourse;
     }

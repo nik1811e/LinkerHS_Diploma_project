@@ -31,7 +31,7 @@ public class SectionEditing extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String uuidCourse = req.getParameter("uuidCourse");
         String uuidSection = req.getParameter("uuidSection");
-        String path = "/pages/sections.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection;
+        String path = "/pages/section.jsp?uuidAuth=" + req.getParameter("uuidAuth") + "&&uuidCourse=" + uuidCourse + "&&uuidSection=" + uuidSection;
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
@@ -49,7 +49,7 @@ public class SectionEditing extends HttpServlet {
     }
 
     private String prepareEditSection(Session session, String uuidCourse, String uuidSection, String nameSection, String descriptionSection) throws Exception {
-        CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructure = gson.fromJson(MethodUtil.getJsonCourseStructure(session,uuidCourse), CourseStructureTO.class);
         List<SectionTO> sectionTOList = new ArrayList<>(courseStructure.getSection());
         if (MethodUtil.isUniqueSectionName(uuidCourse, nameSection, uuidSection)) {
             for (SectionTO sect : sectionTOList) {

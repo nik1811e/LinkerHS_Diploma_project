@@ -31,12 +31,12 @@ public class CourseInformation extends HttpServlet {
         }
     }
 
-    public CourseEntity getCourseInformation(String uuidCourse) {
+    public List<CourseEntity> getCourseInformation(String uuidCourse) {
         LOGGER.info("getCourseInformationByUuid");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
             return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE + " c WHERE c.uuid =:uuidCourse", CourseEntity.class)
-                    .setParameter("uuidCourse", uuidCourse).list().get(0);
+                    .setParameter("uuidCourse", uuidCourse).getResultList();
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
             return null;
@@ -47,7 +47,7 @@ public class CourseInformation extends HttpServlet {
         LOGGER.info("getCourseInformationFromJson");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
+            return gson.fromJson(MethodUtil.getJsonCourseStructure(session,uuidCourse), CourseStructureTO.class);
         } catch (Exception ex) {
             LOGGER.error(ex.getLocalizedMessage());
             return null;

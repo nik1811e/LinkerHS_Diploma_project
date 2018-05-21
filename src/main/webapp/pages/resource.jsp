@@ -301,7 +301,7 @@
         </div>
     </div>
 </div>
-<div id="editeditResource" class="modal fade">
+<div id="editResource" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -36,9 +36,9 @@ public class SectionHandler extends HttpServlet implements Serializable {
             req.setCharacterEncoding("UTF-8");
             String uuidAuth = req.getParameter("uuidAuth");
             Transaction transaction = session.beginTransaction();
-            if (addSection(session, transaction, prepareAddSection(session, String.valueOf(req.getParameter("name").trim()),
+            if (addSection(session, transaction, prepareAddSection(session,String.valueOf(req.getParameter("name").trim()),
                     uuidCourse, String.valueOf(req.getParameter("description")).trim()), uuidCourse)) {
-                resp.sendRedirect("/pages/sections.jsp?uuidAuth=" + uuidAuth + "&&uuidSection=" + uuidNewSection + "&&uuidCourse=" + uuidCourse);
+                resp.sendRedirect("/pages/section.jsp?uuidAuth=" + uuidAuth + "&&uuidSection=" + uuidNewSection + "&&uuidCourse=" + uuidCourse);
             } else {
                 resp.sendRedirect("/pages/course.jsp?uuidAuth=" + uuidAuth + "&&uuidCourse=" + uuidCourse);
             }
@@ -48,8 +48,8 @@ public class SectionHandler extends HttpServlet implements Serializable {
         }
     }
 
-    private String prepareAddSection(Session session, String name, String uuidCourse, String desc) {
-        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
+    private String prepareAddSection(Session session,String name, String uuidCourse, String desc) {
+        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(session,uuidCourse), CourseStructureTO.class);
         List<SectionTO> sections = new ArrayList<>(courseStructureTOgson.getSection());
         List<ResourceTO> resources = new ArrayList<>();
         SectionTO sectionTO = new SectionTO();

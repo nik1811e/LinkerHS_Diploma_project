@@ -82,15 +82,15 @@ public class MethodUtil {
     public static ResourceCategoryEntity getResourceCategoryByid(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createQuery("SELECT name FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " WHERE id =:id",ResourceCategoryEntity.class)
+            return (ResourceCategoryEntity) session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " c WHERE id =:id",ResourceCategoryEntity.class)
                     .setParameter("id", id).list().get(0);
         } catch (Exception ex) {
             return null;
         }
     }
 
-    public static String getJsonCourseStructure(String uuidCourse) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+    public static String getJsonCourseStructure(Session session, String uuidCourse) {
+        try {
             return String.valueOf(session.createQuery("SELECT s.structure FROM " + FinalValueUtil.ENTITY_COURSE + " s WHERE uuid = :uuid")
                     .setParameter("uuid", uuidCourse).list().get(0));
         } catch (Exception ex) {
@@ -183,7 +183,6 @@ public class MethodUtil {
             return false;
         }
     }
-
 
     public static boolean isExistFollowing(String uuiddFollower, String uuididFollowing) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

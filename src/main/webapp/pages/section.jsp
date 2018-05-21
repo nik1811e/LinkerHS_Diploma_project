@@ -138,7 +138,7 @@
                                style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
                             </a>
                             <div class="meta">
-                                <span class="user"><%=Objects.requireNonNull(new CourseInformation().getCourseInformation((sectionInformation.getUuidCourse())).getNameCourse().toUpperCase())%> |</span>
+                                <span class="user"><%=Objects.requireNonNull(new CourseInformation().getCourseInformation((sectionInformation.getUuidCourse())).get(0).getNameCourse().toUpperCase())%> |</span>
                                 <span class="comments"><%=sectionInformation.getDateLastUpdate().toUpperCase()%></span>
                             </div>
                         </div>

@@ -71,12 +71,11 @@
     <link rel="stylesheet" media="all" href="/resources/css/skin.css"/>
     <link rel="stylesheet" media="all" href="/resources/css/modal.css"/>
     <%
-        Gson gson = new Gson();
         CookieUtil cookieUtil = new CookieUtil(request);
         String urlRedirect = "/pages/signin.jsp";
 
         String uuidCourse = String.valueOf(request.getParameter("uuidCourse")).trim();
-        CourseEntity courseInformationList = null;
+        List<CourseEntity> courseInformationList = null;
         CourseStructureTO courseInformationFromJson = null;
         List<SectionTO> sectionTOList = null;
         List<RequestTO> requests = new ArrayList<>();
@@ -90,7 +89,7 @@
                 courseInformationFromJson = new CourseInformation().getCourseInformationFromJson(uuidCourse);
                 sectionTOList = new SectionInformation().getCourseSection(uuidCourse);
                 categoryEntityList = MethodUtil.getCourseCategory();
-                currentCategory = MethodUtil.getCourseCategoryByid(courseInformationList.getCategory());
+                currentCategory = MethodUtil.getCourseCategoryByid(courseInformationList.get(0).getCategory());
             } catch (Exception ex) {
                 new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             }
@@ -151,7 +150,7 @@
                     <article class="format-standard" style="padding-right: 80px">
                         <div class="post-heading">
                             <h3 style="display: inline-block">
-                                <%=courseInformationList.getNameCourse()%><br>
+                                <%=courseInformationList.get(0).getNameCourse()%><br>
                             </h3>
                             <div style="float: right;display: inline-block">
                                 <a href="#removeCourse" id="btnRemove" class="btn-modal"
@@ -163,14 +162,14 @@
                             </div>
                             <br>
                             <div class="meta">
-                                <span class="user"><%=courseInformationList.getStatus().toUpperCase()%> |</span>
-                                <span class="comments"><%=Objects.requireNonNull(MethodUtil.getCourseCategoryByid(courseInformationList.getCategory())).getName().toUpperCase()%></span>
+                                <span class="user"><%=courseInformationList.get(0).getStatus().toUpperCase()%> |</span>
+                                <span class="comments"><%=Objects.requireNonNull(MethodUtil.getCourseCategoryByid(courseInformationList.get(0).getCategory())).getName().toUpperCase()%></span>
                             </div>
                         </div>
                         <div class="feature-image" style="width: 100%;height: 60%; ">
                             <a href="" data-rel="prettyPhoto">
                                 <img src="/resources/img/slides/01.jpg"
-                                     alt="<%=courseInformationList.getNameCourse()%>"/>
+                                     alt="<%=courseInformationList.get(0).getNameCourse()%>"/>
                             </a>
                         </div>
                         <div class="excerpt"><%=courseInformationFromJson.getDescriptionCourse()%>
@@ -219,8 +218,8 @@
                 </div>
                 <%
                     if (MethodUtil.checkAccess(
-                            courseInformationList.getStatus(),
-                            courseInformationList.getAuthById(),
+                            courseInformationList.get(0).getStatus(),
+                            courseInformationList.get(0).getAuthById(),
                             cookieUtil.getUserUuidFromToken(),
                             uuidCourse)
                             ) { %>
@@ -255,7 +254,7 @@
                 <%
                     for (RequestTO reqst : requests) {
                         if (reqst.getUuidAuth().equals(cookieUtil.getUserUuidFromToken()) &&
-                                reqst.getUuidCourse().equals(courseInformationList.getUuid())) {
+                                reqst.getUuidCourse().equals(courseInformationList.get(0).getUuid())) {
                             exist = true;
                         }
                     }
@@ -321,11 +320,11 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="nameCourseEdit" required
                                maxlength="50" placeholder="Название"
-                               value="<%=courseInformationList.getNameCourse()%>">
+                               value="<%=courseInformationList.get(0).getNameCourse()%>">
                     </div>
                     <div class="form-group">
                         <select class="form-control" id="status" name="statusCourseEdit">
-                            <%if (courseInformationList.getStatus().equals("Открыт")) {%>
+                            <%if (courseInformationList.get(0).getStatus().equals("Открыт")) {%>
                             <option selected>Открыт</option>
                             <option>Закрыт</option>
                             <%} else {%>

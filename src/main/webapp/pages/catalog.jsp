@@ -156,7 +156,7 @@
                     </a>
                 </div>
                 <div class="excerpt"
-                     style="width: 480px"><%=MethodUtil.getJsonCourseStructure(userCourseList.get(i).getUuid())%>
+                     style="width: 480px"><%--<%=MethodUtil.getJsonCourseStructure(userCourseList.get(i).getUuid())%>--%>
                 </div>
             </article>
             <%

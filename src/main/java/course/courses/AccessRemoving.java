@@ -21,7 +21,7 @@ public class AccessRemoving extends HttpServlet {
             resp.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (deleteAccess(session, transaction, MethodUtil.getIdAuthByUUID(session, req.getParameter("uuidAuth")),
-                    new CourseInformation().getCourseInformation(req.getParameter("uuidCourse")).getId())) {
+                    new CourseInformation().getCourseInformation(req.getParameter("uuidCourse")).get(0).getId())) {
                 resp.sendRedirect("/pages/accesslist.jsp?uuidAuth=" + new CookieUtil(req).getUserUuidFromToken());
             }
         } catch (Exception ex) {

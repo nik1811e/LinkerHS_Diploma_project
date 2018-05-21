@@ -49,7 +49,7 @@ public class ResourceRemoving extends HttpServlet implements Serializable {
     }
 
     private String prepareRemoveResource(Session session, String uuidCourse, String uuidSection, String uuidResource) {
-        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(uuidCourse), CourseStructureTO.class);
+        CourseStructureTO courseStructureTOgson = gson.fromJson(MethodUtil.getJsonCourseStructure(session,uuidCourse), CourseStructureTO.class);
         List<SectionTO> sectionTOList = new ArrayList<>(courseStructureTOgson.getSection());
         List<SectionTO> tmpSectionList = new ArrayList<>();
 

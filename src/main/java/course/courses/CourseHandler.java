@@ -76,7 +76,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
                 "\t\"description_course\": \" " + description_course.trim() + "\",\n" +
                 "\t\"date_create\": \" " + date.trim() + "  \",\n" +
                 "\t\"status\": \"" + status.trim() + " \",\n" +
-                "\t\"sections\": [\n" +
+                "\t\"section\": [\n" +
                 "\t]\n" +
                 "}";
     }

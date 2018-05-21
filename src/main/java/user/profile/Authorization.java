@@ -32,7 +32,7 @@ public class Authorization extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("UTF-8");
         this.type = MethodUtil.loginOrEmail(req.getParameter("login_or_email")).toLowerCase();
-        if (isPasswordValid(req.getParameter("login_or_email"), req.getParameter("password"))) {
+        if (isPasswordValid(req.getParameter("login_or_email").toLowerCase(), req.getParameter("password"))) {
             Object[] obj = getUserUuidAndRole(req.getParameter("login_or_email").toLowerCase());
             assert obj != null;
             setAuthCookie(((Object[]) obj[0])[0].toString(), String.valueOf(((Object[]) obj[0])[1]), resp);
