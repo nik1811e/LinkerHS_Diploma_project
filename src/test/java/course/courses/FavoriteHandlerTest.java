@@ -1,4 +1,4 @@
-package util;
+package course.courses;
 
 import org.apache.struts.mock.MockHttpServletRequest;
 import org.apache.struts.mock.MockHttpServletResponse;
@@ -18,7 +18,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class MethodUtilTest {
+public class FavoriteHandlerTest {
     @Mock
     private SessionFactory sessionFactory;
 
@@ -46,55 +46,26 @@ public class MethodUtilTest {
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
 
+        when(mockHttpServletRequest.getParameter("uuidCourse")).thenReturn("3b2558e6-e352-4e6c-9fe8-35ca12d796df");
+        when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("e61a37d7-c118-4ae1-abb7-2d61df870c9e");
     }
 
     @Test
-    public void testCourseCategory() {
-        MethodUtil.getCourseCategory();
+    public void testToFavorite() {
+        new FavoriteCreating().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 
     @Test
-    public void testResourceCategory() {
-        MethodUtil.getResourceCategory();
+    public void testRemoveFromCourse() {
+        when(mockHttpServletRequest.getParameter("from")).thenReturn("course");
+        new FavoriteRemoving().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 
     @Test
-    public void testAccessCheck() {
-        MethodUtil.checkAccess("Закрыт", MethodUtil.getAuthInfByUuid("e61a37d7-c118-4ae1-abb7-2d61df870c9e"), "42dd56df-04cb-428d-a37d-8573b68297e5", "b00d3c02-7c27-42e0-b4a1-b036de1bcf0c");
+    public void testRemoveFromFavorite() {
+        new FavoriteCreating().doPost(mockHttpServletRequest, mockHttpServletResponse);
+        when(mockHttpServletRequest.getParameter("from")).thenReturn("favorite");
+        new FavoriteRemoving().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 
-    @Test
-    public void testFollowings() {
-        MethodUtil.getUserFollowings("42dd56df-04cb-428d-a37d-8573b68297e5");
-    }
-
-    @Test
-    public void testFollowers() {
-        MethodUtil.getUserFollowers("42dd56df-04cb-428d-a37d-8573b68297e5");
-    }
-
-    @Test
-    public void testUuidAuthById() {
-        MethodUtil.getUuudAuthById(15);
-    }
-
-    @Test
-    public void testgetAllUsers() {
-        MethodUtil.getAllUsers();
-    }
-
-    @Test
-    public void testGetAllCourses() {
-        MethodUtil.getAllCourses();
-    }
-
-    @Test
-    public void testGetResourceCategory() {
-        MethodUtil.getResourceCategoryByid(1);
-    }
-
-    @Test
-    public void testGetCourseCategory() {
-        MethodUtil.getCourseCategoryByid(1);
-    }
 }

@@ -17,7 +17,7 @@ import java.util.*;
 
 @WebServlet(urlPatterns = "/coursestoexcel")
 public class DocumentHandler extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(DocumentHandler.class);
+    private static final Logger LOGGER = Logger.getLogger(DocumentHandler.class);
 
     private ByteArrayOutputStream byteArrayOutputStreamExcel = new ByteArrayOutputStream();
 
@@ -26,7 +26,7 @@ public class DocumentHandler extends HttpServlet {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
         } catch (Exception ex) {
-            logger.error(ex.getLocalizedMessage());
+            LOGGER.error(ex.getLocalizedMessage());
         }
     }
 

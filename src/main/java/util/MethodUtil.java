@@ -72,7 +72,7 @@ public class MethodUtil {
     public static CategoryEntity getCourseCategoryByid(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE_CATEGORY + " c WHERE id =:id",CategoryEntity.class)
+            return session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_COURSE_CATEGORY + " c WHERE id =:id", CategoryEntity.class)
                     .setParameter("id", id).list().get(0);
         } catch (Exception ex) {
             return null;
@@ -82,7 +82,7 @@ public class MethodUtil {
     public static ResourceCategoryEntity getResourceCategoryByid(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return (ResourceCategoryEntity) session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " c WHERE id =:id",ResourceCategoryEntity.class)
+            return (ResourceCategoryEntity) session.createQuery("SELECT c FROM " + FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " c WHERE id =:id", ResourceCategoryEntity.class)
                     .setParameter("id", id).list().get(0);
         } catch (Exception ex) {
             return null;
@@ -145,7 +145,7 @@ public class MethodUtil {
     public static boolean getAccessInformation(String uuidCourse, String uuidAuth) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            return session.createQuery("SELECT id FROM " + FinalValueUtil.ENTITY_ACCEESS_INFO + " ac WHERE ac.idAuth =:idAuth and ac.idCourse =:idCourse")
+            return !session.createQuery("SELECT id FROM " + FinalValueUtil.ENTITY_ACCEESS_INFO + " ac WHERE ac.idAuth =:idAuth and ac.idCourse =:idCourse")
                     .setParameter("idAuth", getIdAuthByUUID(session, uuidAuth)).setParameter("idCourse", getIdCourseByUUID(session, uuidCourse)).getResultList().isEmpty();
         } catch (Exception ex) {
             return false;
@@ -155,15 +155,10 @@ public class MethodUtil {
     public static boolean checkAccess(String status, AuthInfEntity owner, String uuidAuth, String uuidCourse) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
-            if (owner.getId() != (getIdAuthByUUID(session, uuidAuth))) {
-                if (status.equals("Закрыт")) {
-                    if (getAccessInformation(uuidCourse, uuidAuth)) {
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            return true;
+            if (owner.getId() == (getIdAuthByUUID(session, uuidAuth))) return true;
+            if (status.trim().equals("Открыт")) return true;
+            if (getAccessInformation(uuidCourse, uuidAuth)) return true;
+            return false;
         } catch (Exception ex) {
             return false;
         }

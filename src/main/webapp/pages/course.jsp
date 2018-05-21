@@ -152,14 +152,16 @@
                             <h3 style="display: inline-block">
                                 <%=courseInformationList.get(0).getNameCourse()%><br>
                             </h3>
+                            <%if(courseInformationFromJson.getUuidUser().trim().equals(cookieUtil.getUserUuidFromToken())){%>
                             <div style="float: right;display: inline-block">
                                 <a href="#removeCourse" id="btnRemove" class="btn-modal"
                                    style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить
                                 </a>
-                                <a href="#removeCourse" id="btnEdit" class="btn-modal"
+                                <a href="#editCourse" id="btnEdit" class="btn-modal"
                                    style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
                                 </a>
                             </div>
+                            <%}%>
                             <br>
                             <div class="meta">
                                 <span class="user"><%=courseInformationList.get(0).getStatus().toUpperCase()%> |</span>
@@ -181,41 +183,6 @@
             <div class='mh-div'></div>
             <!-- thumbs -->
             <div class="clearfix" style="min-height: 150px">
-                <p><a href="#myModal2" id="btn2" class="btn-modal"
-                      style="padding: 20px;font-size: 16px">Добавить раздел</a></p>
-                <div id="myModal2" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title" style="color: #3A3A3A">Добавление раздела</h4>
-                            </div>
-                            <div class="modal-body">
-                                <form role="form" method="post" action="/sectionhandler">
-                                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
-
-                                    <input type="hidden" name="uuidCourse"
-                                           value="<%=request.getParameter("uuidCourse")%>">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name" required
-                                               maxlength="50" placeholder="Название">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="description">Описание</label>
-                                        <textarea class="form-control" name="description"
-                                                  id="description"
-                                                  placeholder="Описание" maxlength="6000" rows="7"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn-modal"
-                                            id="btnAddSection">
-                                        Добавить
-                                    </button>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
                 <%
                     if (MethodUtil.checkAccess(
                             courseInformationList.get(0).getStatus(),
@@ -224,6 +191,8 @@
                             uuidCourse)
                             ) { %>
                 <h1 class="home-headline">Разделы</h1>
+                <p><a href="#myModal2" id="btn2" class="btn-modal"
+                      style="padding: 20px;font-size: 16px">Добавить раздел</a></p>
                 <%
                     assert sectionTOList != null;
                     if (!sectionTOList.isEmpty()) {
@@ -285,7 +254,39 @@
 </div>
 
 </div>
+<div id="myModal2" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" style="color: #3A3A3A">Добавление раздела</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" method="post" action="/sectionhandler">
+                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
 
+                    <input type="hidden" name="uuidCourse"
+                           value="<%=request.getParameter("uuidCourse")%>">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" required
+                               maxlength="50" placeholder="Название">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Описание</label>
+                        <textarea class="form-control" name="description"
+                                  id="description"
+                                  placeholder="Описание" maxlength="6000" rows="7"></textarea>
+                    </div>
+                    <button type="submit" class="btn-modal"
+                            id="btnAddSection">
+                        Добавить
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div id="removeCourse" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
