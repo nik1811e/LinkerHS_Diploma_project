@@ -20,8 +20,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/editresource")
-public class ResourseEditing extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(ResourseEditing.class);
+public class ResourceEditing extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(ResourceEditing.class);
     private Gson gson = new Gson();
 
     @Override

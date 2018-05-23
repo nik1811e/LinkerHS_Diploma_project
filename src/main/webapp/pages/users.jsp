@@ -127,14 +127,19 @@
             <div class="left-home-block home-posts" style="width: 100%; margin: 0">
                 <%
                     for (AuthInfEntity auth : authInfEntityList) {
+
                 %>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
                      style="  display: flex; flex-flow: row wrap; justify-content: center; text-align: center">
                     <div class="card card-user"
                          style="height: 100px;width: 100px; margin-bottom: 70px">
                         <div class="author" style="margin: 0;padding: 0;">
+                            <%if (auth.getNameImage().equals("пусто")) {%>
                             <img class="avatar border-white" src="/resources/img/avatar.png"
                                  alt="..." style="width: 100px;height: 100px"/>
+                            <%}else{%>
+                            <img class="avatar border-white" src="<%=("data:image/png;base64," +auth.getNameImage()).replace("//", "/")%>"
+                            <%}%>
                             <h5 class="title"><%=auth.getFName()%> <%=auth.getLName()%>
                                 <br/>
                                 <a href="/pages/profile.jsp?uuidAuth=<%=auth.getUuid()%>">

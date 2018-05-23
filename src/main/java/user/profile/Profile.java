@@ -7,6 +7,7 @@ import util.HibernateUtil;
 import util.MailUtil;
 import util.MethodUtil;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,9 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 @WebServlet(urlPatterns = "/editprofile")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 100,
+        maxFileSize = 1024 * 1024 * 100,
+        maxRequestSize = 1024 * 1024 * 100)
 public class Profile extends HttpServlet implements Serializable {
     private static final Logger LOGGER = Logger.getLogger(Profile.class);
 
@@ -23,10 +27,10 @@ public class Profile extends HttpServlet implements Serializable {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
             if (MethodUtil.updateAuthInf(session, transaction,
-                    req.getParameter("login"), req.getParameter("password"),
+                    req.getParameter("login"),
                     req.getParameter("email"), req.getParameter("fname"), req.getParameter("lname"),
                     req.getParameter("bday"), req.getParameter("uuid"), req.getParameter("desc"),
-                    req.getParameter("dateReg"))) {
+                    req.getParameter("dateReg"),MethodUtil.saveUploadFile(req).trim())) {
                 resp.sendRedirect("/pages/profile.jsp?uuidAuth" + req.getParameter("uuid"));
             }
         } catch (Exception ex) {

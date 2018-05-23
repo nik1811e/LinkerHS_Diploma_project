@@ -76,6 +76,7 @@ public class Registration extends HttpServlet implements IParseJsonString {
                 authInfoEntity.setLName(last_name);
                 authInfoEntity.setBDay(dbay);
                 authInfoEntity.setAbout("Пусто");
+                authInfoEntity.setNameImage("пусто");
                 authInfoEntity.setRequest("{\"uuid_course_owner\":\" " + uuidAuth + " \",\"request\":[]}");
                 session.save(authInfoEntity);
                 session.getTransaction().commit();

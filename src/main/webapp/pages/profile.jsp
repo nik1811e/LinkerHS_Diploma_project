@@ -4,7 +4,6 @@
 <%@ page import="util.MailUtil" %>
 <%@ page import="util.MethodUtil" %>
 <%@ page import="java.util.Arrays" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -81,6 +80,7 @@
         } else {
             response.sendRedirect(urlRedirect);
         }
+        String filePath = "data:image/png;base64," + authInfEntityList.getNameImage();
         assert authInfEntityList != null;
     %>
 
@@ -108,15 +108,17 @@
             <li><a href="#" style="text-decoration: none">ПОЛЬЗОВАТЕЛИ</a>
                 <ul>
                     <li><a href="/pages/users.jsp" style="text-decoration: none">Список пользователей</a></li>
-                    <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписки</a></li>
-                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подпищики</a></li>
+                    <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
+                           style="text-decoration: none">Подписки</a></li>
+                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
+                           style="text-decoration: none">Подпищики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
             <li><a href="/pages/signin.jsp" style="text-decoration: none">АВТОРИЗАЦИЯ</a></li>
             <%} else {%>
-            <li  class="current-menu-item"><a href="/pages/profile.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
-                   style="text-decoration: none">ПРОФИЛЬ</a></li>
+            <li class="current-menu-item"><a href="/pages/profile.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
+                                             style="text-decoration: none">ПРОФИЛЬ</a></li>
             <%}%>
         </ul>
     </div>
@@ -131,7 +133,7 @@
             <h1>Личный кабинет</h1><span class="subheading">In Photography, Recent work</span>
         </div>
         <!-- posts list -->
-        <div class="row" style="margin: 0" >
+        <div class="row" style="margin: 0">
             <div class="home-add clearfix" style="padding-top: 90px">
                 <div class="post-heading">
                     <div class="col-lg-4 col-md-5">
@@ -141,158 +143,198 @@
                             </div>
                             <div class="content">
                                 <div class="author">
+                                    <%if (authInfEntityList.getNameImage().equals("пусто")) {%>
                                     <img class="avatar border-white" src="/resources/img/avatar.png"
-                                         alt="..."/>
-                                    <h4 class="title"><%=authInfEntityList.getFName()%> <%=authInfEntityList.getLName()%>
-                                        <br/>
-                                        <a href="#">
-                                            <small><%=authInfEntityList.getEmail()%>
-                                            </small>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <br>
-                                <%if (!cookieUtil.getUserUuidFromToken().equals(authInfEntityList.getUuid())) {%>
-                                <form method="post" action="/follow">
-                                    <input type="hidden" name="uuidFollower"
-                                           value="<%=cookieUtil.getUserUuidFromToken()%>">
-                                    <input type="hidden" name="uuidFollowing"
-                                           value="<%=authInfEntityList.getUuid()%>">
-                                    <input type="submit" class="btn-modal"
-                                           value="<%=fbutton_text%>">
+                                         alt="avatar"/>
+                                    <br>
+                                    <hr>
+                                    <form method="post" action="/editprofile" enctype="multipart/form-data">
+                                        <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
+                                        <input type="hidden" name="bday" value="<%=authInfEntityList.getBDay()%>">
+                                        <input type="hidden" name="statusO" value="<%=authInfEntityList.getRole() %>">
+                                        <input type="hidden" name="dateReg" value="<%=authInfEntityList.getDateReg()%>">
+                                        <input type="hidden" name="login" value="<%=authInfEntityList.getLogin()%>">
+                                        <input type="hidden" name="email" value="<%=authInfEntityList.getEmail()%>">
+                                        <input type="hidden" name="fname" value="<%=authInfEntityList.getFName()%>">
+                                        <input type="hidden" name="lname" value="<%=authInfEntityList.getLName()%>">
+                                        <input type="hidden" name="desc" value="<%=authInfEntityList.getAbout()%>">
+                                        <input type="file" name="upload_img" id="img_upload">
+                                        <input type="submit" placeholder="Загрузить аватар">
                                 </form>
+                                    <br>
+                                    <hr>
+                                <%} else {%>
+                                <img class="avatar border-white" src="<%=filePath.replace("//", "/")%>"
+                                     alt="avatar"/>
+                                    <br>
+                                    <hr>
+                                    <form method="post" action="/editprofile" enctype="multipart/form-data">
+                                        <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
+                                        <input type="hidden" name="bday" value="<%=authInfEntityList.getBDay()%>">
+                                        <input type="hidden" name="statusO" value="<%=authInfEntityList.getRole() %>">
+                                        <input type="hidden" name="dateReg" value="<%=authInfEntityList.getDateReg()%>">
+                                        <input type="hidden" name="login" value="<%=authInfEntityList.getLogin()%>">
+                                        <input type="hidden" name="email" value="<%=authInfEntityList.getEmail()%>">
+                                        <input type="hidden" name="fname" value="<%=authInfEntityList.getFName()%>">
+                                        <input type="hidden" name="lname" value="<%=authInfEntityList.getLName()%>">
+                                        <input type="hidden" name="desc" value="<%=authInfEntityList.getAbout()%>">
+                                        <input type="file" name="upload_img" id="img_upload">
+                                        <input type="submit" placeholder="Загрузить аватар">
+                                    </form>
+                                    <br>
+                                    <hr>
                                 <%}%>
-                                <br>
+                                <h4 class="title"><%=authInfEntityList.getFName()%> <%=authInfEntityList.getLName()%>
+                                    <br/>
+                                    <a href="#">
+                                        <small><%=authInfEntityList.getEmail()%>
+                                        </small>
+                                    </a>
+                                </h4>
                             </div>
-                            <div class="text-center">
-                                <div class="row">
-                                    <div class="col-md-3 col-md-offset-1">
-                                        <h5>
-                                            <small><a
-                                                    href="/pages/catalog.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>"
-                                                    style="text-decoration: none; color: #999999; font-size: 11px">Курсы</a></small>
-                                        </h5>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h5>
-                                            <small><a
-                                                    href="/pages/following.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>"
-                                                    style="text-decoration: none; color: #999999; font-size: 11px">Подписки</a>
-                                            </small>
-                                        </h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h5>
-                                            <small><a
-                                                    href="/pages/follower.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>"
-                                                    style="text-decoration: none; color: #999999; font-size: 11px">Подпищики</a>
-                                            </small>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
+                            <br>
+                            <%if (!cookieUtil.getUserUuidFromToken().equals(authInfEntityList.getUuid())) {%>
+                            <form method="post" action="/follow">
+                                <input type="hidden" name="uuidFollower"
+                                       value="<%=cookieUtil.getUserUuidFromToken()%>">
+                                <input type="hidden" name="uuidFollowing"
+                                       value="<%=authInfEntityList.getUuid()%>">
+                                <input type="submit" class="btn-modal"
+                                       value="<%=fbutton_text%>">
+                            </form>
+                            <%}%>
+                            <br>
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-7">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Изменить профиль</h4>
-                            </div>
-                            <div class="content">
-                                <form method="post" action="/editprofile">
-                                    <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
-                                    <input type="hidden" name="bday"
-                                           value="<%=authInfEntityList.getBDay()%>">
-                                    <input type="hidden" name="statusO"
-                                           value="<%=authInfEntityList.getRole() %>">
-                                    <input type="hidden" name="dateReg"
-                                           value="<%=authInfEntityList.getDateReg()%>">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Статус</label>
-                                                <input type="text" class="form-control border-input" disabled
-                                                       placeholder="status" name="status"
-                                                       value="<%=authInfEntityList.getRole()%>">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Логин</label>
-                                                <input type="text" class="form-control border-input"
-                                                       placeholder="login"
-                                                       value="<%=authInfEntityList.getLogin()%>"
-                                                       name="login">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control border-input"
-                                                       placeholder="<%=authInfEntityList.getEmail()%>"
-                                                       name="email">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Имя</label>
-                                                <input type="text" class="form-control border-input"
-                                                       placeholder="First name"
-                                                       value="<%=authInfEntityList.getFName()%>"
-                                                       name="fname">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Фамилия</label>
-                                                <input type="text" class="form-control border-input"
-                                                       placeholder="Last Name"
-                                                       value="<%=authInfEntityList.getLName()%>"
-                                                       name="lname">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Пароль</label>
-                                                <input type="password" class="form-control border-input"
-                                                       placeholder="password" name="password">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Обо мне</label>
-                                                <textarea rows="5" class="form-control border-input"
-                                                          placeholder="Здесь вы можете написать о себе"
-                                                          value="<%=authInfEntityList.getAbout()%>"
-                                                          name="desc"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <%if (authInfEntityList.getUuid().equals(cookieUtil.getUserUuidFromToken())) {%>
-                                        <button type="submit" class="btn-modal">Update Profile
-                                        </button>
-                                        <%}%>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </form>
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <h5>
+                                        <small><a
+                                                href="/pages/catalog.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>"
+                                                style="text-decoration: none; color: #999999; font-size: 11px">Курсы</a>
+                                        </small>
+                                    </h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>
+                                        <small><a
+                                                href="/pages/following.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>"
+                                                style="text-decoration: none; color: #999999; font-size: 11px">Подписки</a>
+                                        </small>
+                                    </h5>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>
+                                        <small><a
+                                                href="/pages/follower.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>"
+                                                style="text-decoration: none; color: #999999; font-size: 11px">Подпищики</a>
+                                        </small>
+                                    </h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-8 col-md-7">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Изменить профиль</h4>
+                        </div>
+                        <div class="content">
+                            <form method="post" action="/editprofile">
+                                <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
+                                <input type="hidden" name="bday"
+                                       value="<%=authInfEntityList.getBDay()%>">
+                                <input type="hidden" name="statusO"
+                                       value="<%=authInfEntityList.getRole() %>">
+                                <input type="hidden" name="dateReg"
+                                       value="<%=authInfEntityList.getDateReg()%>">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>Статус</label>
+                                            <input type="text" class="form-control border-input" disabled
+                                                   placeholder="status" name="status"
+                                                   value="<%=authInfEntityList.getRole()%>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Логин</label>
+                                            <input type="text" class="form-control border-input"
+                                                   placeholder="login"
+                                                   value="<%=authInfEntityList.getLogin()%>"
+                                                   name="login">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control border-input"
+                                                   placeholder="<%=authInfEntityList.getEmail()%>"
+                                                   name="email">
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div id="fold"></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Имя</label>
+                                            <input type="text" class="form-control border-input"
+                                                   placeholder="First name"
+                                                   value="<%=authInfEntityList.getFName()%>"
+                                                   name="fname">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Фамилия</label>
+                                            <input type="text" class="form-control border-input"
+                                                   placeholder="Last Name"
+                                                   value="<%=authInfEntityList.getLName()%>"
+                                                   name="lname">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Пароль</label>
+                                            <input type="password" class="form-control border-input"
+                                                   placeholder="password" name="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Обо мне</label>
+                                            <textarea rows="5" class="form-control border-input"
+                                                      placeholder="Здесь вы можете написать о себе"
+                                                      value="<%=authInfEntityList.getAbout()%>"
+                                                      name="desc"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <%if (authInfEntityList.getUuid().equals(cookieUtil.getUserUuidFromToken())) {%>
+                                    <button type="submit" class="btn-modal">Update Profile
+                                    </button>
+                                    <%}%>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
+            <div id="fold"></div>
+        </div>
     </div>
+
+</div>
 </div>
 <!-- ENDS MAIN -->
 

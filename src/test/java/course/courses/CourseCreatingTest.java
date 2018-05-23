@@ -55,7 +55,7 @@ public class CourseCreatingTest {
         when(mockHttpServletRequest.getParameter("status")).thenReturn("Открыт");
         when(mockHttpServletRequest.getParameter("name_course")).thenReturn("NameCourseTest");
         when(mockHttpServletRequest.getParameter("id_category")).thenReturn("1");
-        when(mockHttpServletRequest.getParameter("desc")).thenReturn("Описание курса _тест");
+        when(mockHttpServletRequest.getParameter("desc")).thenReturn("Description of a course _тест");
         when(mockHttpServletRequest.getParameter("uuidAuth")).thenReturn("42dd56df-04cb-428d-a37d-8573b68297e5");
         when(mockHttpServletResponse.getWriter()).thenReturn(new PrintWriter(new StringWriter()));
     }

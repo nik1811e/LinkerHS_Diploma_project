@@ -54,8 +54,8 @@
     </role>
     <schema id="12" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-05-21.21:48:44.281</IntrospectionTimestamp>
-      <IntrospectionStateNumber>3519</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-23.03:48:54.781</IntrospectionTimestamp>
+      <IntrospectionStateNumber>3609</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -74,15 +74,7 @@
     <schema id="17" parent="2" name="information_schema">
       <ObjectId>12648</ObjectId>
     </schema>
-    <sequence id="18" parent="12" name="favorite_course_id_seq">
-      <ObjectId>84488</ObjectId>
-      <StateNumber>3516</StateNumber>
-      <SequenceIdentity>1</SequenceIdentity>
-      <BelongsToColumn>1</BelongsToColumn>
-      <CacheSize>1</CacheSize>
-      <DataType>bigint</DataType>
-    </sequence>
-    <sequence id="19" parent="12" name="access_id_auth_seq">
+    <sequence id="18" parent="12" name="access_id_auth_seq">
       <ObjectId>76559</ObjectId>
       <StateNumber>2762</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
@@ -90,7 +82,7 @@
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="20" parent="12" name="access_id_seq">
+    <sequence id="19" parent="12" name="access_id_seq">
       <ObjectId>76647</ObjectId>
       <StateNumber>2805</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
@@ -98,7 +90,7 @@
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="21" parent="12" name="auth_inf_id_seq">
+    <sequence id="20" parent="12" name="auth_inf_id_seq">
       <ObjectId>76567</ObjectId>
       <StateNumber>2763</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
@@ -106,7 +98,7 @@
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="22" parent="12" name="category_id_seq">
+    <sequence id="21" parent="12" name="category_id_seq">
       <ObjectId>76578</ObjectId>
       <StateNumber>2764</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
@@ -114,7 +106,7 @@
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="23" parent="12" name="course_id_seq">
+    <sequence id="22" parent="12" name="course_id_seq">
       <ObjectId>76586</ObjectId>
       <StateNumber>2765</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
@@ -122,13 +114,21 @@
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="24" parent="12" name="favorite_course_id_auth_seq">
+    <sequence id="23" parent="12" name="favorite_course_id_auth_seq">
       <ObjectId>76597</ObjectId>
       <StateNumber>2766</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
+    </sequence>
+    <sequence id="24" parent="12" name="favorite_course_id_seq">
+      <ObjectId>84488</ObjectId>
+      <StateNumber>3516</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
     </sequence>
     <sequence id="25" parent="12" name="following_id_seq">
       <ObjectId>76605</ObjectId>
@@ -152,7 +152,7 @@
     </table>
     <table id="28" parent="12" name="auth_inf">
       <ObjectId>76569</ObjectId>
-      <StateNumber>2773</StateNumber>
+      <StateNumber>3602</StateNumber>
     </table>
     <table id="29" parent="12" name="category">
       <ObjectId>76580</ObjectId>
@@ -305,18 +305,24 @@ id_course</ColNames>
       <StateNumber>2763</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="53" parent="28" name="auth_inf_pkey">
+    <column id="53" parent="28" name="image">
+      <Position>13</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>3609</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="54" parent="28" name="auth_inf_pkey">
       <ObjectId>76576</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="54" parent="28" name="auth_inf_pkey">
+    <key id="55" parent="28" name="auth_inf_pkey">
       <ObjectId>76577</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>auth_inf_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="55" parent="29" name="id">
+    <column id="56" parent="29" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -325,24 +331,24 @@ id_course</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>category_id_seq</SequenceName>
     </column>
-    <column id="56" parent="29" name="name">
+    <column id="57" parent="29" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2764</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="57" parent="29" name="category_pkey">
+    <index id="58" parent="29" name="category_pkey">
       <ObjectId>76584</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="58" parent="29" name="category_pkey">
+    <key id="59" parent="29" name="category_pkey">
       <ObjectId>76585</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="59" parent="30" name="id">
+    <column id="60" parent="30" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -351,54 +357,54 @@ id_course</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>course_id_seq</SequenceName>
     </column>
-    <column id="60" parent="30" name="category">
+    <column id="61" parent="30" name="category">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2765</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="61" parent="30" name="name_course">
+    <column id="62" parent="30" name="name_course">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2765</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="62" parent="30" name="status">
+    <column id="63" parent="30" name="status">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2765</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="63" parent="30" name="structure">
+    <column id="64" parent="30" name="structure">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <StateNumber>2785</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="64" parent="30" name="uuid">
+    <column id="65" parent="30" name="uuid">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2765</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="65" parent="30" name="authbyid_id">
+    <column id="66" parent="30" name="authbyid_id">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2765</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="66" parent="30" name="course_pkey">
+    <index id="67" parent="30" name="course_pkey">
       <ObjectId>76595</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="67" parent="30" name="course_pkey">
+    <key id="68" parent="30" name="course_pkey">
       <ObjectId>76596</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>course_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="68" parent="30" name="fkd10ywsajk8red9ki33kkxifsq">
+    <foreign-key id="69" parent="30" name="fkd10ywsajk8red9ki33kkxifsq">
       <ObjectId>76631</ObjectId>
       <ColNames>authbyid_id</ColNames>
       <RefTableId>76569</RefTableId>
@@ -407,7 +413,7 @@ id_course</ColNames>
       <RefKeyName>auth_inf_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="69" parent="31" name="id">
+    <column id="70" parent="31" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -416,7 +422,7 @@ id_course</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>favorite_course_id_seq</SequenceName>
     </column>
-    <column id="70" parent="31" name="id_auth">
+    <column id="71" parent="31" name="id_auth">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -425,37 +431,37 @@ id_course</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>favorite_course_id_auth_seq</SequenceName>
     </column>
-    <column id="71" parent="31" name="id_course">
+    <column id="72" parent="31" name="id_course">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2766</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="72" parent="31" name="favorite_course_id_pk">
+    <index id="73" parent="31" name="favorite_course_id_pk">
       <ObjectId>84491</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="73" parent="31" name="favorite_course_pkey">
+    <index id="74" parent="31" name="favorite_course_pkey">
       <ObjectId>84493</ObjectId>
       <ColNames>id_auth
 id_course</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="74" parent="31" name="favorite_course_id_pk">
+    <key id="75" parent="31" name="favorite_course_id_pk">
       <ObjectId>84492</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>favorite_course_id_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="75" parent="31" name="favorite_course_pkey">
+    <key id="76" parent="31" name="favorite_course_pkey">
       <ObjectId>84494</ObjectId>
       <ColNames>id_auth
 id_course</ColNames>
       <UnderlyingIndexName>favorite_course_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="76" parent="31" name="fk9t07ase4tj9qa1tm6fp11yfgk">
+    <foreign-key id="77" parent="31" name="fk9t07ase4tj9qa1tm6fp11yfgk">
       <ObjectId>76641</ObjectId>
       <ColNames>id_auth</ColNames>
       <RefTableId>76569</RefTableId>
@@ -464,7 +470,7 @@ id_course</ColNames>
       <RefKeyName>auth_inf_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="77" parent="31" name="fk9ixgxxw7jlwdcxmiul6auwrtn">
+    <foreign-key id="78" parent="31" name="fk9ixgxxw7jlwdcxmiul6auwrtn">
       <ObjectId>76636</ObjectId>
       <ColNames>id_course</ColNames>
       <RefTableId>76588</RefTableId>
@@ -473,7 +479,7 @@ id_course</ColNames>
       <RefKeyName>course_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="78" parent="32" name="id">
+    <column id="79" parent="32" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -482,30 +488,30 @@ id_course</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>following_id_seq</SequenceName>
     </column>
-    <column id="79" parent="32" name="id_auth">
+    <column id="80" parent="32" name="id_auth">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2767</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="80" parent="32" name="id_following">
+    <column id="81" parent="32" name="id_following">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2767</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="81" parent="32" name="following_pkey">
+    <index id="82" parent="32" name="following_pkey">
       <ObjectId>76611</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="82" parent="32" name="following_pkey">
+    <key id="83" parent="32" name="following_pkey">
       <ObjectId>76612</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>following_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="83" parent="33" name="id">
+    <column id="84" parent="33" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -514,18 +520,18 @@ id_course</ColNames>
       <TypeId>23</TypeId>
       <SequenceName>resource_category_id_seq</SequenceName>
     </column>
-    <column id="84" parent="33" name="name">
+    <column id="85" parent="33" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2768</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="85" parent="33" name="resource_category_pkey">
+    <index id="86" parent="33" name="resource_category_pkey">
       <ObjectId>76619</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="86" parent="33" name="resource_category_pkey">
+    <key id="87" parent="33" name="resource_category_pkey">
       <ObjectId>76620</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>resource_category_pkey</UnderlyingIndexName>

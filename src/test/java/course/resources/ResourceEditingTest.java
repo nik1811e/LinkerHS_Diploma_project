@@ -60,6 +60,6 @@ public class ResourceEditingTest {
 
     @Test
     public void testCreateRequest(){
-        new ResourseEditing().doPost(mockHttpServletRequest,mockHttpServletResponse);
+        new ResourceEditing().doPost(mockHttpServletRequest,mockHttpServletResponse);
     }
 }

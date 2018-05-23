@@ -21,6 +21,7 @@ public class AuthInfEntity {
     private String lName;
     private String dDay;
     private String about;
+    private String nameImage;
 
 
     @Id
@@ -123,6 +124,16 @@ public class AuthInfEntity {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Basic
+    @Column(name = "image")
+    public String getNameImage() {
+        return nameImage;
+    }
+
+    public void setNameImage(String nameImage) {
+        this.nameImage = nameImage;
     }
 
     @Basic

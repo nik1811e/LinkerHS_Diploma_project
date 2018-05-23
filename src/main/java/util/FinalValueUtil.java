@@ -36,4 +36,8 @@ public final class FinalValueUtil {
     public static final String EXCEL_EXTENSION_XLS = ".xls";
 
     public static final String PATTERN_FULL_DATE_TIME = "dd/MM/yyyy, HH:mm:ss";
+
+    public static final String FOLDER_UPLOAD_IMAGES = "SERVICE IMAGES";
+
+
 }

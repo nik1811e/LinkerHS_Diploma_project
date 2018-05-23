@@ -14,14 +14,22 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import static java.io.File.separator;
+import static org.apache.commons.io.FileUtils.readFileToByteArray;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @SuppressWarnings("ALL")
 public class MethodUtil {
@@ -340,16 +348,16 @@ public class MethodUtil {
         }
     }
 
-    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String password, String email, String fname, String lname, String bday, String uuid, String desc, String date) {
+    public static boolean updateAuthInf(Session session, Transaction transaction, String login,String email, String fname, String lname, String bday, String uuid, String desc, String date,String image) {
         try {
             session.createQuery("UPDATE  " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " +
-                    "a.login=:login, a.password=:password,a.email=:email," +
+                    "a.login=:login, a.nameImage=:nameImage,a.email=:email," +
                     "a.FName =:fname,a.LName =:lname,a.BDay=:bday,a.about=:about," +
                     "a.dateReg=:date WHERE a.uuid =:uuid")
-                    .setParameter("login", login).setParameter("password", password).setParameter("email", email)
+                    .setParameter("login", login).setParameter("email", email)
                     .setParameter("fname", fname).setParameter("lname", lname)
                     .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc)
-                    .setParameter("date", date).executeUpdate();
+                    .setParameter("date", date).setParameter("nameImage",image).executeUpdate();
             transaction.commit();
             return true;
         } catch (Exception ex) {
@@ -368,5 +376,33 @@ public class MethodUtil {
                 tempSectionList.add(sect);
             }
         }
+    }
+
+    private static String separateUploadFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] tokens = contentDisp.split(";");
+        for (String token : tokens) {
+            if (token.trim().startsWith("filename"))
+                return token.substring(token.indexOf("=") + 2, token.length() - 1);
+        }
+        return "";
+    }
+
+    public static String saveUploadFile(HttpServletRequest req) throws IOException, ServletException {
+        String uploadFilePath = req.getServletContext().getRealPath("") + separator + FinalValueUtil.FOLDER_UPLOAD_IMAGES;
+
+        File fileSaveDir = new File(uploadFilePath);
+        if (!fileSaveDir.exists())
+            fileSaveDir.mkdirs();
+
+        for (Part part : req.getParts()) {
+            String fileName = separateUploadFileName(part);
+            if (!isBlank(fileName)) {
+                String path = uploadFilePath + separator + fileName;
+                part.write(path);
+                return Base64.getEncoder().encodeToString(readFileToByteArray(new File(path)));
+            }
+        }
+        return "";
     }
 }
