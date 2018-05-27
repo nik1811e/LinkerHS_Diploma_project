@@ -7,19 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ef4015a-6d3f-42cf-a759-09c86d3ccc18" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118/storage_v2/_src_/database/service.tcZDdg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118/storage_v2/_src_/database/service.tcZDdg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryRemoving.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryRemoving.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/admin/category/CategoryRemovingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/resources/ResourseEditing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/resources/ResourceEditing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/AuthInfEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/AuthInfEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/profile/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/profile/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/profile/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/profile/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/FinalValueUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/FinalValueUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/course/courses/CourseCreatingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/course/courses/CourseCreatingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/course/resources/ResourceEditingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/course/resources/ResourceEditingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/admin/category/CourseCategoryCreatingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/admin/category/CategoryCreatingTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -108,25 +105,41 @@
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="service@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="service: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="course: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CourseCategoryHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MethodUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="381" selection-start-line="381" selection-end-line="381" />
+            <state relative-caret-position="757">
+              <caret line="426" column="5" selection-start-line="426" selection-start-column="5" selection-end-line="426" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1028#1052#0" expanded="true" />
                 <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
                 <element signature="method#getUuudAuthById#0;class#MethodUtil#0" />
                 <element signature="method#getIdAuthByUUID#0;class#MethodUtil#0" />
                 <element signature="method#getAuthInfByUuid#0;class#MethodUtil#0" />
                 <element signature="method#getIdCourseByUUID#0;class#MethodUtil#0" />
-                <element signature="method#getCourseCategoryByid#0;class#MethodUtil#0" />
                 <element signature="method#getResourceCategoryByid#0;class#MethodUtil#0" />
                 <element signature="method#getJsonCourseStructure#0;class#MethodUtil#0" />
                 <element signature="method#getJsonRequest#0;class#MethodUtil#0" />
@@ -143,76 +156,58 @@
                 <element signature="method#isUniqueNameCourse#0;class#MethodUtil#0" />
                 <element signature="method#isUniqueSectionName#0;class#MethodUtil#0" />
                 <element signature="method#isUniqueResource#0;class#MethodUtil#0" />
-                <element signature="method#getAllCourses#0;class#MethodUtil#0" />
                 <element signature="method#prepareExcelFileForAttach#0;class#MethodUtil#0" />
                 <element signature="method#createExcelFile#0;class#MethodUtil#0" />
                 <element signature="method#prepareFileForAttach#0;class#MethodUtil#0" />
+                <element signature="method#updateAuthInf#0;class#MethodUtil#0" />
                 <element signature="method#setSectionResources#0;class#MethodUtil#0" />
+                <element signature="method#separateUploadFileName#0;class#MethodUtil#0" />
+                <element signature="method#saveUploadFile#0;class#MethodUtil#0" />
+                <element signature="method#isUniqueCourseCategory#0;class#MethodUtil#0" />
+                <element signature="method#isUniqueCategoryLink#0;class#MethodUtil#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MailUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/util/MailUtil.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="102">
+              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+      <file leaf-file-name="catalog.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1156">
-              <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#small#0;n#h5#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#small#0;n#h5#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#small#0;n#h5#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="1173">
+              <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2(698).jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/upload/2(698).jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="users.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/users.jsp">
+      <file leaf-file-name="CourseInformation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
+            <state relative-caret-position="153">
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d783fc1c-3748-4cef-a6c6-195390ed1118/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="34">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth_inf" pinned="false" current-in-tab="false">
-        <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/auth_inf">
+      <file leaf-file-name="course" pinned="false" current-in-tab="false">
+        <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -220,20 +215,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://F:/Diploma_auction/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
+      <file leaf-file-name="dashboard.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="415" column="5" lean-forward="true" selection-start-line="402" selection-start-column="3" selection-end-line="415" selection-end-column="5" />
+            <state relative-caret-position="6341">
+              <caret line="373" selection-start-line="373" selection-end-line="373" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Registration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Registration.java">
+      <file leaf-file-name="ChangePermission.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/admin/user/ChangePermission.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
+            <state relative-caret-position="187">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/entity/CourseEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
+              <folding>
+                <element signature="e#935#936#0" expanded="true" />
+                <element signature="e#968#969#0" expanded="true" />
+                <element signature="e#2170#2171#0" expanded="true" />
+                <element signature="e#2201#2202#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -256,7 +266,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>uuidAut</find>
       <find>uuid</find>
       <find>name=&quot;uuidCourse&quot;</find>
       <find>pub</find>
@@ -286,6 +295,7 @@
       <find>remove</find>
       <find>image</find>
       <find>filePath.</find>
+      <find>Er</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -294,17 +304,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/course/resources/ResourceCreatingTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/course/resources/ResourceEditingTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/course/sections/SectionEditingTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/course/courses/CourseRequestTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/course/courses/CourseRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/MailUtil.java" />
-        <option value="$PROJECT_DIR$/src/test/java/course/courses/AccessCreatingTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/CategoryEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/CourseEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/FavoriteCourseEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/FollowingEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/ResourceCategoryEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/AccessHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/requests.jsp" />
@@ -333,7 +332,6 @@
         <option value="$PROJECT_DIR$/src/main/java/course/courses/FavoriteRemoving.java" />
         <option value="$PROJECT_DIR$/src/test/java/course/courses/FavoriteHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/util/MethodUtilTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/entity/AccessEntity.java" />
         <option value="$PROJECT_DIR$/src/test/java/course/courses/CourseCreatingTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/resources/ResourceEditing.java" />
@@ -343,8 +341,20 @@
         <option value="$PROJECT_DIR$/src/main/java/user/profile/Profile.java" />
         <option value="F:/Diploma_auction/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/category/RemoveCategoryRemoving.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryRemoving.java" />
+        <option value="$PROJECT_DIR$/src/test/java/admin/category/CourseCategoryCreatingTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/admin/category/CourseCategoryRemovingTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryRemoving.java" />
+        <option value="$PROJECT_DIR$/src/test/java/admin/category/CategoryCreatingTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/admin/category/CategoryRemovingTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d783fc1c-3748-4cef-a6c6-195390ed1118/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -388,7 +398,7 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -401,7 +411,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -483,131 +495,6 @@
               <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
               <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-              <item name="courses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-              <item name="sections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="following" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -616,125 +503,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="category" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-              <item name="courses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
-              <item name="sections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="following" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1158,6 +931,11 @@
       <workItem from="1526915969393" duration="17150000" />
       <workItem from="1527027664292" duration="490000" />
       <workItem from="1527028197370" duration="10086000" />
+      <workItem from="1527209579948" duration="3555000" />
+      <workItem from="1527263915509" duration="12500000" />
+      <workItem from="1527288373627" duration="218000" />
+      <workItem from="1527440774260" duration="9000" />
+      <workItem from="1527440931257" duration="160000" />
     </task>
     <servers />
   </component>
@@ -1194,7 +972,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="973788000" />
+    <option name="totallyTimeSpent" value="990230000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1213,21 +991,20 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="1" weight="0.39106753" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32893288" />
-      <window_info anchor="right" id="Maven Projects" order="12" weight="0.20735608" />
+      <window_info anchor="right" id="Maven Projects" order="11" weight="0.20735608" />
+      <window_info anchor="right" id="CDI" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="right" id="CDI" order="9" />
       <window_info id="Capture Tool" order="8" />
       <window_info id="Designer" order="3" />
       <window_info anchor="bottom" id="Statistic" order="0" weight="0.8202614" />
-      <window_info anchor="right" id="Database" order="7" sideWeight="0.4825073" visible="true" weight="0.20202559" />
+      <window_info anchor="right" id="Database" order="12" sideWeight="0.4825073" weight="0.41417912" />
+      <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
       <window_info id="Structure" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info anchor="right" id="JSF" order="8" weight="0.32995737" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.2933194" />
+      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.4039666" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
-      <window_info id="simpleUML" order="0" weight="0.32889125" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
+      <window_info id="simpleUML" order="0" weight="0.32822758" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
@@ -1236,17 +1013,18 @@
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.16230936" />
       <window_info id="Persistence" order="2" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.14509395" />
-      <window_info content_ui="combo" id="Project" order="9" sideWeight="0.60890305" visible="true" weight="0.25426438" />
-      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info active="true" content_ui="combo" id="Project" order="9" sideWeight="0.60890305" visible="true" weight="0.41791046" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5174927" side_tool="true" weight="0.20202559" />
+      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5174927" side_tool="true" weight="0.20202559" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.39770356" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.30283225" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.302714" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
     </layout>
@@ -1256,41 +1034,41 @@
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32893288" />
       <window_info id="Designer" order="3" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.14926931" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" visible="true" weight="0.28392485" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.39770356" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" weight="0.28392485" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
+      <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Web" order="7" side_tool="true" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.16230936" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="JSF" order="8" weight="0.32995737" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
-      <window_info anchor="bottom" id="Statistic" order="0" weight="0.8202614" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32897604" />
-      <window_info anchor="right" id="Maven Projects" order="12" weight="0.20735608" />
-      <window_info id="simpleUML" order="0" weight="0.32889125" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.30283225" />
-      <window_info content_ui="combo" id="Project" order="9" sideWeight="0.60890305" weight="0.25426438" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
-      <window_info active="true" anchor="right" id="Database" order="7" sideWeight="0.4825073" visible="true" weight="0.20202559" />
+      <window_info anchor="right" id="Maven Projects" order="11" weight="0.20735608" />
+      <window_info id="simpleUML" order="0" weight="0.32822758" />
+      <window_info content_ui="combo" id="Project" order="9" sideWeight="0.60890305" weight="0.41791046" />
+      <window_info anchor="right" id="Database" order="12" sideWeight="0.4825073" weight="0.41417912" />
       <window_info anchor="bottom" id="Message" order="2" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="bottom" id="Statistic" order="0" weight="0.8202614" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Structure" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info anchor="right" id="CDI" order="9" />
+      <window_info anchor="right" id="CDI" order="8" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5174927" side_tool="true" weight="0.20202559" />
-      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.2933194" />
-      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5174927" side_tool="true" weight="0.20202559" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.302714" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info active="true" anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" visible="true" weight="0.2933194" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1460,7 +1238,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java</url>
-          <line>91</line>
+          <line>89</line>
           <properties />
           <option name="timeStamp" value="344" />
         </line-breakpoint>
@@ -1526,28 +1304,35 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java</url>
-          <line>391</line>
+          <line>389</line>
           <properties />
           <option name="timeStamp" value="374" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java</url>
-          <line>381</line>
+          <line>379</line>
           <properties />
           <option name="timeStamp" value="376" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp</url>
+          <line>373</line>
+          <properties />
+          <option name="timeStamp" value="381" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="385" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="378" />
+      <option name="time" value="386" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="owner.getId()" language="JAVA" />
-        <watch expression="getAccessInformation(uuidCourse, uuidAuth)" language="JAVA" />
-        <watch expression="status.trim().equals(&quot;Закрыт&quot;)" language="JAVA" />
-        <watch expression="owner.getId() != (getIdAuthByUUID(session, uuidAuth))" language="JAVA" />
-        <watch expression="courseInformationFromJson.getUuidUser().equals(cookieUtil.getUserUuidFromToken())" language="JSP" />
         <watch expression="cookieUtil.getUserUuidFromToken()" language="JSP" />
-        <watch expression="courseInformationFromJson.getUuidUser()" language="JSP" />
+        <watch expression="courseChart.get(0)[0]" language="JSP" />
       </configuration>
       <configuration name="Application">
         <watch expression="MethodUtil.getIdAuthByUUID(session, uuidUser)" language="JAVA" />
@@ -1561,6 +1346,42 @@
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
+        <expression-string>courseChart.get(0)[0]</expression-string>
+        <language-id>JSP</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>courseChart.get(2)[0]</expression-string>
+        <language-id>JSP</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>courseChart.get(1)[0]</expression-string>
+        <language-id>JSP</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>courseChart.get(j)[0]</expression-string>
+        <language-id>JSP</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>courseChart.get(j)[0].getCategory()</expression-string>
+        <language-id>JSP</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>courseChart.get(j).getCategory()</expression-string>
+        <language-id>JSP</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Objects.requireNonNull(MethodUtil.getCourseCategoryByid(courseChart.get(j).getCategory())).getName()</expression-string>
+        <language-id>JSP</language-id>
+        <custom-info>java.util.Objects,util.MethodUtil</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>courseInformationFromJson.getUuidUser()</expression-string>
         <language-id>JSP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -1572,41 +1393,6 @@
       </expression>
       <expression>
         <expression-string>courseInformationFromJson.getUuidUser().equals(cookieUtil.getUserUuidFromToken())</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>owner.getId() != (getIdAuthByUUID(session, uuidAuth))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>status.trim().equals(&quot;Закрыт&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>getAccessInformation(uuidCourse, uuidAuth)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>owner.getId()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>owner</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>getIdAuthByUUID(session, uuidAuth)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseInformationList.get(0).getStatus()</expression-string>
         <language-id>JSP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1630,62 +1416,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/CourseRequestTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="60" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/AccessHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-module-junit4/1.7.4/powermock-module-junit4-1.7.4.jar!/org/powermock/modules/junit4/internal/impl/PowerMockJUnit47RunnerDelegateImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/resource_category">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-core/1.7.4/powermock-core-1.7.4.jar!/org/powermock/core/MockGateway.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/MethodRoadie.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-module-junit4/1.7.4/powermock-module-junit4-1.7.4.jar!/org/powermock/modules/junit4/internal/impl/PowerMockJUnit44RunnerDelegateImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="320" selection-start-line="320" selection-end-line="320" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/TestMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/FavoriteHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -1729,12 +1459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="471">
           <caret line="97" column="44" selection-start-line="97" selection-start-column="44" selection-end-line="97" selection-end-column="44" />
-          <folding>
-            <element signature="e#2496#2497#0" expanded="true" />
-            <element signature="e#2538#2539#0" expanded="true" />
-            <element signature="e#2582#2583#0" expanded="true" />
-            <element signature="e#2624#2625#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1801,31 +1525,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/CourseEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/AccessEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -1840,15 +1543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="66" column="1" selection-start-line="22" selection-end-line="66" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/resources/ResourceTransfer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#4196#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1894,12 +1588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="998">
           <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
-          <folding>
-            <element signature="e#2340#2341#0" expanded="true" />
-            <element signature="e#2367#2368#0" expanded="true" />
-            <element signature="e#2407#2408#0" expanded="true" />
-            <element signature="e#2439#2440#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1917,13 +1605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="220" column="39" selection-start-line="220" selection-start-column="39" selection-end-line="220" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Diploma_auction/src/main/java/by/iba/uzhyhala/entity/LotEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-714" />
@@ -1931,7 +1612,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
+        <state relative-caret-position="1071">
           <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
         </state>
       </provider>
@@ -1952,8 +1633,8 @@
     </entry>
     <entry file="file://F:/Diploma_auction/src/main/java/by/iba/uzhyhala/util/CommonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="415" column="5" lean-forward="true" selection-start-line="402" selection-start-column="3" selection-end-line="415" selection-end-column="5" />
+        <state relative-caret-position="6494">
+          <caret line="415" column="5" selection-start-line="402" selection-start-column="3" selection-end-line="415" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1966,31 +1647,147 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/MailUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
+        <state relative-caret-position="238">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="442">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Diploma_auction/src/main/webapp/pages/lot.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="203" column="63" selection-start-line="203" selection-start-column="25" selection-end-line="203" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/users.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryRemoving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryRemoving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="38" column="65" lean-forward="true" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/admin/category/CategoryRemovingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/admin/category/CategoryCreatingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="47" column="54" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/user/ChangePermission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/CourseEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
+          <folding>
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#2201#2202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d783fc1c-3748-4cef-a6c6-195390ed1118/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6341">
+          <caret line="373" selection-start-line="373" selection-end-line="373" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="381" selection-start-line="381" selection-end-line="381" />
+        <state relative-caret-position="757">
+          <caret line="426" column="5" selection-start-line="426" selection-start-column="5" selection-end-line="426" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1028#1052#0" expanded="true" />
             <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
             <element signature="method#getUuudAuthById#0;class#MethodUtil#0" />
             <element signature="method#getIdAuthByUUID#0;class#MethodUtil#0" />
             <element signature="method#getAuthInfByUuid#0;class#MethodUtil#0" />
             <element signature="method#getIdCourseByUUID#0;class#MethodUtil#0" />
-            <element signature="method#getCourseCategoryByid#0;class#MethodUtil#0" />
             <element signature="method#getResourceCategoryByid#0;class#MethodUtil#0" />
             <element signature="method#getJsonCourseStructure#0;class#MethodUtil#0" />
             <element signature="method#getJsonRequest#0;class#MethodUtil#0" />
@@ -2007,53 +1804,23 @@
             <element signature="method#isUniqueNameCourse#0;class#MethodUtil#0" />
             <element signature="method#isUniqueSectionName#0;class#MethodUtil#0" />
             <element signature="method#isUniqueResource#0;class#MethodUtil#0" />
-            <element signature="method#getAllCourses#0;class#MethodUtil#0" />
             <element signature="method#prepareExcelFileForAttach#0;class#MethodUtil#0" />
             <element signature="method#createExcelFile#0;class#MethodUtil#0" />
             <element signature="method#prepareFileForAttach#0;class#MethodUtil#0" />
+            <element signature="method#updateAuthInf#0;class#MethodUtil#0" />
             <element signature="method#setSectionResources#0;class#MethodUtil#0" />
+            <element signature="method#separateUploadFileName#0;class#MethodUtil#0" />
+            <element signature="method#saveUploadFile#0;class#MethodUtil#0" />
+            <element signature="method#isUniqueCourseCategory#0;class#MethodUtil#0" />
+            <element signature="method#isUniqueCategoryLink#0;class#MethodUtil#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Diploma_auction/src/main/webapp/pages/lot.jsp">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="203" column="63" selection-start-line="203" selection-start-column="25" selection-end-line="203" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/upload/2(698).jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1156">
-          <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#small#0;n#h5#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#small#0;n#h5#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#small#0;n#h5#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/users.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
         </state>
       </provider>
     </entry>

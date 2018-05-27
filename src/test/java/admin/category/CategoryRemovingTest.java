@@ -13,14 +13,12 @@ import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.util.UUID;
-
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.xml.*", "org.xml.*", "org.w3c.*", "javax", "com.sun.org.apache.xerces.*", "javax.net.ssl.*"})
-public class CourseCategoryCreatingTest {
+public class CategoryRemovingTest {
     @Mock
     private SessionFactory sessionFactory;
 
@@ -39,6 +37,7 @@ public class CourseCategoryCreatingTest {
     @Mock
     private MockHttpServletResponse mockHttpServletResponse;
 
+    @SuppressWarnings("Duplicates")
     @Before
     public void init() {
         initMocks(this);
@@ -46,16 +45,16 @@ public class CourseCategoryCreatingTest {
         when(sessionFactory.openSession()).thenReturn(session);
         when(session.beginTransaction()).thenReturn(transaction);
         sessionFactory = configuration.buildSessionFactory();
+        when(mockHttpServletRequest.getParameter("name")).thenReturn("testNameCategory");
+
     }
 
     @Test
     public void testCourseCategory(){
-        when(mockHttpServletRequest.getParameter("name_category")).thenReturn("category "+UUID.randomUUID().toString());
-        new CourseCategoryHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+        new CourseCategoryRemoving().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
     @Test
     public void testResourceCategory(){
-        when(mockHttpServletRequest.getParameter("name_category_link")).thenReturn("category "+UUID.randomUUID().toString());
-        new ResourceCategoryHandler().doPost(mockHttpServletRequest, mockHttpServletResponse);
+        new ResourceCategoryRemoving().doPost(mockHttpServletRequest, mockHttpServletResponse);
     }
 }

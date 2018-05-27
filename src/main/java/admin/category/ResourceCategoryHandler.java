@@ -4,10 +4,9 @@ import entity.ResourceCategoryEntity;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
-import util.FinalValueUtil;
 import util.HibernateUtil;
 import util.MailUtil;
+import util.MethodUtil;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +22,7 @@ public class ResourceCategoryHandler extends HttpServlet implements Serializable
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
-            String name = String.valueOf(req.getParameter("name_category_link")).trim();
+            String name = String.valueOf(req.getParameter("name")).trim();
             if (addCategoryLink(session, transaction, String.valueOf(name))) {
                 resp.sendRedirect("/");
             }
@@ -32,17 +31,12 @@ public class ResourceCategoryHandler extends HttpServlet implements Serializable
         }
     }
 
-    private boolean isUniqueCategoryLink(Session session, String name) {
-        Query query = session.createQuery("SELECT c.id FROM " +
-                FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " c WHERE c.name = :name");
-        query.setParameter("name", name);
-        return query.list().isEmpty();
-    }
+
 
     private boolean addCategoryLink(Session session, Transaction transaction, String name) {
         LOGGER.debug(getClass().getName() + " addCategory");
         try {
-            if (isUniqueCategoryLink(session, name)) {
+            if (MethodUtil.isUniqueCategoryLink(session, name)) {
                 ResourceCategoryEntity category = new ResourceCategoryEntity();
                 category.setName(name);
                 session.save(category);

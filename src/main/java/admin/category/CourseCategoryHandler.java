@@ -4,9 +4,9 @@ import entity.CategoryEntity;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.FinalValueUtil;
 import util.HibernateUtil;
 import util.MailUtil;
+import util.MethodUtil;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +23,7 @@ public class CourseCategoryHandler extends HttpServlet implements Serializable {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
-            String name = String.valueOf(req.getParameter("name_category")).trim();
+            String name = String.valueOf(req.getParameter("name")).trim();
             Transaction transaction = session.beginTransaction();
             if (addCourseCategory(session, transaction, String.valueOf(name))) {
                 resp.sendRedirect("/");
@@ -33,16 +33,10 @@ public class CourseCategoryHandler extends HttpServlet implements Serializable {
         }
     }
 
-    private boolean isUniqueCourseCategory(Session session, String name) {
-        return session.createQuery("SELECT c.id FROM " +
-                FinalValueUtil.ENTITY_COURSE_CATEGORY + " c WHERE c.name = :name")
-                .setParameter("name", name).list().isEmpty();
-    }
-
     private boolean addCourseCategory(Session session, Transaction transaction, String name) {
         LOGGER.debug(getClass().getName() + " addCategory");
         try {
-            if (isUniqueCourseCategory(session, name)) {
+            if (MethodUtil.isUniqueCourseCategory(session, name)) {
                 CategoryEntity category = new CategoryEntity();
                 category.setName(name);
                 session.save(category);
