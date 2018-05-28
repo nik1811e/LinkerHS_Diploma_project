@@ -3,7 +3,11 @@
 <%@ page import="entity.CourseEntity" %>
 <%@ page import="util.CookieUtil" %>
 <%@ page import="util.MethodUtil" %>
+<%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Objects" %>
+<%@ page import="java.util.Random" %>
+<%@ page import="entity.CategoryEntity" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -37,15 +41,19 @@
         String urlRedirect = "/pages/signin.jsp";
         List<CourseEntity> coursesList;
         List<AuthInfEntity> usersList;
+        List<CategoryEntity> cateries;
         if (cookieUtil.isFindCookie()) {
             coursesList = MethodUtil.getAllCourses();
             usersList = MethodUtil.getAllUsers();
+            cateries = MethodUtil.getCourseCategory();
         } else {
             response.sendRedirect(urlRedirect);
             return;
         }
         assert coursesList != null;
-        assert usersList != null;%>
+        assert usersList != null;
+        assert cateries != null;
+    %>
 </head>
 <body>
 
@@ -367,48 +375,63 @@
     $(document).ready(function () {
         var ctx = document.getElementById("myChart").getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [
-                        <%for(int i=0;i<=5;i++){
-                        if(i<5){%>
-                        <%=Math.random()*100 +","%>
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        <% for (int j=0;j<=cateries.size()-1;j++){
+                            if(j<cateries.size()-1){
+                        %>
+                        "<%=cateries.get(j).getName()%>",
                         <%}else{%>
-                        <%=Math.random()*100%>
+                        "<%=cateries.get(j).getName()%>"
                         <%}}%>
                     ],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [
+                            <% for (int j=0;j<=cateries.size()-1;j++){
+                                if(j<cateries.size()-1){
+                            %>
+                            "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%> ",
+                            <%}else{%>
+                            "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%>"
+                            <%}}%>
+                        ],
+                        backgroundColor: [
+                            <% for (int j=0;j<=cateries.size();j++){
+                            if(j < cateries.size()) {
+                            %>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
+                            <%}else{%>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
+                            <%}}%>
+                        ],
+                        borderColor: [
+                            <% for (int j=0;j<=cateries.size();j++){
+                            if(j < cateries.size()) {
+                            %>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
+                            <%}else{%>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
+                            <%}}%>
+                        ],
+                        borderWidth:
+                            1
+                    }
+                    ]
+                },
+
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            })
+        ;
 
         $.notify({
             icon: 'ti-gift',

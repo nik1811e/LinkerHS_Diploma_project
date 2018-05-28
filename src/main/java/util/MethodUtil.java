@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import static java.io.File.separator;
@@ -348,7 +346,7 @@ public class MethodUtil {
         }
     }
 
-    public static boolean updateAuthInf(Session session, Transaction transaction, String login,String email, String fname, String lname, String bday, String uuid, String desc, String date,String image) {
+    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String email, String fname, String lname, String bday, String uuid, String desc, String date, String image) {
         try {
             session.createQuery("UPDATE  " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " +
                     "a.login=:login, a.nameImage=:nameImage,a.email=:email," +
@@ -357,7 +355,7 @@ public class MethodUtil {
                     .setParameter("login", login).setParameter("email", email)
                     .setParameter("fname", fname).setParameter("lname", lname)
                     .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc)
-                    .setParameter("date", date).setParameter("nameImage",image).executeUpdate();
+                    .setParameter("date", date).setParameter("nameImage", image).executeUpdate();
             transaction.commit();
             return true;
         } catch (Exception ex) {
@@ -405,4 +403,28 @@ public class MethodUtil {
         }
         return "";
     }
+
+    public static boolean isUniqueCourseCategory(Session session, String name) {
+        return session.createQuery("SELECT c.id FROM " +
+                FinalValueUtil.ENTITY_COURSE_CATEGORY + " c WHERE c.name = :name")
+                .setParameter("name", name).list().isEmpty();
+    }
+
+    public static boolean isUniqueCategoryLink(Session session, String name) {
+        Query query = session.createQuery("SELECT c.id FROM " +
+                FinalValueUtil.ENTITY_RESOURCE_CATEGORY + " c WHERE c.name = :name");
+        query.setParameter("name", name);
+        return query.list().isEmpty();
+    }
+
+    public static List courseCategoryCharts(int category) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("SELECT COUNT(uuid) FROM "+ FinalValueUtil.ENTITY_COURSE + " WHERE category=:category")
+                    .setParameter("category",category).getResultList();
+        } catch (Exception ex) {
+            LOGGER.info(ex.getLocalizedMessage());
+        }
+        return null;
+    }
+
 }

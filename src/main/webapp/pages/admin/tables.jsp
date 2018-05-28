@@ -393,10 +393,5 @@
         $('#datatable').dataTable();
         $('#datatable1').dataTable();
     });
-    $(function () {
-        $("#addUserBtn").click(function () {
-            $("#addUser").modal('show');
-        });
-    });
 </script>
 </html>

@@ -7,16 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ef4015a-6d3f-42cf-a759-09c86d3ccc18" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryRemoving.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryRemoving.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/admin/category/CategoryRemovingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestHibernate.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/admin/category/CourseCategoryCreatingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/admin/category/CategoryCreatingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -119,11 +114,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CourseCategoryHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java">
+      <file leaf-file-name="dashboard.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+            <state relative-caret-position="587">
+              <caret line="435" selection-start-line="435" selection-end-line="435" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#15422#15428#0#HTML" expanded="true" />
+                <element signature="e#16652#19294#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tables.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="395" selection-start-line="395" selection-end-line="395" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category" pinned="false" current-in-tab="false">
+        <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/category">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -131,8 +149,8 @@
       <file leaf-file-name="MethodUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="757">
-              <caret line="426" column="5" selection-start-line="426" selection-start-column="5" selection-end-line="426" selection-end-column="5" />
+            <state relative-caret-position="-148">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
@@ -143,7 +161,6 @@
                 <element signature="method#getResourceCategoryByid#0;class#MethodUtil#0" />
                 <element signature="method#getJsonCourseStructure#0;class#MethodUtil#0" />
                 <element signature="method#getJsonRequest#0;class#MethodUtil#0" />
-                <element signature="method#getCourseCategory#0;class#MethodUtil#0" />
                 <element signature="method#getResourceCategory#0;class#MethodUtil#0" />
                 <element signature="method#getAllUsers#0;class#MethodUtil#0" />
                 <element signature="method#getAccessInformation#0;class#MethodUtil#0" />
@@ -170,20 +187,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="CourseHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="catalog.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
+            <state relative-caret-position="340">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
@@ -191,59 +199,8 @@
       <file leaf-file-name="CourseInformation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d783fc1c-3748-4cef-a6c6-195390ed1118/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="course" pinned="false" current-in-tab="false">
-        <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6341">
-              <caret line="373" selection-start-line="373" selection-end-line="373" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChangePermission.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/user/ChangePermission.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CourseEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/entity/CourseEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
-              <folding>
-                <element signature="e#935#936#0" expanded="true" />
-                <element signature="e#968#969#0" expanded="true" />
-                <element signature="e#2170#2171#0" expanded="true" />
-                <element signature="e#2201#2202#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
         </entry>
@@ -304,7 +261,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/entity/ResourceCategoryEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/AccessHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/requests.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/AccessRemoving.java" />
@@ -320,7 +276,6 @@
         <option value="$PROJECT_DIR$/src/main/java/course/resources/ResourseEditing.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionRemoving.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/section.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/resource.jsp" />
@@ -352,9 +307,11 @@
         <option value="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d783fc1c-3748-4cef-a6c6-195390ed1118/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp" />
       </list>
     </option>
   </component>
@@ -412,8 +369,6 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -495,6 +450,38 @@
               <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
               <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -508,6 +495,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -935,7 +924,8 @@
       <workItem from="1527263915509" duration="12500000" />
       <workItem from="1527288373627" duration="218000" />
       <workItem from="1527440774260" duration="9000" />
-      <workItem from="1527440931257" duration="160000" />
+      <workItem from="1527440931257" duration="228000" />
+      <workItem from="1527509490639" duration="6104000" />
     </task>
     <servers />
   </component>
@@ -972,7 +962,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="990230000" />
+    <option name="totallyTimeSpent" value="996402000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -992,28 +982,30 @@
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32893288" />
       <window_info anchor="right" id="Maven Projects" order="11" weight="0.20735608" />
-      <window_info anchor="right" id="CDI" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="right" id="CDI" order="8" />
       <window_info id="Capture Tool" order="8" />
       <window_info id="Designer" order="3" />
       <window_info anchor="bottom" id="Statistic" order="0" weight="0.8202614" />
       <window_info anchor="right" id="Database" order="12" sideWeight="0.4825073" weight="0.41417912" />
-      <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
       <window_info id="Structure" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
+      <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.4039666" />
+      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.2933194" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
       <window_info id="simpleUML" order="0" weight="0.32822758" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" weight="0.28392485" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" weight="0.2807933" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.16230936" />
       <window_info id="Persistence" order="2" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info active="true" content_ui="combo" id="Project" order="9" sideWeight="0.60890305" visible="true" weight="0.41791046" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.39770356" />
+      <window_info active="true" content_ui="combo" id="Project" order="9" sideWeight="0.60890305" visible="true" weight="0.47121534" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -1021,10 +1013,8 @@
       <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5174927" side_tool="true" weight="0.20202559" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.39770356" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.302714" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
     </layout>
@@ -1315,24 +1305,19 @@
           <option name="timeStamp" value="376" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp</url>
-          <line>373</line>
-          <properties />
-          <option name="timeStamp" value="381" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java</url>
           <line>80</line>
           <properties />
           <option name="timeStamp" value="385" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="386" />
+      <option name="time" value="390" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="cookieUtil.getUserUuidFromToken()" language="JSP" />
         <watch expression="courseChart.get(0)[0]" language="JSP" />
+        <watch expression="MethodUtil.courseCategoryCharts(cateries.get(j).getId())" language="JSP" custom="util.MethodUtil" />
       </configuration>
       <configuration name="Application">
         <watch expression="MethodUtil.getIdAuthByUUID(session, uuidUser)" language="JAVA" />
@@ -1345,6 +1330,12 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>MethodUtil.courseCategoryCharts(cateries.get(j).getId())</expression-string>
+        <language-id>JSP</language-id>
+        <custom-info>util.MethodUtil</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>courseChart.get(0)[0]</expression-string>
         <language-id>JSP</language-id>
@@ -1386,16 +1377,6 @@
         <language-id>JSP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>cookieUtil.getUserUuidFromToken()</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseInformationFromJson.getUuidUser().equals(cookieUtil.getUserUuidFromToken())</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="setValue">
       <expression>
@@ -1416,38 +1397,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/course/courses/FavoriteHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1773#1774#0" expanded="true" />
-            <element signature="e#1867#1868#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/FavoriteRemoving.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/FavoriteCreating.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/util/MailUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1598,13 +1547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Diploma_auction/src/main/java/by/iba/uzhyhala/entity/LotEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-714" />
@@ -1724,7 +1666,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/CourseEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
+        <state relative-caret-position="1122">
           <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
           <folding>
             <element signature="e#935#936#0" expanded="true" />
@@ -1732,13 +1674,6 @@
             <element signature="e#2170#2171#0" expanded="true" />
             <element signature="e#2201#2202#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1763,24 +1698,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TestHibernate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6341">
-          <caret line="373" selection-start-line="373" selection-end-line="373" />
+        <state relative-caret-position="306">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="426" column="5" selection-start-line="426" selection-start-column="5" selection-end-line="426" selection-end-column="5" />
+        <state relative-caret-position="-148">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
@@ -1791,7 +1747,6 @@
             <element signature="method#getResourceCategoryByid#0;class#MethodUtil#0" />
             <element signature="method#getJsonCourseStructure#0;class#MethodUtil#0" />
             <element signature="method#getJsonRequest#0;class#MethodUtil#0" />
-            <element signature="method#getCourseCategory#0;class#MethodUtil#0" />
             <element signature="method#getResourceCategory#0;class#MethodUtil#0" />
             <element signature="method#getAllUsers#0;class#MethodUtil#0" />
             <element signature="method#getAccessInformation#0;class#MethodUtil#0" />
@@ -1817,10 +1772,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/category">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        <state relative-caret-position="587">
+          <caret line="435" selection-start-line="435" selection-end-line="435" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#15422#15428#0#HTML" expanded="true" />
+            <element signature="e#16652#19294#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="395" selection-start-line="395" selection-end-line="395" />
         </state>
       </provider>
     </entry>
