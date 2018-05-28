@@ -1,13 +1,12 @@
 <%--suppress JspAbsolutePathInspection --%>
 <%@ page import="entity.AuthInfEntity" %>
+<%@ page import="entity.CategoryEntity" %>
 <%@ page import="entity.CourseEntity" %>
 <%@ page import="util.CookieUtil" %>
 <%@ page import="util.MethodUtil" %>
-<%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Objects" %>
 <%@ page import="java.util.Random" %>
-<%@ page import="entity.CategoryEntity" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -177,8 +176,8 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Revenue</p>
-                                            $1,345
+                                            <p>Courses per day</p>
+                                            <%=MethodUtil.coursePerDay().get(0)%>
                                         </div>
                                     </div>
                                 </div>
@@ -202,8 +201,8 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Errors</p>
-                                            23
+                                            <p>Users per day</p>
+                                            <%=MethodUtil.usersPerDay().get(0)%>
                                         </div>
                                     </div>
                                 </div>
@@ -251,18 +250,10 @@
                                 <p class="category">24 Hours performance</p>
                             </div>
                             <div class="content">
-                                <div id="chartHours" class="ct-chart"></div>
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-reload"></i> Updated 3 minutes ago
-                                    </div>
-                                </div>
+                                <center>
+                                    <canvas id="bar-chart-horizontal" width="800" height="450"
+                                            style="max-height: 550px;max-width: 980px"></canvas>
+                                </center>
                             </div>
                         </div>
                     </div>
@@ -275,18 +266,10 @@
                                 <p class="category">Last Campaign Performance</p>
                             </div>
                             <div class="content">
-                                <canvas id="myChart" width="300px" height="300px"></canvas>
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-timer"></i> Campaign sent 2 days ago
-                                    </div>
-                                </div>
+                                <center>
+                                    <canvas id="myChart" width="300px" height="300px"
+                                            style="max-width: 455px; max-height: 455px"></canvas>
+                                </center>
                             </div>
                         </div>
                     </div>
@@ -298,17 +281,6 @@
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart"></div>
-
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-check"></i> Data information certified
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -375,71 +347,92 @@
     $(document).ready(function () {
         var ctx = document.getElementById("myChart").getContext('2d');
         var myChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: [
+            type: 'doughnut',
+            data: {
+                labels: [
+                    <% for (int j=0;j<=cateries.size()-1;j++){
+                        if(j<cateries.size()-1){
+                    %>
+                    "<%=cateries.get(j).getName()%>",
+                    <%}else{%>
+                    "<%=cateries.get(j).getName()%>"
+                    <%}}%>
+                ],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [
                         <% for (int j=0;j<=cateries.size()-1;j++){
                             if(j<cateries.size()-1){
                         %>
-                        "<%=cateries.get(j).getName()%>",
+                        "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%> ",
                         <%}else{%>
-                        "<%=cateries.get(j).getName()%>"
+                        "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%>"
                         <%}}%>
                     ],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [
-                            <% for (int j=0;j<=cateries.size()-1;j++){
-                                if(j<cateries.size()-1){
-                            %>
-                            "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%> ",
-                            <%}else{%>
-                            "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%>"
-                            <%}}%>
-                        ],
-                        backgroundColor: [
-                            <% for (int j=0;j<=cateries.size();j++){
-                            if(j < cateries.size()) {
-                            %>
-                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
-                            <%}else{%>
-                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
-                            <%}}%>
-                        ],
-                        borderColor: [
-                            <% for (int j=0;j<=cateries.size();j++){
-                            if(j < cateries.size()) {
-                            %>
-                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
-                            <%}else{%>
-                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
-                            <%}}%>
-                        ],
-                        borderWidth:
-                            1
-                    }
-                    ]
-                },
-
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
+                    backgroundColor: [
+                        <% for (int j=0;j<=cateries.size();j++){
+                        if(j < cateries.size()) {
+                        %>
+                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
+                        <%}else{%>
+                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
+                        <%}}%>
+                    ],
+                    borderColor: [
+                        <% for (int j=0;j<=cateries.size();j++){
+                        if(j < cateries.size()) {
+                        %>
+                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
+                        <%}else{%>
+                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
+                        <%}}%>
+                    ],
+                    borderWidth:
+                        1
                 }
-            })
-        ;
+                ]
+            },
+
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        new Chart(document.getElementById("bar-chart-horizontal"), {
+            type: 'horizontalBar',
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
+                datasets: [
+                    {
+                        label: "Population (millions)",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                        data: [2478, 5267, 734, 784, 433]
+                    }
+                ]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                    text: 'Predicted world population (millions) in 2050'
+                }
+            }
+        });
+
 
         $.notify({
             icon: 'ti-gift',
-            message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+            message: "Welcome to <b>Admin Page</b>."
 
         }, {
             type: 'success',
-            timer: 4000
+            timer: 3000
         });
 
     });

@@ -40,6 +40,7 @@ public class DocumentHandler extends HttpServlet {
         columnList.add("Category");
         columnList.add("Section count");
         columnList.add("Description");
+        columnList.add("Date create");
 
         assert coursesList != null;
         for (CourseEntity course : coursesList) {
@@ -48,6 +49,7 @@ public class DocumentHandler extends HttpServlet {
             map.put(columnList.get(1), course.getStatus());
             map.put(columnList.get(2), Objects.requireNonNull(MethodUtil.getCourseCategoryByid(course.getCategory())).getName());
             map.put(columnList.get(4), course.getNameCourse());
+            map.put(columnList.get(5), course.getDateCreate());
             dataList.add(map);
         }
         MailUtil mailUtil = new MailUtil();

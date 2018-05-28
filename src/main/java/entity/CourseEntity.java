@@ -15,6 +15,7 @@ public class CourseEntity {
     private Set<AuthInfEntity> authAcsById;
     private Set<AuthInfEntity> authRCById;
     private Integer category;
+    private String dateCreate;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +36,16 @@ public class CourseEntity {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Basic
+    @Column(name = "date_create")
+    public String getDateCreate() {
+        return dateCreate;
+    }
+
+    public void setDateCreate(String dateCreate) {
+        this.dateCreate = dateCreate;
     }
 
     @Basic

@@ -10,7 +10,11 @@
     <welcome-file>/pages/index.jsp</welcome-file>
   </welcome-file-list>
 
-
+  <error-page>
+    <!-- Missing resource -->
+    <error-code>404</error-code>
+    <location>/pages/404.html</location>
+  </error-page>
 
 </web-app>
 

@@ -22,6 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -419,12 +420,25 @@ public class MethodUtil {
 
     public static List courseCategoryCharts(int category) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("SELECT COUNT(uuid) FROM "+ FinalValueUtil.ENTITY_COURSE + " WHERE category=:category")
-                    .setParameter("category",category).getResultList();
+            return session.createQuery("SELECT COUNT(uuid) FROM " + FinalValueUtil.ENTITY_COURSE + " WHERE category=:category")
+                    .setParameter("category", category).getResultList();
         } catch (Exception ex) {
             LOGGER.info(ex.getLocalizedMessage());
         }
         return null;
     }
 
+    public static List coursePerDay() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("SELECT COUNT(uuid) FROM " + FinalValueUtil.ENTITY_COURSE + " WHERE dateCreate =:date")
+                    .setParameter("date", new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new Date().getTime())).getResultList();
+        }
+    }
+
+    public static List usersPerDay(){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("SELECT COUNT(uuid) FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " WHERE dateReg =:date")
+                    .setParameter("date", new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new Date().getTime())).getResultList();
+        }
+    }
 }

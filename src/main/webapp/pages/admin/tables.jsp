@@ -146,10 +146,6 @@
                                     here.</p>
                             </div>
                             <div class="content table-responsive table-full-width">
-                                <div style="display: inline-block;float: right">
-                                    <button type="button" class="btn ti-plus" id="addUserBtn"
-                                            style="color: #67b168"></button>
-                                </div>
                                 <table class="table table-striped" id="datatable">
                                     <thead>
                                     <th>Uuid</th>
@@ -251,50 +247,6 @@
         </footer>
 
 
-    </div>
-</div>
-
-<div id="addUser" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close ti-close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title" style="color: #3A3A3A">Add user</h4>
-            </div>
-            <div class="modal-body">
-                <form action="/registration" role="form" method="post">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="fname"
-                               maxlength="50" placeholder="Firstname" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="lname"
-                               maxlength="50" placeholder="Lastname" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="date" class="form-control" name="bday" placeholder="Birth day" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="login"
-                               maxlength="50" placeholder="Login" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email"
-                               maxlength="70" placeholder="E-mail" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="password" required
-                               maxlength="50" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="confirm_password"
-                               maxlength="50" placeholder="Confirm password" required>
-                    </div>
-                    <div class="g-recaptcha" data-sitekey="<%=ReCaptchaUtil.PUBLIC%>"></div>
-                    <input type="submit" class="btn-modal" value="ADD">
-                </form>
-            </div>
-        </div>
     </div>
 </div>
 

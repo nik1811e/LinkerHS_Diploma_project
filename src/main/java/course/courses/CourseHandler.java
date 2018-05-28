@@ -55,6 +55,7 @@ public class CourseHandler extends HttpServlet implements Serializable {
                 courseEntity.setStatus(status);
                 courseEntity.setUuid(uuidNewCourse);
                 courseEntity.setNameCourse(name);
+                courseEntity.setDateCreate(new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new Date().getTime()));
                 courseEntity.setStructure(addStructureCourse(uuidAuth, name, desc, status, new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new Date().getTime())));
                 session.save(courseEntity);
                 transaction.commit();
