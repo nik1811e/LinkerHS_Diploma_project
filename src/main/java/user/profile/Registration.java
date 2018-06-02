@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import entity.AuthInfEntity;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import user.IParseJsonString;
 import util.FinalValueUtil;
 import util.HibernateUtil;
 import util.MailUtil;
@@ -22,7 +21,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @WebServlet(urlPatterns = "/registration")
-public class Registration extends HttpServlet implements IParseJsonString {
+public class Registration extends HttpServlet implements IParseJSON {
     private static final Logger LOGGER = Logger.getLogger(Registration.class);
 
     private Gson gson = new Gson();
@@ -108,5 +107,4 @@ public class Registration extends HttpServlet implements IParseJsonString {
         authInfoEntity.setEmail(email);
         return gson.toJson(authInfoEntity);
     }
-
 }

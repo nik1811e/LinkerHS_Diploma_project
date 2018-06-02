@@ -157,7 +157,7 @@
                 </div>
                 <div class="feature-image">
                     <a href="" data-rel="prettyPhoto">
-                        <img src="/resources/img/slides/01.jpg" alt="<%=resource.getName()%>"/>
+                        <img src="/resources/img/course_def.jpg" alt="<%=resource.getName()%>"/>
                     </a>
                 </div>
                 <div class="excerpt" style="width: 480px">

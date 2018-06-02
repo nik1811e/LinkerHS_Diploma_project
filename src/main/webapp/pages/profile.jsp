@@ -147,6 +147,7 @@
                                     <img class="avatar border-white" src="/resources/img/avatar.png"
                                          alt="avatar"/>
                                     <br>
+                                    <%if(cookieUtil.getUserUuidFromToken().equals(request.getParameter("uuidAuth"))){%>
                                     <hr>
                                     <form method="post" action="/editprofile" enctype="multipart/form-data">
                                         <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
@@ -159,14 +160,16 @@
                                         <input type="hidden" name="lname" value="<%=authInfEntityList.getLName()%>">
                                         <input type="hidden" name="desc" value="<%=authInfEntityList.getAbout()%>">
                                         <input type="file" name="upload_img" id="img_upload">
-                                        <input type="submit" placeholder="Загрузить аватар">
+                                        <input type="submit" value="Загрузить аватар">
                                 </form>
+                                    <%}%>
                                     <br>
                                     <hr>
                                 <%} else {%>
                                 <img class="avatar border-white" src="<%=filePath.replace("//", "/")%>"
                                      alt="avatar"/>
                                     <br>
+                                    <%if(cookieUtil.getUserUuidFromToken().equals(request.getParameter("uuidAuth"))){%>
                                     <hr>
                                     <form method="post" action="/editprofile" enctype="multipart/form-data">
                                         <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
@@ -181,6 +184,7 @@
                                         <input type="file" name="upload_img" id="img_upload">
                                         <input type="submit" placeholder="Загрузить аватар">
                                     </form>
+                                    <%}%>
                                     <br>
                                     <hr>
                                 <%}%>

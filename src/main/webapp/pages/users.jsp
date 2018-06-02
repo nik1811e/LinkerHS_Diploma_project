@@ -88,7 +88,7 @@
 
         <!-- nav -->
         <ul id="nav" class="sf-menu sf-js-enabled sf-shadow">
-            <li class="current-menu-item"><a href="#" style="text-decoration: none">ГЛАВНАЯ</a></li>
+            <li><a href="#" style="text-decoration: none">ГЛАВНАЯ</a></li>
             <li><a href="#" style="text-decoration: none">КАТАЛОГ РЕСУРСОВ</a>
                 <ul>
                     <li><a href="/pages/catalog.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"

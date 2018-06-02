@@ -13,7 +13,7 @@
   <error-page>
     <!-- Missing resource -->
     <error-code>404</error-code>
-    <location>/pages/404.html</location>
+    <location>/pages/404error.html.html</location>
   </error-page>
 
 </web-app>

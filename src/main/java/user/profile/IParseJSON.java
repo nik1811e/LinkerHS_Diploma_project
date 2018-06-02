@@ -1,6 +1,5 @@
-package user;
+package user.profile;
 
-public interface IParseJsonString {
+public interface IParseJSON {
     String prepareInputString(String login, String password, String emil);
-
 }

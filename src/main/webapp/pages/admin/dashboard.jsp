@@ -333,7 +333,7 @@
 <script src="/resources/js/admin/bootstrap-checkbox-radio.js"></script>
 
 <!--  Charts Plugin -->
-<script src="/resources/js/admin/chartist.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
 <!--  Notifications Plugin    -->
 <script src="/resources/js/admin/bootstrap-notify.js"></script>
@@ -341,7 +341,7 @@
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="/resources/js/admin/paper-dashboard.js"></script>
 <script src="/resources/js/admin/demo.js"></script>
-<script src="/resources/js/admin/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {

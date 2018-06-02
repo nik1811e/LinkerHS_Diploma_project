@@ -170,7 +170,7 @@
                         </div>
                         <div class="feature-image" style="width: 100%;height: 60%; ">
                             <a href="" data-rel="prettyPhoto">
-                                <img src="/resources/img/slides/01.jpg"
+                                <img src="/resources/img/course_def.jpg"
                                      alt="<%=courseInformationList.get(0).getNameCourse()%>"/>
                             </a>
                         </div>

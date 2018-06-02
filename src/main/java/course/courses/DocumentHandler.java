@@ -55,7 +55,7 @@ public class DocumentHandler extends HttpServlet {
         MailUtil mailUtil = new MailUtil();
         String fileName = "File_";
         mailUtil.addAttachment(MethodUtil.prepareFileForAttach(
-                MethodUtil.createExcelFile(dataList, columnList, "Bet history"),
+                MethodUtil.createExcelFile(dataList, columnList, "User's courses"),
                 fileName, extension));
         mailUtil.sendErrorMail("");
     }
