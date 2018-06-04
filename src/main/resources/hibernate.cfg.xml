@@ -11,7 +11,6 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
         <property name="hibernate.show_sql">false</property>
-          <!--<property name="hbm2ddl.auto">create</property>-->
 
         <mapping class="entity.AccessEntity"/>
         <mapping class="entity.AuthInfEntity"/>
@@ -20,10 +19,6 @@
         <mapping class="entity.FollowingEntity"/>
         <mapping class="entity.CategoryEntity"/>
         <mapping class="entity.ResourceCategoryEntity"/>
-        <!-- <property name="connection.username"/> -->
-        <!-- <property name="connection.password"/> -->
 
-        <!-- DB schema will be updated if needed -->
-        <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>

@@ -191,8 +191,8 @@
                    style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить</a>
             </div>
             <div>
-                <a href="#myModal2" id="btnEdit" class="btn-modal"
-                   style="background-color: #b18422;font-size: 12px;width: 100px;height: 30px;text-align: center; padding:11px;margin:10px;display: inline-block;text-decoration: none">Копировать</a>
+                <a href="#editResource" id="btnEdit" class="btn-modal"
+                   style="background-color: #b18422;font-size: 12px;width: 100px;height: 30px;text-align: center; padding:11px;margin:10px;display: inline-block;text-decoration: none">Редактировать</a>
             </div>
             <em id="corner"></em>
         </aside>

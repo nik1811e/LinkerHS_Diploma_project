@@ -4,8 +4,8 @@
 <%@ page import="util.MethodUtil" %>
 <%@ page import="util.ReCaptchaUtil" %>
 <%@ page import="java.util.List" %>
-<!doctype html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="utf-8"/>
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
@@ -211,6 +211,53 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Users list</h4>
+                                <p class="category" style="display: inline-block">A full list of users is displayed
+                                    here.</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover" id="datatable1">
+                                    <thead>
+                                    <th>Uuid</th>
+                                    <th>Category</th>
+                                    <th>Name course</th>
+                                    <th>Status</th>
+                                    <th>Date create</th>
+                                    <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                    <%
+                                        for (CourseEntity course : coursesList) {
+                                    %>
+                                    <tr>
+                                        <td><%=course.getUuid()%></td>
+                                        <td><%=MethodUtil.getCourseCategoryByid(course.getCategory()).getName()%></td>
+                                        <td><%=course.getNameCourse()%></td>
+                                        <td><%=course.getStatus()%></td>
+                                        <td><%=course.getDateCreate()%></td>
+                                        <td>
+                                            <div style="display: inline-block">
+                                                <form action="/removecourseadmin" method="post" style="display: inline-block">
+                                                    <input type="hidden" value="<%=course.getUuid()%>" name="uuidCourse">
+                                                    <button type="submit" class="btn ti-close"
+                                                            style="color: #d9534f"></button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <%
+                                        }
+                                    %>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -249,71 +296,6 @@
 
     </div>
 </div>
-
-<%--
-<div id="editCourse" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" style="color: #3A3A3A">Редиктирование</h4>
-            </div>
-            <div class="modal-body">
-                <form action="/editcourse" role="form" method="post">
-                    <input type="hidden" name="uuidAuth" value="<%=request.getParameter("uuidAuth")%>">
-                    <input type="hidden" name="uuidCourseEdit" value="<%=request.getParameter("uuidCourse")%>">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="nameCourseEdit" required
-                               maxlength="50" placeholder="Название"
-                               value="<%=courseInformationList.get(0).getNameCourse()%>">
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="status" name="statusCourseEdit">
-                            <%if (courseInformationList.get(0).getStatus().equals("Открыт")) {%>
-                            <option selected>Открыт</option>
-                            <option>Закрыт</option>
-                            <%} else {%>
-                            <option>Открыт</option>
-                            <option selected>Закрыт</option>
-                            <%}%>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="id_category" name="courseCategoryEdit">
-                            <%
-                                assert categoryEntityList != null;
-                                for (int i = 0; i < categoryEntityList.size(); i++) {
-                                    int id = categoryEntityList.get(i).getId();
-                                    String name = categoryEntityList.get(i).getName();
-                                    assert currentCategory != null;
-                                    if (!currentCategory.equals(name)) {
-                            %>
-                            <option value="<%=id%>"><%=name%>
-                            </option>
-                            <%} else {%>
-                            <option selected value="<%=id%>"><%=name%>
-                            </option>
-                            <%
-                                    }
-                                }
-                            %>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                                    <textarea class="form-control" name="courseDescEdit" id="desc"
-                                              placeholder="Описание курса" maxlength="6000" rows="7">
-                                        <%=courseInformationFromJson.getDescriptionCourse().trim()%>
-                                    </textarea>
-                    </div>
-                    <button type="submit" class="btn-modal" id="btnContactUs">
-                        Внести изменения
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
---%>
 
 </body>
 

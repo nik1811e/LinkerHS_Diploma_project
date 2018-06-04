@@ -184,7 +184,7 @@
                                 <div class="footer">
                                     <hr/>
                                     <div class="stats">
-                                        <i class="ti-calendar"></i> Last day
+                                        <a href="tables.jsp" style="text-decoration: none">  <i class="ti-calendar"></i> Last day </a>
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,8 @@
                                 <div class="footer">
                                     <hr/>
                                     <div class="stats">
-                                        <i class="ti-timer"></i> In the last hour
+                                        <a href="tables.jsp" style="text-decoration: none">  <i class="ti-timer"></i> In the last day</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +235,7 @@
                                 <div class="footer">
                                     <hr/>
                                     <div class="stats">
-                                        <i class="ti-reload"></i> Updated now
+                                        <a href="tables.jsp" style="text-decoration: none"><i class="ti-reload"></i> Updated now</a>
                                     </div>
                                 </div>
                             </div>
@@ -250,10 +251,7 @@
                                 <p class="category">24 Hours performance</p>
                             </div>
                             <div class="content">
-                                <center>
-                                    <canvas id="bar-chart-horizontal" width="800" height="450"
-                                            style="max-height: 550px;max-width: 980px"></canvas>
-                                </center>
+
                             </div>
                         </div>
                     </div>
@@ -262,8 +260,8 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
+                                <h4 class="title">Course Statistics</h4>
+                                <p class="category">Course By Category</p>
                             </div>
                             <div class="content">
                                 <center>
@@ -276,11 +274,14 @@
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
-                                <h4 class="title">2015 Sales</h4>
-                                <p class="category">All products including Taxes</p>
+                                <h4 class="title">Role statistic</h4>
+                                <p class="category">Users By Role</p>
                             </div>
                             <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
+                                <center>
+                                    <canvas id="chartRole" width="300px" height="300px"
+                                            style="max-width: 455px; max-height: 455px"></canvas>
+                                </center>
                             </div>
                         </div>
                     </div>
@@ -343,96 +344,107 @@
 <script src="/resources/js/admin/demo.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    <% for (int j=0;j<=cateries.size()-1;j++){
-                        if(j<cateries.size()-1){
-                    %>
-                    "<%=cateries.get(j).getName()%>",
-                    <%}else{%>
-                    "<%=cateries.get(j).getName()%>"
-                    <%}}%>
-                ],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
                         <% for (int j=0;j<=cateries.size()-1;j++){
                             if(j<cateries.size()-1){
                         %>
-                        "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%> ",
+                        "<%=cateries.get(j).getName()%>",
                         <%}else{%>
-                        "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%>"
+                        "<%=cateries.get(j).getName()%>"
                         <%}}%>
                     ],
-                    backgroundColor: [
-                        <% for (int j=0;j<=cateries.size();j++){
-                        if(j < cateries.size()) {
-                        %>
-                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
-                        <%}else{%>
-                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
-                        <%}}%>
-                    ],
-                    borderColor: [
-                        <% for (int j=0;j<=cateries.size();j++){
-                        if(j < cateries.size()) {
-                        %>
-                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
-                        <%}else{%>
-                        'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
-                        <%}}%>
-                    ],
-                    borderWidth:
-                        1
-                }
-                ]
-            },
-
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        new Chart(document.getElementById("bar-chart-horizontal"), {
-            type: 'horizontalBar',
-            data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
-                datasets: [
-                    {
-                        label: "Population (millions)",
-                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                        data: [2478, 5267, 734, 784, 433]
+                    datasets: [{
+                        label: '',
+                        data: [
+                            <% for (int j=0;j<=cateries.size()-1;j++){
+                                if(j<cateries.size()-1){
+                            %>
+                            "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%> ",
+                            <%}else{%>
+                            "<%=Objects.requireNonNull(MethodUtil.courseCategoryCharts(cateries.get(j).getId())).get(0)%>"
+                            <%}}%>
+                        ],
+                        backgroundColor: [
+                            <% for (int j=0;j<=cateries.size();j++){
+                            if(j < cateries.size()) {
+                            %>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
+                            <%}else{%>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
+                            <%}}%>
+                        ],
+                        borderColor: [
+                            <% for (int j=0;j<=cateries.size();j++){
+                            if(j < cateries.size()) {
+                            %>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)',
+                            <%}else{%>
+                            'rgba(<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>,<%= new Random().nextInt((255-1)+1)+1%>)'
+                            <%}}%>
+                        ],
+                        borderWidth: 1
                     }
-                ]
-            },
-            options: {
-                legend: {display: false},
-                title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050'
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });
 
-
+            var ctx = document.getElementById("chartRole").getContext('2d');
+            var roleChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        "Admin role","User role"
+                    ],
+                    datasets: [{
+                        label: '',
+                        data: [
+                          <%=MethodUtil.usersByRole("admin")%>,
+                          <%=MethodUtil.usersByRole("user")%>
+                        ],
+                        backgroundColor: [
+                            'rgba(194,243,97)',
+                            'rgba(246,123,138)'
+                        ],
+                        borderColor: [
+                            'rgba(100,140,20)',
+                            'rgba(114,35,40)'
+                        ],
+                        borderWidth: 1
+                    }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
         $.notify({
             icon: 'ti-gift',
             message: "Welcome to <b>Admin Page</b>."
 
         }, {
             type: 'success',
-            timer: 3000
+            timer: 2000
         });
 
     });

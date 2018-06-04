@@ -347,16 +347,16 @@ public class MethodUtil {
         }
     }
 
-    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String email, String fname, String lname, String bday, String uuid, String desc, String date, String image) {
+    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String email, String fname, String lname, String bday, String uuid, String desc, String date/*, String image*/) {
         try {
             session.createQuery("UPDATE  " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " +
-                    "a.login=:login, a.nameImage=:nameImage,a.email=:email," +
+                    "a.login=:login,a.email=:email," +
                     "a.FName =:fname,a.LName =:lname,a.BDay=:bday,a.about=:about," +
                     "a.dateReg=:date WHERE a.uuid =:uuid")
                     .setParameter("login", login).setParameter("email", email)
                     .setParameter("fname", fname).setParameter("lname", lname)
-                    .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc)
-                    .setParameter("date", date).setParameter("nameImage", image).executeUpdate();
+                    .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc).executeUpdate();
+                  /*  .setParameter("date", date).setParameter("nameImage", image)*/
             transaction.commit();
             return true;
         } catch (Exception ex) {
@@ -424,8 +424,8 @@ public class MethodUtil {
                     .setParameter("category", category).getResultList();
         } catch (Exception ex) {
             LOGGER.info(ex.getLocalizedMessage());
+            return null;
         }
-        return null;
     }
 
     public static List coursePerDay() {
@@ -439,6 +439,16 @@ public class MethodUtil {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT COUNT(uuid) FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " WHERE dateReg =:date")
                     .setParameter("date", new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new Date().getTime())).getResultList();
+        }
+    }
+
+    public static List usersByRole (String role){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("SELECT COUNT(uuid) FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " WHERE role=:role")
+                    .setParameter("role", role).getResultList();
+        } catch (Exception ex) {
+            LOGGER.info(ex.getLocalizedMessage());
+            return null;
         }
     }
 }

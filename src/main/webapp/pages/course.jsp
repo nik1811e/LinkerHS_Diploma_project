@@ -160,6 +160,9 @@
                                 <a href="#editCourse" id="btnEdit" class="btn-modal"
                                    style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
                                 </a>
+                                <a href="#addSection" id="btnAdd" class="btn-modal"
+                                   style="background-color: #9fca10;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
+                                </a>
                             </div>
                             <%}%>
                             <br>
@@ -191,8 +194,6 @@
                             uuidCourse)
                             ) { %>
                 <h1 class="home-headline">Разделы</h1>
-                <p><a href="#myModal2" id="btn2" class="btn-modal"
-                      style="padding: 20px;font-size: 16px">Добавить раздел</a></p>
                 <%
                     assert sectionTOList != null;
                     if (!sectionTOList.isEmpty()) {
@@ -254,7 +255,7 @@
 </div>
 
 </div>
-<div id="myModal2" class="modal fade">
+<div id="addSection" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -388,8 +389,8 @@
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script>
     $(function () {
-        $("#btn2").click(function () {
-            $("#myModal2").modal('show');
+        $("#btnAdd").click(function () {
+            $("#addSection").modal('show');
         });
     });
     $(function () {

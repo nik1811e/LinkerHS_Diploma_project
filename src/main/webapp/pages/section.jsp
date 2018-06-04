@@ -131,12 +131,19 @@
                             <h3>
                                 <%=sectionInformation.getName()%><br>
                             </h3>
-                            <a href="#removeSection" id="btnSectionRemove" class="btn-modal"
-                                     style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить раздел</a>
+                            <%if(request.getParameter("uuidAuth").equals(cookieUtil.getUserUuidFromToken())){%>
+                            <div style="float: right;display: inline-block">
+                                <a href="#removeSection" id="btnSectionRemove" class="btn-modal"
+                                   style="background-color: #b1766a;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Удалить</a>
+                                <a href="#editSection" id="btnEdit" class="btn-modal"
+                                   style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
+                                </a>
+                                <a href="#addResource" id="btnAdd" class="btn-modal"
+                                   style="background-color: #9fca10;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
+                                </a>
+                            </div
+                            <%}%>
                             <br>
-                            <a href="#editSection" id="btnEdit" class="btn-modal"
-                               style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
-                            </a>
                             <div class="meta">
                                 <span class="user"><%=Objects.requireNonNull(new CourseInformation().getCourseInformation((sectionInformation.getUuidCourse())).get(0).getNameCourse().toUpperCase())%> |</span>
                                 <span class="comments"><%=sectionInformation.getDateLastUpdate().toUpperCase()%></span>
@@ -157,9 +164,6 @@
             <h1 class="home-headline">Ресурсы</h1>
             <!-- thumbs -->
             <div class="clearfix">
-                <p><a href="#myModal2" id="btn2" class="btn-modal" style="padding: 20px;font-size: 16px">Добавить
-                    ресурс</a></p>
-
                 <%
                     if (!resourceTOList.isEmpty()) {
                         assert resourceTOList != null;
@@ -209,7 +213,7 @@
         <!-- ENDS bottom -->
     </div>
 </footer>
-<div id="myModal2" class="modal fade">
+<div id="addResource" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -257,7 +261,7 @@
                                     <textarea class="form-control" type="textarea" name="desc" id="desc"
                                               placeholder="Описание" maxlength="6000" rows="7"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-lg sun-flower-button btn-block" id="btnContactUs">
+                    <button type="submit" class="btn-modal" id="btnContactUs">
                         Добавить
                     </button>
                 </form>
@@ -322,8 +326,8 @@
 <script src="/resources/js/jQuery.headroom.min.js"></script>
 <script>
     $(function () {
-        $("#btn2").click(function () {
-            $("#myModal2").modal('show');
+        $("#btnAdd").click(function () {
+            $("#addResource").modal('show');
         });
     });
     $(function () {

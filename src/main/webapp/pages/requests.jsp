@@ -146,7 +146,7 @@
                             <div class="post-heading">
 
                                 <a href="/pages/course.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>&&uuidCourse=<%=req.getUuidCourse()%>"
-                                   style="font-size: 20px"><%=new CourseInformation().getCourseInformation(req.getUuidCourse())%>
+                                   style="font-size: 20px"><%=courseStructureTO.getNameCourse()%>
                                 </a>
                             </div>
                             <div class="excerpt" style="display: inline-block">На ваш курс пришел запрос от пользователя

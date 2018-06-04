@@ -7,52 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ef4015a-6d3f-42cf-a759-09c86d3ccc18" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/user/profile/IParseJSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/course_def.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118/storage_v2/_src_/database/service.tcZDdg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d783fc1c-3748-4cef-a6c6-195390ed1118/storage_v2/_src_/database/service.tcZDdg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/course/CourseRemoving.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/courses/DocumentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/course/courses/DocumentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/course/resources/ResourceTransfer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/IParseJsonString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/profile/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/profile/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/profile/UserRemoving.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/404error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/user/profile/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/profile/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/course.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/requests.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/requests.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/resource.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/resource.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/section.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/section.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/404.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/404.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/slides/01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/slides/01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/slides/02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/slides/02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/slides/03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/slides/03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/slides/04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/behance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/digg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/dribbble.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/ember.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/evernot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/flickr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/forrst.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/github.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/google.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/lastfm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/linkedin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/rss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/sharethis.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/skype.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/tumblr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/twitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/vimeo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/social/youtube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/admin/chart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/admin/chartist.min.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -146,66 +114,121 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="noise-all.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/noise-all.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="plus.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/plus.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="strip.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/strip.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="avatar.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/avatar.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="catalog.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <file leaf-file-name="tables.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="154" column="63" selection-start-line="154" selection-start-column="63" selection-end-line="154" selection-end-column="63" />
+            <state relative-caret-position="136">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="course.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/course.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="section.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/section.jsp">
+      <file leaf-file-name="dashboard.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
+            <state relative-caret-position="563">
+              <caret line="423" column="44" selection-start-line="423" selection-start-column="44" selection-end-line="423" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resource.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/resource.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+      <file leaf-file-name="hibernate.cfg.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="186" column="39" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="39" />
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toggle.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/toggle.png">
-          <provider selected="true" editor-type-id="images" />
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="course" pinned="false" current-in-tab="false">
+        <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseRemoving.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseRemoving.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="29" column="13" selection-start-line="25" selection-start-column="12" selection-end-line="29" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseRemoving.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/admin/course/CourseRemoving.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRemoving.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/admin/user/UserRemoving.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="25" column="79" selection-start-line="25" selection-start-column="79" selection-end-line="25" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MethodUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1513">
+              <caret line="447" column="39" selection-start-line="447" selection-start-column="39" selection-end-line="447" selection-end-column="39" />
+              <folding>
+                <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
+                <element signature="method#getUuudAuthById#0;class#MethodUtil#0" />
+                <element signature="method#getIdAuthByUUID#0;class#MethodUtil#0" />
+                <element signature="method#getAuthInfByUuid#0;class#MethodUtil#0" />
+                <element signature="method#getIdCourseByUUID#0;class#MethodUtil#0" />
+                <element signature="method#getCourseCategoryByid#0;class#MethodUtil#0" />
+                <element signature="method#getResourceCategoryByid#0;class#MethodUtil#0" />
+                <element signature="method#getJsonCourseStructure#0;class#MethodUtil#0" />
+                <element signature="method#getJsonRequest#0;class#MethodUtil#0" />
+                <element signature="method#getCourseCategory#0;class#MethodUtil#0" />
+                <element signature="method#getResourceCategory#0;class#MethodUtil#0" />
+                <element signature="method#getAllUsers#0;class#MethodUtil#0" />
+                <element signature="method#getAccessInformation#0;class#MethodUtil#0" />
+                <element signature="method#checkAccess#0;class#MethodUtil#0" />
+                <element signature="method#updateJsonStructure#0;class#MethodUtil#0" />
+                <element signature="method#isExistFollowing#0;class#MethodUtil#0" />
+                <element signature="method#getUserFollowings#0;class#MethodUtil#0" />
+                <element signature="method#getUserFollowers#0;class#MethodUtil#0" />
+                <element signature="method#updateRequest#0;class#MethodUtil#0" />
+                <element signature="method#isUniqueNameCourse#0;class#MethodUtil#0" />
+                <element signature="method#isUniqueSectionName#0;class#MethodUtil#0" />
+                <element signature="method#isUniqueResource#0;class#MethodUtil#0" />
+                <element signature="method#getAllCourses#0;class#MethodUtil#0" />
+                <element signature="method#prepareExcelFileForAttach#0;class#MethodUtil#0" />
+                <element signature="method#createExcelFile#0;class#MethodUtil#0" />
+                <element signature="method#prepareFileForAttach#0;class#MethodUtil#0" />
+                <element signature="method#updateAuthInf#0;class#MethodUtil#0" />
+                <element signature="method#setSectionResources#0;class#MethodUtil#0" />
+                <element signature="method#separateUploadFileName#0;class#MethodUtil#0" />
+                <element signature="method#saveUploadFile#0;class#MethodUtil#0" />
+                <element signature="method#isUniqueCourseCategory#0;class#MethodUtil#0" />
+                <element signature="method#isUniqueCategoryLink#0;class#MethodUtil#0" />
+                <element signature="method#coursePerDay#0;class#MethodUtil#0" />
+                <element signature="method#usersPerDay#0;class#MethodUtil#0" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -216,23 +239,15 @@
         <option value="Jspx File" />
         <option value="Jsp File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="FindBugs-IDEA-Workspace">
-    <toolWindowEditorPreview>false</toolWindowEditorPreview>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>580</find>
-      <find>form</find>
-      <find>img</find>
-      <find>RURI</find>
-      <find>ruri</find>
       <find>chis</find>
       <find>chisa</find>
       <find>hos</find>
@@ -258,6 +273,11 @@
       <find>canva</find>
       <find>canvas</find>
       <find>01</find>
+      <find>btnAdd</find>
+      <find>rem</find>
+      <find>stat</find>
+      <find>sta</find>
+      <find>stats</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,9 +286,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/course/resources/ResourceRemoving.java" />
-        <option value="$PROJECT_DIR$/src/main/java/course/resources/ResourseEditing.java" />
-        <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionRemoving.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/sections/SectionEditing.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/profile/Authorization.java" />
@@ -281,7 +298,6 @@
         <option value="$PROJECT_DIR$/src/main/java/course/resources/ResourceEditing.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/AuthInfEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/FinalValueUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/user/profile/Profile.java" />
         <option value="F:/Diploma_auction/src/main/webapp/pages/lot.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/admin/category/RemoveCategoryRemoving.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryRemoving.java" />
@@ -293,30 +309,34 @@
         <option value="$PROJECT_DIR$/src/main/java/admin/category/CourseCategoryHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/category/ResourceCategoryHandler.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d783fc1c-3748-4cef-a6c6-195390ed1118/console.sql" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/404 error.html" />
         <option value="$PROJECT_DIR$/src/main/java/entity/CourseEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/CourseHandler.java" />
         <option value="$PROJECT_DIR$/src/test/java/course/courses/CourseCreatingTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/404.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/404error.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/404.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/404error.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/user/profile/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/profile/IParseJSON.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/course/courses/DocumentHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/user/profile/UserRemoving.java" />
+        <option value="$PROJECT_DIR$/src/main/java/user/profile/Profile.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/course.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/section.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/resource.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/user/profile/UserRemoving.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/profile.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/requests.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/course/CourseRemoving.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/course.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/util/MethodUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -359,8 +379,9 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="617" />
+    <option name="y" value="-19" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -404,6 +425,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -412,25 +442,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
               <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="following" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkerHS_diploma" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LinkerHS_diploma" type="b2602c69:ProjectViewProjectNode" />
@@ -452,8 +471,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -689,6 +708,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_diplomaS_4" />
+        <option name="JNDI_PORT" value="1092" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -751,10 +771,10 @@
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.Tom" />
+      <item itemvalue="JavaScript Debug.404error.html" />
       <item itemvalue="JUnit.MethodUtilTest.testGetAllCourses" />
       <item itemvalue="JUnit.MethodUtilTest.testgetAllUsers" />
       <item itemvalue="JUnit.CourseCreatingTest" />
-      <item itemvalue="JavaScript Debug.404error.html" />
       <item itemvalue="Tomcat Server.404error.html" />
     </list>
     <recent_temporary>
@@ -893,6 +913,33 @@
       <workItem from="1527902607704" duration="2032000" />
       <workItem from="1527905034769" duration="1055000" />
       <workItem from="1527951616356" duration="1762000" />
+      <workItem from="1527953414966" duration="1805000" />
+      <workItem from="1527955542704" duration="636000" />
+      <workItem from="1527965594086" duration="1771000" />
+      <workItem from="1527967829581" duration="1978000" />
+      <workItem from="1527970105084" duration="598000" />
+      <workItem from="1527972032733" duration="1565000" />
+      <workItem from="1527982533636" duration="803000" />
+      <workItem from="1527987361193" duration="1230000" />
+      <workItem from="1528017520620" duration="1115000" />
+      <workItem from="1528019356799" duration="1779000" />
+      <workItem from="1528021168456" duration="692000" />
+      <workItem from="1528024563107" duration="1211000" />
+      <workItem from="1528026408573" duration="1461000" />
+      <workItem from="1528028781864" duration="1169000" />
+      <workItem from="1528031164926" duration="2045000" />
+      <workItem from="1528035492216" duration="1346000" />
+      <workItem from="1528040038320" duration="1748000" />
+      <workItem from="1528042999007" duration="1976000" />
+      <workItem from="1528045474156" duration="658000" />
+      <workItem from="1528046340485" duration="1722000" />
+      <workItem from="1528061627226" duration="602000" />
+      <workItem from="1528064053084" duration="298000" />
+      <workItem from="1528068113550" duration="1567000" />
+      <workItem from="1528069985705" duration="1882000" />
+      <workItem from="1528071969638" duration="1780000" />
+      <workItem from="1528073964753" duration="599000" />
+      <workItem from="1528077068063" duration="31000" />
     </task>
     <servers />
   </component>
@@ -929,7 +976,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1031755000" />
+    <option name="totallyTimeSpent" value="1065822000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -941,35 +988,36 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="1" weight="0.39106753" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32893288" />
       <window_info anchor="right" id="Maven Projects" order="11" weight="0.20735608" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="CDI" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info id="Capture Tool" order="8" />
       <window_info id="Designer" order="3" />
       <window_info anchor="bottom" id="Statistic" order="0" weight="0.8202614" />
-      <window_info anchor="right" id="Database" order="12" sideWeight="0.4825073" weight="0.49562362" />
-      <window_info id="Structure" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
+      <window_info anchor="right" id="Database" order="12" sideWeight="0.4825073" weight="0.32249466" />
       <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
+      <window_info id="Structure" order="1" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.2933194" />
+      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.29253113" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
       <window_info id="simpleUML" order="0" weight="0.32822758" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" weight="0.2780083" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" weight="0.27904564" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.15031315" />
       <window_info id="Persistence" order="2" sideWeight="0.39109698" side_tool="true" weight="0.14498934" />
-      <window_info active="true" content_ui="combo" id="Project" order="9" sideWeight="0.5469729" visible="true" weight="0.3380744" />
+      <window_info active="true" content_ui="combo" id="Project" order="9" sideWeight="0.5469729" visible="true" weight="0.2553305" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="7" sideWeight="0.45302713" side_tool="true" weight="0.22121535" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -977,10 +1025,10 @@
       <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5174927" side_tool="true" weight="0.20202559" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" visible="true" weight="0.3973029" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.3973029" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.30471203" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.30186722" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.26037344" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
     </layout>
@@ -990,19 +1038,19 @@
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32893288" />
       <window_info id="Designer" order="3" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" weight="0.39770356" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" weight="0.28392485" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49946696" visible="true" weight="0.3973029" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.5948827" weight="0.27904564" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
       <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.16230936" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.15031315" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.40511727" side_tool="true" weight="0.31808278" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.26096034" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.26037344" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Image Layers" order="4" />
@@ -1011,10 +1059,10 @@
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32897604" />
       <window_info anchor="right" id="Maven Projects" order="11" weight="0.20735608" />
       <window_info id="simpleUML" order="0" weight="0.32822758" />
-      <window_info content_ui="combo" id="Project" order="9" sideWeight="0.60890305" weight="0.41791046" />
-      <window_info anchor="right" id="Database" order="12" sideWeight="0.4825073" weight="0.41417912" />
+      <window_info active="true" content_ui="combo" id="Project" order="9" sideWeight="0.5469729" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Database" order="12" sideWeight="0.4825073" weight="0.32249466" />
       <window_info anchor="bottom" id="Message" order="2" />
-      <window_info id="Web" order="7" side_tool="true" />
+      <window_info id="Web" order="7" sideWeight="0.45302713" side_tool="true" weight="0.22121535" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="bottom" id="Statistic" order="0" weight="0.8202614" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -1022,9 +1070,9 @@
       <window_info anchor="right" id="CDI" order="8" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5174927" side_tool="true" weight="0.20202559" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.302714" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.30186722" />
       <window_info anchor="right" id="Bean Validation" order="9" />
-      <window_info active="true" anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" visible="true" weight="0.2933194" />
+      <window_info anchor="bottom" id="Debug" order="16" sideWeight="0.49840087" weight="0.29253113" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1145,12 +1193,6 @@
           <option name="timeStamp" value="318" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="321" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/course/courses/CourseEditing.java</url>
           <line>29</line>
           <properties />
@@ -1258,14 +1300,21 @@
           <properties />
           <option name="timeStamp" value="385" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="392" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="392" />
+      <option name="time" value="393" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="cookieUtil.getUserUuidFromToken()" language="JSP" />
         <watch expression="courseChart.get(0)[0]" language="JSP" />
         <watch expression="MethodUtil.courseCategoryCharts(cateries.get(j).getId())" language="JSP" custom="util.MethodUtil" />
+        <watch expression="req.getParameter(&quot;dateReg&quot;)" language="JAVA" />
       </configuration>
       <configuration name="Application">
         <watch expression="MethodUtil.getIdAuthByUUID(session, uuidUser)" language="JAVA" />
@@ -1279,50 +1328,54 @@
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
+        <expression-string>req.getParameter(&quot;dateReg&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.getParameter(&quot;desc&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.getParameter(&quot;uuid&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.getParameter(&quot;bday&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.getParameter(&quot;lname&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.getParameter(&quot;fname&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.getParameter(&quot;email&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>req.getParameter(&quot;login&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>uthInfEntityList.getEmail()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>MethodUtil.courseCategoryCharts(cateries.get(j).getId())</expression-string>
         <language-id>JSP</language-id>
         <custom-info>util.MethodUtil</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseChart.get(0)[0]</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseChart.get(2)[0]</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseChart.get(1)[0]</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseChart.get(j)[0]</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseChart.get(j)[0].getCategory()</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseChart.get(j).getCategory()</expression-string>
-        <language-id>JSP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Objects.requireNonNull(MethodUtil.getCourseCategoryByid(courseChart.get(j).getCategory())).getName()</expression-string>
-        <language-id>JSP</language-id>
-        <custom-info>java.util.Objects,util.MethodUtil</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>courseInformationFromJson.getUuidUser()</expression-string>
-        <language-id>JSP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
@@ -1345,174 +1398,390 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/bag32.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/bargraph32.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/IParseJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/block32.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/box32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/boxdownload32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/boxupload32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/camera32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/cameraminus32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/cameraplus32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/camerastar32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/circleleft32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/comment32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/leftturnarrow32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/linedpaper32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/mailplus32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/note32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/paperstar32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/shield32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/userblock32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/mono-icons/wand32.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/slides/01.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/slides/02.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/slides/03.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/upload/2(698).jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/background.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/balloon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/border-bg-bottom.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/border-bg-top.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/fold.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/fold-date.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/hat.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/icon-comments.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/icon-address.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/icon-email.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/icon-mobile.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/icon-phone.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/icon-tags.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/icon-user.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/l.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/noise-all.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/plus.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/toggle.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/strip.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/avatar.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
+        <state relative-caret-position="2618">
           <caret line="154" column="63" selection-start-line="154" selection-start-column="63" selection-end-line="154" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/img/dummies/featured-1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/course.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/section.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
+        <state relative-caret-position="2482">
           <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/UserRemoving.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="3162">
+          <caret line="186" column="39" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/IParseJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="154" column="63" selection-start-line="154" selection-start-column="63" selection-end-line="154" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/section.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2482">
+          <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3162">
+          <caret line="186" column="39" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/IParseJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="154" column="63" selection-start-line="154" selection-start-column="63" selection-end-line="154" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/section.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2482">
+          <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3162">
+          <caret line="186" column="39" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/IParseJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="154" column="63" selection-start-line="154" selection-start-column="63" selection-end-line="154" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/section.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2482">
+          <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3162">
+          <caret line="186" column="39" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/UserRemoving.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/IParseJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/profile/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/resource.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="206" column="8" selection-start-line="206" selection-start-column="8" selection-end-line="206" selection-end-column="8" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/profile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="186" column="39" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="39" />
+        <state relative-caret-position="4488">
+          <caret line="264" column="34" selection-start-line="264" selection-start-column="34" selection-end-line="264" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/auth_inf">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/section.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="255" column="37" selection-start-line="255" selection-start-column="37" selection-end-line="255" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/requests.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="150" column="34" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/follower.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="134" column="88" selection-start-line="134" selection-start-column="88" selection-end-line="134" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/util/MethodUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/user/UserRemoving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="79" selection-start-line="25" selection-start-column="79" selection-end-line="25" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d783fc1c-3748-4cef-a6c6-195390ed1118/database/service/schema/public/table/course">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/course/courses/CourseRemoving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="29" column="13" selection-start-line="25" selection-start-column="12" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/course/CourseRemoving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/course.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="149" column="46" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/tables.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/MethodUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="447" column="39" selection-start-line="447" selection-start-column="39" selection-end-line="447" selection-end-column="39" />
+          <folding>
+            <element signature="method#loginOrEmail#0;class#MethodUtil#0" />
+            <element signature="method#getUuudAuthById#0;class#MethodUtil#0" />
+            <element signature="method#getIdAuthByUUID#0;class#MethodUtil#0" />
+            <element signature="method#getAuthInfByUuid#0;class#MethodUtil#0" />
+            <element signature="method#getIdCourseByUUID#0;class#MethodUtil#0" />
+            <element signature="method#getCourseCategoryByid#0;class#MethodUtil#0" />
+            <element signature="method#getResourceCategoryByid#0;class#MethodUtil#0" />
+            <element signature="method#getJsonCourseStructure#0;class#MethodUtil#0" />
+            <element signature="method#getJsonRequest#0;class#MethodUtil#0" />
+            <element signature="method#getCourseCategory#0;class#MethodUtil#0" />
+            <element signature="method#getResourceCategory#0;class#MethodUtil#0" />
+            <element signature="method#getAllUsers#0;class#MethodUtil#0" />
+            <element signature="method#getAccessInformation#0;class#MethodUtil#0" />
+            <element signature="method#checkAccess#0;class#MethodUtil#0" />
+            <element signature="method#updateJsonStructure#0;class#MethodUtil#0" />
+            <element signature="method#isExistFollowing#0;class#MethodUtil#0" />
+            <element signature="method#getUserFollowings#0;class#MethodUtil#0" />
+            <element signature="method#getUserFollowers#0;class#MethodUtil#0" />
+            <element signature="method#updateRequest#0;class#MethodUtil#0" />
+            <element signature="method#isUniqueNameCourse#0;class#MethodUtil#0" />
+            <element signature="method#isUniqueSectionName#0;class#MethodUtil#0" />
+            <element signature="method#isUniqueResource#0;class#MethodUtil#0" />
+            <element signature="method#getAllCourses#0;class#MethodUtil#0" />
+            <element signature="method#prepareExcelFileForAttach#0;class#MethodUtil#0" />
+            <element signature="method#createExcelFile#0;class#MethodUtil#0" />
+            <element signature="method#prepareFileForAttach#0;class#MethodUtil#0" />
+            <element signature="method#updateAuthInf#0;class#MethodUtil#0" />
+            <element signature="method#setSectionResources#0;class#MethodUtil#0" />
+            <element signature="method#separateUploadFileName#0;class#MethodUtil#0" />
+            <element signature="method#saveUploadFile#0;class#MethodUtil#0" />
+            <element signature="method#isUniqueCourseCategory#0;class#MethodUtil#0" />
+            <element signature="method#isUniqueCategoryLink#0;class#MethodUtil#0" />
+            <element signature="method#coursePerDay#0;class#MethodUtil#0" />
+            <element signature="method#usersPerDay#0;class#MethodUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/dashboard.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="423" column="44" selection-start-line="423" selection-start-column="44" selection-end-line="423" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
         </state>
       </provider>
     </entry>
