@@ -38,7 +38,7 @@ public class SectionHandler extends HttpServlet implements Serializable {
             Transaction transaction = session.beginTransaction();
             if (addSection(session, transaction, prepareAddSection(session,String.valueOf(req.getParameter("name").trim()),
                     uuidCourse, String.valueOf(req.getParameter("description")).trim()), uuidCourse)) {
-                resp.sendRedirect("/pages/section.jsp?uuidAuth=" + uuidAuth + "&&uuidSection=" + uuidNewSection + "&&uuidCourse=" + uuidCourse);
+                resp.sendRedirect("/pages/course.jsp?uuidAuth=" + uuidAuth + "&&uuidCourse=" + uuidCourse);
             } else {
                 resp.sendRedirect("/pages/course.jsp?uuidAuth=" + uuidAuth + "&&uuidCourse=" + uuidCourse);
             }

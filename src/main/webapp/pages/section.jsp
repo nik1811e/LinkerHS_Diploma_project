@@ -106,7 +106,7 @@
                 <ul>
                     <li><a href="/pages/users.jsp" style="text-decoration: none">Список пользователей</a></li>
                     <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписки</a></li>
-                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подпищики</a></li>
+                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписчики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -128,9 +128,6 @@
                 <div id="posts-list">
                     <article class="format-standard" style="padding-right: 80px;">
                         <div class="post-heading">
-                            <h3>
-                                <%=sectionInformation.getName()%><br>
-                            </h3>
                             <%if(request.getParameter("uuidAuth").equals(cookieUtil.getUserUuidFromToken())){%>
                             <div style="float: right;display: inline-block">
                                 <a href="#removeSection" id="btnSectionRemove" class="btn-modal"
@@ -139,10 +136,14 @@
                                    style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
                                 </a>
                                 <a href="#addResource" id="btnAdd" class="btn-modal"
-                                   style="background-color: #9fca10;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
+                                   style="background-color: #9fca10;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Добавить
                                 </a>
                             </div
                             <%}%>
+                            <h3>
+                                <%=sectionInformation.getName()%><br>
+                            </h3>
+
                             <br>
                             <div class="meta">
                                 <span class="user"><%=Objects.requireNonNull(new CourseInformation().getCourseInformation((sectionInformation.getUuidCourse())).get(0).getNameCourse().toUpperCase())%> |</span>

@@ -31,7 +31,7 @@ public class AccessRemoving extends HttpServlet {
         }
     }
 
-    private boolean deleteAccess(Session session, Transaction transaction, int idAuth, int idCourse) {
+    public boolean deleteAccess(Session session, Transaction transaction, int idAuth, int idCourse) {
         try {
             session.createQuery("DELETE FROM " + FinalValueUtil.ENTITY_ACCEESS_INFO + " where idAuth=:idAuth and idCourse=:idCourse")
                     .setParameter("idAuth",idAuth).setParameter("idCourse",idCourse).executeUpdate();

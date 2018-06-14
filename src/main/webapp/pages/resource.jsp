@@ -121,7 +121,7 @@
                     <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
                            style="text-decoration: none">Подписки</a></li>
                     <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
-                           style="text-decoration: none">Подпищики</a></li>
+                           style="text-decoration: none">Подписчики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>

@@ -1,8 +1,10 @@
 <%--suppress ALL --%>
 <%@ page import="entity.AuthInfEntity" %>
 <%@ page import="util.CookieUtil" %>
+<%@ page import="util.FinalValueUtil" %>
 <%@ page import="util.MailUtil" %>
 <%@ page import="util.MethodUtil" %>
+<%@ page import="java.io.File" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -80,7 +82,7 @@
         } else {
             response.sendRedirect(urlRedirect);
         }
-        String filePath = "data:image/png;base64," + authInfEntityList.getNameImage();
+        String images = File.separator + FinalValueUtil.FOLDER_UPLOAD_IMAGES + File.separator + authInfEntityList.getNameImage();
         assert authInfEntityList != null;
     %>
 
@@ -111,7 +113,7 @@
                     <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
                            style="text-decoration: none">Подписки</a></li>
                     <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
-                           style="text-decoration: none">Подпищики</a></li>
+                           style="text-decoration: none">Подписчики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -143,7 +145,7 @@
                             </div>
                             <div class="content">
                                 <div class="author">
-                                    <%if (authInfEntityList.getNameImage().equals("пусто")) {%>
+                                    <%if (authInfEntityList.getNameImage().equals("empty")) {%>
                                     <img class="avatar border-white" src="/resources/img/avatar.png"
                                          alt="avatar"/>
                                     <br>
@@ -158,26 +160,20 @@
                                     <%if (cookieUtil.getUserUuidFromToken().equals(request.getParameter("uuidAuth"))) {%>
                                     <hr>
                                     <form method="post" action="/editprofile" enctype="multipart/form-data">
-                                        <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
-                                        <input type="hidden" name="bday" value="<%=authInfEntityList.getBDay()%>">
-                                        <input type="hidden" name="statusO" value="<%=authInfEntityList.getRole() %>">
-                                        <input type="hidden" name="dateReg" value="<%=authInfEntityList.getDateReg()%>">
-                                        <input type="hidden" name="login" value="<%=authInfEntityList.getLogin()%>">
-                                        <input type="hidden" name="email" value="<%=authInfEntityList.getEmail()%>">
-                                        <input type="hidden" name="fname" value="<%=authInfEntityList.getFName()%>">
-                                        <input type="hidden" name="lname" value="<%=authInfEntityList.getLName()%>">
-                                        <input type="hidden" name="desc" value="<%=authInfEntityList.getAbout()%>">
+                                        <input type="hidden" name="type" value="img">
                                         <center>
-                                            <input type="file" name="upload_img" id="img_upload">
+                                            <input type="file" name="upload_img" id="img_upload"
+                                                   style="background-color: #b18422;font-size: 12px;width: 100px;height: 30px;text-align: center; padding:11px;margin:10px;display: inline-block;text-decoration: none">
                                             <br>
-                                            <input type="submit" placeholder="Загрузить аватар">
+                                            <input type="submit" value="Загрузить аватар"
+                                                   style="background-color: #b18422;font-size: 12px;width: 100px;height: 30px;text-align: center; padding:11px;margin:10px;display: inline-block;text-decoration: none">
                                         </center>
                                     </form>
                                     <%}%>
                                     <br>
                                     <hr>
                                     <%} else {%>
-                                    <img class="avatar border-white" src="<%=filePath.replace("//", "/")%>"
+                                    <img class="avatar border-white" src="<%=images%>"
                                          alt="avatar"/>
                                     <br>
                                     <h4 class="title"><%=authInfEntityList.getFName()%> <%=authInfEntityList.getLName()%>
@@ -192,15 +188,10 @@
                                     <%if (cookieUtil.getUserUuidFromToken().equals(request.getParameter("uuidAuth"))) {%>
                                     <hr>
                                     <form method="post" action="/editprofile" enctype="multipart/form-data">
-                                        <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
-                                        <input type="hidden" name="bday" value="<%=authInfEntityList.getBDay()%>">
-                                        <input type="hidden" name="statusO" value="<%=authInfEntityList.getRole() %>">
-                                        <input type="hidden" name="dateReg" value="<%=authInfEntityList.getDateReg()%>">
-                                        <input type="hidden" name="login" value="<%=authInfEntityList.getLogin()%>">
-                                        <input type="hidden" name="email" value="<%=authInfEntityList.getEmail()%>">
-                                        <input type="hidden" name="fname" value="<%=authInfEntityList.getFName()%>">
-                                        <input type="hidden" name="lname" value="<%=authInfEntityList.getLName()%>">
-                                        <input type="hidden" name="desc" value="<%=authInfEntityList.getAbout()%>">
+                                        <input type="hidden" name="uuidAuth" value="<%=cookieUtil.getUserUuidFromToken()%>">
+
+                                        <input type="hidden" name="type" value="img">
+
                                         <center>
                                             <input type="file" name="upload_img" id="img_upload">
                                             <br>
@@ -249,7 +240,7 @@
                                         <h5>
                                             <small><a
                                                     href="/pages/follower.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>"
-                                                    style="text-decoration: none; color: #999999; font-size: 11px">Подпищики</a>
+                                                    style="text-decoration: none; color: #999999; font-size: 11px">Подписчики</a>
                                             </small>
                                         </h5>
                                     </div>
@@ -263,7 +254,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <%}else{%>
+                            <%} else {%>
                             <div class="text-center">
                                 <div class="row">
                                     <div class="col-md-3 col-md-offset-1">
@@ -302,7 +293,7 @@
                             </div>
                             <div class="content">
                                 <form method="post" action="/editprofile">
-                                    <input type="hidden" name="uuid" value="<%=cookieUtil.getUserUuidFromToken()%>">
+                                    <input type="hidden" name="uuidAuth" value="<%=cookieUtil.getUserUuidFromToken()%>">
                                     <input type="hidden" name="bday"
                                            value="<%=authInfEntityList.getBDay()%>">
                                     <input type="hidden" name="statusO"
@@ -331,7 +322,8 @@
                                             <div class="form-group">
                                                 <label>Email</label>
                                                 <input type="email" class="form-control border-input"
-                                                       placeholder="<%=authInfEntityList.getEmail()%>" value="<%=authInfEntityList.getEmail()%>"
+                                                       placeholder="<%=authInfEntityList.getEmail()%>"
+                                                       value="<%=authInfEntityList.getEmail()%>"
                                                        name="email" required>
                                             </div>
                                         </div>
@@ -362,7 +354,8 @@
                                             <div class="form-group">
                                                 <label>Пароль</label>
                                                 <input type="password" class="form-control border-input"
-                                                       placeholder="password" name="password" value="<%=authInfEntityList.getPassword()%>" required>
+                                                       placeholder="password" name="password"
+                                                       value="<%=authInfEntityList.getPassword()%>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -378,6 +371,8 @@
                                     </div>
                                     <div class="text-center">
                                         <%if (authInfEntityList.getUuid().equals(cookieUtil.getUserUuidFromToken())) {%>
+                                        <input type="hidden" name="type" value="qqq">
+
                                         <button type="submit" class="btn-modal">Update Profile
                                         </button>
                                         <%}%>

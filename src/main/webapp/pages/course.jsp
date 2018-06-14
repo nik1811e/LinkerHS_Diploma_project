@@ -14,6 +14,7 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Objects" %>
+<%@ page import="util.FinalValueUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html class="no-js">
@@ -125,7 +126,7 @@
                     <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
                            style="text-decoration: none">Подписки</a></li>
                     <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
-                           style="text-decoration: none">Подпищики</a></li>
+                           style="text-decoration: none">Подписчики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -161,7 +162,7 @@
                                    style="background-color: #bc8b23;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
                                 </a>
                                 <a href="#addSection" id="btnAdd" class="btn-modal"
-                                   style="background-color: #9fca10;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Редактировать
+                                   style="background-color: #9fca10;font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Добавить
                                 </a>
                             </div>
                             <%}%>
@@ -220,7 +221,7 @@
                 </figure>
                 <%}%>
                 <%} else {%>
-                <h1 class="home-headline">Доступ закрыт</h1>
+                <h1 class="home-headline" style="padding: 0">Доступ закрыт</h1>
                 <%
                     for (RequestTO reqst : requests) {
                         if (reqst.getUuidAuth().equals(cookieUtil.getUserUuidFromToken()) &&
@@ -230,17 +231,19 @@
                     }
                 %>
                 <%if (!exist) {%>
-                <form id="contactForm" action="/courserequest" method="post" style="position: center">
-                    <fieldset>
-                        <input type="hidden" name="uuidCourseReq" value="<%=uuidCourse%>">
-                        <input type="hidden" name="uuidAuthReq" value="<%=cookieUtil.getUserUuidFromToken()%>">
-                        <input type="hidden" name="uuidAuthOwner" value="<%=request.getParameter("uuidAuth")%>">
-                        <input type="submit" value="Запросить доступ к курсу" name="submit" id="submit"
-                               class="btn-modal" style="padding: 15px"/>
-                    </fieldset>
-                </form>
+                <center>
+                    <form id="contactForm" action="/courserequest" method="post" style="position: center">
+                        <fieldset>
+                            <input type="hidden" name="uuidCourseReq" value="<%=uuidCourse%>">
+                            <input type="hidden" name="uuidAuthReq" value="<%=cookieUtil.getUserUuidFromToken()%>">
+                            <input type="hidden" name="uuidAuthOwner" value="<%=request.getParameter("uuidAuth")%>">
+                            <input type="submit" value="Запросить доступ к курсу" name="submit" id="submit"
+                                   class="btn-modal" style="padding: 15px; width: 500px"/>
+                        </fieldset>
+                    </form>
+                </center>
                 <%} else {%>
-                <h3 class="text-center" style="text-align: center">Запрос доступа уже отправлен</h3>
+                <h3 class="text-center" style="text-align: center">Запрос доступа уже отправлен, ожидайте!</h3>
                 <%
                         }
                     }

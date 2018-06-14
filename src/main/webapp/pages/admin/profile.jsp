@@ -248,7 +248,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
+                                                <label >Email address</label>
                                                 <input type="email" class="form-control border-input"
                                                        placeholder="Email">
                                             </div>

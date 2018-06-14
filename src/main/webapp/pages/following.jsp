@@ -1,8 +1,10 @@
 <%@ page import="entity.AuthInfEntity" %>
 <%@ page import="entity.FollowingEntity" %>
 <%@ page import="util.CookieUtil" %>
+<%@ page import="util.FinalValueUtil" %>
 <%@ page import="util.MailUtil" %>
 <%@ page import="util.MethodUtil" %>
+<%@ page import="java.io.File" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
@@ -106,7 +108,7 @@
                     <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
                            style="text-decoration: none">Подписки</a></li>
                     <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
-                           style="text-decoration: none">Подпищики</a></li>
+                           style="text-decoration: none">Подписчики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -142,8 +144,12 @@
                     <div class="card card-user"
                          style="height: 100px;width: 100px; margin-bottom: 70px">
                         <div class="author" style="margin: 0;padding: 0;">
+                            <%if (auth.getNameImage().equals("empty")) {%>
                             <img class="avatar border-white" src="/resources/img/avatar.png"
                                  alt="..." style="width: 100px;height: 100px"/>
+                            <%}else{%>
+                            <img class="avatar border-white" src="<%=File.separator + FinalValueUtil.FOLDER_UPLOAD_IMAGES + File.separator + auth.getNameImage()%>"
+                            <%}%>
                             <h5 class="title"><%=auth.getFName()%> <%=auth.getLName()%>
                                 <br/>
                                 <a href="/pages/profile.jsp?uuidAuth=<%=auth.getUuid()%>">

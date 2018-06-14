@@ -1,7 +1,9 @@
 <%@ page import="entity.AuthInfEntity" %>
 <%@ page import="util.CookieUtil" %>
+<%@ page import="util.FinalValueUtil" %>
 <%@ page import="util.MailUtil" %>
 <%@ page import="util.MethodUtil" %>
+<%@ page import="java.io.File" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
@@ -75,6 +77,7 @@
             response.sendRedirect(urlRedirect);
         }
         assert authInfEntityList != null;
+
     %>
 </head>
 
@@ -88,8 +91,8 @@
 
         <!-- nav -->
         <ul id="nav" class="sf-menu sf-js-enabled sf-shadow">
-            <li><a href="#" style="text-decoration: none">ГЛАВНАЯ</a></li>
-            <li><a href="#" style="text-decoration: none">КАТАЛОГ РЕСУРСОВ</a>
+            <li><a href="/pages/index.jsp" style="text-decoration: none">ГЛАВНАЯ</a></li>
+            <li><a href="/pages/catalog.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">КАТАЛОГ РЕСУРСОВ</a>
                 <ul>
                     <li><a href="/pages/catalog.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>"
                            style="text-decoration: none">Мои
@@ -101,7 +104,7 @@
                 <ul>
                     <li><a href="/pages/users.jsp" style="text-decoration: none">Список пользователей</a></li>
                     <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписки</a></li>
-                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подпищики</a></li>
+                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписчики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -134,11 +137,11 @@
                     <div class="card card-user"
                          style="height: 100px;width: 100px; margin-bottom: 70px">
                         <div class="author" style="margin: 0;padding: 0;">
-                            <%if (auth.getNameImage().equals("пусто")) {%>
+                            <%if (auth.getNameImage().equals("empty")) {%>
                             <img class="avatar border-white" src="/resources/img/avatar.png"
                                  alt="..." style="width: 100px;height: 100px"/>
                             <%}else{%>
-                            <img class="avatar border-white" src="<%=("data:image/png;base64," +auth.getNameImage()).replace("//", "/")%>"
+                            <img class="avatar border-white" src="<%=File.separator + FinalValueUtil.FOLDER_UPLOAD_IMAGES + File.separator + auth.getNameImage()%>"
                             <%}%>
                             <h5 class="title"><%=auth.getFName()%> <%=auth.getLName()%>
                                 <br/>
@@ -164,62 +167,7 @@
     <div class="wrapper clearfix">
 
         <!-- widgets -->
-        <ul class="widget-cols clearfix">
-            <li class="first-col">
 
-                <div class="widget-block">
-                    <h4>RECENT POSTS</h4>
-                    <div class="recent-post clearfix">
-                        <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post"/></a>
-                        <div class="post-head">
-                            <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
-                        </div>
-                    </div>
-                    <div class="recent-post clearfix">
-                        <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post"/></a>
-                        <div class="post-head">
-                            <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
-                        </div>
-                    </div>
-                    <div class="recent-post clearfix">
-                        <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post"/></a>
-                        <div class="post-head">
-                            <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="second-col">
-
-                <div class="widget-block">
-                    <h4>FREE TEMPLATES &amp; THEMES</h4>
-                    <p>Visit <a href="http://templatecreme.com/">Template Creme</a> and browse the selection of
-                        well-made FREE Templates and WordPress Themes.</p>
-                </div>
-
-            </li>
-
-            <li class="third-col">
-
-                <div class="widget-block">
-                    <div id="tweets" class="footer-col tweet">
-                        <h4>TWITTER WIDGET</h4>
-                    </div>
-                </div>
-
-            </li>
-
-            <li class="fourth-col">
-
-                <div class="widget-block">
-                    <h4>FREE TEMPLATES &amp; THEMES</h4>
-                    <p>Visit <a href="http://templatecreme.com/">Template Creme</a> and browse the selection of
-                        well-made FREE Templates and WordPress Themes.</p>
-                </div>
-
-            </li>
-        </ul>
         <!-- ENDS widgets -->
 
 

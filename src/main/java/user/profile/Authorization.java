@@ -70,7 +70,7 @@ public class Authorization extends HttpServlet {
         }
     }
 
-    private void setAuthCookie(String uuid, String role, HttpServletResponse resp) {
+    public void setAuthCookie(String uuid, String role, HttpServletResponse resp) {
         try {
             String token = Jwts.builder()
                     .setSubject("AuthToken")

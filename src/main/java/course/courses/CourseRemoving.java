@@ -47,17 +47,15 @@ public class CourseRemoving extends HttpServlet {
         }
     }
 
-    public void removeAllUserCourses(Session session,Transaction transaction,AuthInfEntity idAuth) {
-        try {
+    public void removeAllUserCourses(AuthInfEntity idAuth) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+           Transaction transaction = session.beginTransaction();
             session.createQuery("DELETE FROM " + FinalValueUtil.ENTITY_COURSE + " WHERE authById =:idAuth")
                     .setParameter("idAuth", idAuth).executeUpdate();
             transaction.commit();
         } catch (Exception ex) {
             new MailUtil().sendErrorMail(getClass().getName() + "\n" + Arrays.toString(ex.getStackTrace()));
             LOGGER.error(ex.getStackTrace());
-        } finally {
-            if (session.isOpen())
-                session.close();
         }
     }
 }

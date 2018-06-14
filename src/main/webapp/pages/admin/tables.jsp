@@ -71,16 +71,17 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href="/pages/admin/profile.jsp?uuidAuth=#">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
+
                 <li class="active">
                     <a href="tables.jsp">
                         <i class="ti-view-list-alt"></i>
                         <p>Table List</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/index.jsp">
+                        <i class="ti-user"></i>
+                        <p>Sevice</p>
                     </a>
                 </li>
             </ul>
@@ -100,35 +101,7 @@
                     <a class="navbar-brand" href="#">Table List</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-                                <p>Stats</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-bell"></i>
-                                <p class="notification">5</p>
-                                <p>Notifications</p>
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="ti-settings"></i>
-                                <p>Settings</p>
-                            </a>
-                        </li>
-                    </ul>
+
 
                 </div>
             </div>
@@ -138,6 +111,9 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <form method="post" action="/coursesDoc" >
+                        <input type="submit" class="btn-modal" style="background-color: #b1a04d;font-size: 12px;width: 150px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none" value="Cources in Excel">
+                    </form>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
@@ -212,9 +188,10 @@
                         </div>
                     </div>
                     <div class="col-md-12">
+
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Users list</h4>
+                                <h4 class="title">Cources list</h4>
                                 <p class="category" style="display: inline-block">A full list of users is displayed
                                     here.</p>
                             </div>
@@ -243,7 +220,7 @@
                                                 <form action="/removecourseadmin" method="post" style="display: inline-block">
                                                     <input type="hidden" value="<%=course.getUuid()%>" name="uuidCourse">
                                                     <button type="submit" class="btn ti-close"
-                                                            style="color: #d9534f"></button>
+                                                            style="color: #d9a470"></button>
                                                 </form>
                                             </div>
                                         </td>

@@ -4,7 +4,9 @@ import course.pojo.ResourceTO;
 import course.pojo.SectionTO;
 import course.resources.ResourceInformation;
 import course.sections.SectionInformation;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import entity.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -23,12 +25,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
-
-import static java.io.File.separator;
-import static org.apache.commons.io.FileUtils.readFileToByteArray;
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @SuppressWarnings("ALL")
 public class MethodUtil {
@@ -216,8 +217,9 @@ public class MethodUtil {
         }
     }
 
-    public static boolean updateRequest(Session session, Transaction transaction, String request, String uuidAuth) {
-        try {
+    public static boolean updateRequest( String request, String uuidAuth) {
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
             session.createQuery("UPDATE " + FinalValueUtil.ENTITY_AUTH_INFO + " c SET c.request =:newRequest WHERE c.uuid = :uuid")
                     .setParameter("newRequest", request).setParameter("uuid", uuidAuth).executeUpdate();
             transaction.commit();
@@ -347,16 +349,29 @@ public class MethodUtil {
         }
     }
 
-    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String email, String fname, String lname, String bday, String uuid, String desc, String date/*, String image*/) {
+    public static boolean updateAuthInfImg(Session session, Transaction transaction, String image, String uuidAuth ) {
+        try {
+            session.createQuery("UPDATE  " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET  a.nameImage=:nameImage where uuid=:uuidAuth")
+                    .setParameter("nameImage", image).setParameter("uuidAuth",uuidAuth ).executeUpdate();
+            transaction.commit();
+            return true;
+        } catch (Exception ex) {
+            new MailUtil().sendErrorMail("\n" + Arrays.toString(ex.getStackTrace()));
+            LOGGER.error(ex.getStackTrace());
+            return false;
+        }
+    }
+
+    public static boolean updateAuthInf(Session session, Transaction transaction, String login, String email, String fname, String lname, String bday, String uuid, String desc, String date) {
         try {
             session.createQuery("UPDATE  " + FinalValueUtil.ENTITY_AUTH_INFO + " a SET " +
                     "a.login=:login,a.email=:email," +
-                    "a.FName =:fname,a.LName =:lname,a.BDay=:bday,a.about=:about," +
+                    "a.FName =:fname, a.LName =:lname,a.BDay=:bday,a.about=:about," +
                     "a.dateReg=:date WHERE a.uuid =:uuid")
                     .setParameter("login", login).setParameter("email", email)
                     .setParameter("fname", fname).setParameter("lname", lname)
-                    .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc).executeUpdate();
-                  /*  .setParameter("date", date).setParameter("nameImage", image)*/
+                    .setParameter("bday", bday).setParameter("uuid", uuid).setParameter("about", desc)
+                    .setParameter("date", date).executeUpdate();
             transaction.commit();
             return true;
         } catch (Exception ex) {
@@ -387,19 +402,19 @@ public class MethodUtil {
         return "";
     }
 
+    @SuppressFBWarnings("RV_RETURN_VALUE_IGNORED_BAD_PRACTICE")
     public static String saveUploadFile(HttpServletRequest req) throws IOException, ServletException {
-        String uploadFilePath = req.getServletContext().getRealPath("") + separator + FinalValueUtil.FOLDER_UPLOAD_IMAGES;
-
+        String uploadFilePath = req.getServletContext().getRealPath("") + FinalValueUtil.FOLDER_UPLOAD_IMAGES;
         File fileSaveDir = new File(uploadFilePath);
-        if (!fileSaveDir.exists())
+        if (!fileSaveDir.exists()) {
             fileSaveDir.mkdirs();
-
+        }
         for (Part part : req.getParts()) {
             String fileName = separateUploadFileName(part);
-            if (!isBlank(fileName)) {
-                String path = uploadFilePath + separator + fileName;
+            if (!StringUtils.isBlank(fileName)) {
+                String path = uploadFilePath + File.separator + fileName;
                 part.write(path);
-                return Base64.getEncoder().encodeToString(readFileToByteArray(new File(path)));
+                return fileName;
             }
         }
         return "";
@@ -435,14 +450,14 @@ public class MethodUtil {
         }
     }
 
-    public static List usersPerDay(){
+    public static List usersPerDay() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT COUNT(uuid) FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " WHERE dateReg =:date")
                     .setParameter("date", new SimpleDateFormat(FinalValueUtil.PATTERN_DATE).format(new Date().getTime())).getResultList();
         }
     }
 
-    public static List usersByRole (String role){
+    public static List usersByRole(String role) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("SELECT COUNT(uuid) FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " WHERE role=:role")
                     .setParameter("role", role).getResultList();
@@ -451,4 +466,6 @@ public class MethodUtil {
             return null;
         }
     }
+
+
 }

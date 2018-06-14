@@ -8,16 +8,17 @@ public final class FinalValueUtil {
     public static final String ENTITY_FAVORITE_COURSE = "FavoriteCourseEntity";
     public static final String ENTITY_COURSE_CATEGORY = "CategoryEntity";
     public static final String ENTITY_RESOURCE_CATEGORY = "ResourceCategoryEntity";
-
+    public static final String PATTERN_TIME = "HH:mm:ss";
     public static final String ROLE_ADMIN = "admin";
     public static final String ROLE_USER = "user";
     static final String EMAIL_CONTENT_TYPE = "text/html; charset=utf-8";
 
-    static final String EMAIL_SUPPORT = "service.helper.eng@gmail.com";
+    public static final String EMAIL_SUPPORT = "service.helper.eng@gmail.com";
     static final String EMAIL_SUPPORT_PASSWORD = "567320218NIKgt";
     static final String EMAIL_HOST = "smtp.gmail.com";
     static final String EMAIL_PORT = "587";
     static final String EMAIL_CONTENT_TYPE_HTML = "text/html; charset=utf-8";
+    static final String EMAIL_CONTENT_TYPE_PLAIN = "text/plain; charset=utf-8";
     public static final String TEST_URL = "http://localhost:8080/";
 
 
@@ -38,6 +39,7 @@ public final class FinalValueUtil {
     public static final String PATTERN_FULL_DATE_TIME = "dd/MM/yyyy, HH:mm:ss";
 
     public static final String FOLDER_UPLOAD_IMAGES = "SERVICE IMAGES";
+    public static final String PDF = "pdf";
 
 
 }

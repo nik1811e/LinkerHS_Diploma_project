@@ -21,6 +21,6 @@ public class MailUtilTest {
     @Test
     public void test() {
         new MailUtil().sendErrorMail("");
-        new MailUtil().sendMail("", "", "");
+        new MailUtil().sendSimpleHtmlMail("", "", "");
     }
 }

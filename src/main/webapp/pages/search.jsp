@@ -1,5 +1,4 @@
-<%@ page import="course.courses.CourseInformation" %>
-<%@ page import="entity.CategoryEntity" %>
+<%@ page import="course.courses.Searching" %>
 <%@ page import="entity.CourseEntity" %>
 <%@ page import="util.CookieUtil" %>
 <%@ page import="util.MethodUtil" %>
@@ -65,10 +64,8 @@
         CookieUtil cookieUtil = new CookieUtil(request);
         String urlRedirect = "/pages/signin.jsp";
         List<CourseEntity> userCourseList;
-        List<CategoryEntity> categoryEntityList;
-        if (cookieUtil.isFindCookie()) {
-            userCourseList = new CourseInformation().getUserCourses(request.getParameter("uuidAuth"));
-            categoryEntityList = MethodUtil.getCourseCategory();
+        if (cookieUtil.isFindCookie() && !request.getParameter("name").isEmpty()) {
+            userCourseList = new Searching().searchCourse(request.getParameter("name"),request.getParameter("type"),request.getParameter("uuid"));
         } else {
             response.sendRedirect(urlRedirect);
             return;
@@ -120,24 +117,13 @@
     <div class="wrapper clearfix">
         <!-- masthead -->
         <div class="masthead clearfix">
-            <h1>КУРСЫ</h1>
-
-            <%if (request.getParameter("uuidAuth").equals(cookieUtil.getUserUuidFromToken())) { %>
-            <span class="subheading">
-                 <button id="btn2" class="btn-modal"
-                         style="font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none">Добавить</button>
-                 <button id="btnSearch" class="btn-modal"
-                         style="font-size: 12px;width: 100px;height: 30px;text-align: center; padding: 11px; margin: 10px; display: inline-block; text-decoration: none;background-color: #bce8f1">Поиск</button>
-                </span>
-            <%}%>
-
-
+            <h1>Результат поиска</h1>
         </div>
         <div class='mh-div'></div>
         <!-- ENDS masthead -->
 
         <!-- posts list -->
-        <div id="posts-list" class="clearfix" style="min-height: 600px; min-width: 500px">
+        <div id="posts-list" class="clearfix" style="min-height: 600px">
             <%
                 if (!userCourseList.isEmpty()) {
                     for (int i = 0; i < userCourseList.size(); i++) {
@@ -147,14 +133,12 @@
                 <div class="entry-date">
                     <div class="number"><%=18%>
                     </div>
-                    <div class="month"><%=03%>
-                    </div>
-                    <div class="year"><%=2018%>
-                    </div>
+                    <div class="month"><%=03%></div>
+                    <div class="year"><%=2018%></div>
                     <em></em></div>
                 <div class="post-heading">
                     <h3>
-                        <a href="course.jsp?uuidAuth=<%=request.getParameter("uuidAuth")%>&&uuidCourse=<%=userCourseList.get(i).getUuid()%>"><%=userCourseList.get(i).getNameCourse()%>
+                        <a href="course.jsp?uuidAuth=<%=request.getParameter("uuid")%>&&uuidCourse=<%=userCourseList.get(i).getUuid()%>"><%=userCourseList.get(i).getNameCourse()%>
                         </a></h3>
                     <div class="meta">
                         <span class="user"><%=userCourseList.get(i).getStatus().toUpperCase()%> | </span>
@@ -180,7 +164,7 @@
             <%
             } else {
             %>
-            <h2 class="text-center thin">Список курсов пуст</h2>
+            <h2 class="text-center thin">Пусто</h2>
             <%}%>
 
         </div>
@@ -221,96 +205,7 @@
         <!-- ENDS bottom -->
     </div>
 </footer>
-<div id="myModal2" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" style="color: #3A3A3A">Добавление курса</h4>
-            </div>
-            <div class="modal-body">
-                <form action="/coursehandler" role="form" method="post">
-                    <input type="hidden" name="uuidAuth" value="<%=cookieUtil.getUserUuidFromToken()%>">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name_course" required
-                               maxlength="50" placeholder="Название">
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="status" name="status">
-                            <option value="" disabled>Выберите тип доступа</option>
-                            <option>Открыт</option>
-                            <option>Закрыт</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="id_category" name="id_category">
-                            <option value="" disabled selected>Выберите категорию</option>
-                            <%
-                                assert categoryEntityList != null;
-                                for (int i = 0; i < categoryEntityList.size(); i++) {
-                                    int id = categoryEntityList.get(i).getId();
-                                    String name = categoryEntityList.get(i).getName();
-
-                            %>
-                            <option value="<%=id%>"><%=name%>
-                            </option>
-                            <%}%>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                                    <textarea class="form-control" type="textarea" name="desc" id="desc"
-                                              placeholder="Описание курса" maxlength="6000" rows="7"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-lg btn-modal btn-block" id="btnContactUs">
-                        Добавить
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="myModalSearch" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" style="color: #3A3A3A">Поиск</h4>
-            </div>
-            <div class="modal-body">
-                <form action="/search" role="form" method="post">
-                    <input type="hidden" name="uuidAuth" value="<%=cookieUtil.getUserUuidFromToken()%>">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name_" name="name" required
-                               maxlength="50" placeholder="Название">
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="type" name="type">
-                            <option value="" disabled selected>Выберите тип поиска</option>
-                            <option value="your"> Ваши курсы</option>
-                            <option value="all"> Все курсы</option>
-                            </option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-lg btn-modal btn-block" id="search">
-                        Поиск
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script>
-    $(function () {
-        $("#btn2").click(function () {
-            $("#myModal2").modal('show');
-        });
-        $("#btnSearch").click(function () {
-            $("#myModalSearch").modal('show');
-        });
-    });
-</script>
 </body>
 </html>

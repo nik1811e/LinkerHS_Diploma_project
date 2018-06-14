@@ -23,7 +23,7 @@ public class UserRemoving extends HttpServlet {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
-            if (removeUserAndDepends(session, transaction, req.getParameter("uuidUser"))) {
+            if (removeUserAndDepends(session, transaction, req.getParameter("uuidAuth"))) {
                 resp.sendRedirect("/pages/admin/tables.jsp");
             }
         } catch (Exception ex) {
@@ -33,7 +33,7 @@ public class UserRemoving extends HttpServlet {
 
     private boolean removeUserAndDepends(Session session, Transaction transaction, String uuidUser) {
         try {
-            new CourseRemoving().removeAllUserCourses(session,transaction,session.load(AuthInfEntity.class,
+            new CourseRemoving().removeAllUserCourses(session.load(AuthInfEntity.class,
                     MethodUtil.getIdAuthByUUID(session, uuidUser)));
             session.createQuery("DELETE FROM " + FinalValueUtil.ENTITY_AUTH_INFO + " WHERE uuid =:uuidUser")
                     .setParameter("uuidUser", uuidUser).executeUpdate();

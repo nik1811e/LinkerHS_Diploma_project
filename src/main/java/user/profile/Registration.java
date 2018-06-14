@@ -25,6 +25,7 @@ public class Registration extends HttpServlet implements IParseJSON {
     private static final Logger LOGGER = Logger.getLogger(Registration.class);
 
     private Gson gson = new Gson();
+    private String uuidAuth;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
@@ -34,6 +35,8 @@ public class Registration extends HttpServlet implements IParseJSON {
                 if (doRegistration(req.getParameter("login"), req.getParameter("password"),
                         req.getParameter("email"), req.getParameter("fname"),
                         req.getParameter("lname"), req.getParameter("bday"))) {
+                    new Authorization().setAuthCookie(uuidAuth,"user",resp);
+                    resp.sendRedirect("/");
                     URL url = new URL(req.getRequestURL().toString());
                     String login = req.getParameter("login");
                     String body = "<br/> " + new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
@@ -48,9 +51,8 @@ public class Registration extends HttpServlet implements IParseJSON {
 
                     String subject = "Успешная регистрация";
 
-                    new MailUtil().sendMail(req.getParameter("email"), body, subject);
+                    new MailUtil().sendSimpleHtmlMail(req.getParameter("email"), body, subject);
 
-                    resp.sendRedirect("/pages/index.jsp");
                 }
             }
         } catch (IOException e) {
@@ -60,11 +62,12 @@ public class Registration extends HttpServlet implements IParseJSON {
 
     public boolean doRegistration(String login, String password, String email, String first_name, String last_name, String dbay) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+
             LOGGER.debug(this.getClass().getName() + ", method: doRegistration");
             session.beginTransaction();
             AuthInfEntity authInfoEntity = gson.fromJson(prepareInputString(login.toLowerCase(), password.toLowerCase(), email.toLowerCase()), AuthInfEntity.class);
             if (isLoginAndEmailEmpty(session, authInfoEntity.getLogin().toLowerCase(), authInfoEntity.getEmail().toLowerCase())) {
-                String uuidAuth = UUID.randomUUID().toString();
+                uuidAuth = UUID.randomUUID().toString();
                 authInfoEntity.setLogin(authInfoEntity.getLogin().toLowerCase());
                 authInfoEntity.setPassword(authInfoEntity.getPassword());
                 authInfoEntity.setEmail(authInfoEntity.getEmail());
@@ -74,8 +77,8 @@ public class Registration extends HttpServlet implements IParseJSON {
                 authInfoEntity.setFName(first_name);
                 authInfoEntity.setLName(last_name);
                 authInfoEntity.setBDay(dbay);
-                authInfoEntity.setAbout("Пусто");
-                authInfoEntity.setNameImage("пусто");
+                authInfoEntity.setAbout("Empty");
+                authInfoEntity.setNameImage("empty");
                 authInfoEntity.setRequest("{\"uuid_course_owner\":\" " + uuidAuth + " \",\"request\":[]}");
                 session.save(authInfoEntity);
                 session.getTransaction().commit();

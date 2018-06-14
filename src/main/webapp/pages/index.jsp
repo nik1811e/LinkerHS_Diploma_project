@@ -82,7 +82,7 @@
                 <ul>
                     <li><a href="/pages/users.jsp" style="text-decoration: none">Список пользователей</a></li>
                     <li><a href="/pages/following.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписки</a></li>
-                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подпищики</a></li>
+                    <li><a href="/pages/follower.jsp?uuidAuth=<%=cookieUtil.getUserUuidFromToken()%>" style="text-decoration: none">Подписчики</a></li>
                 </ul>
             </li>
             <%if (!cookieUtil.isFindCookie()) {%>
@@ -145,7 +145,7 @@
             <!-- thumbs -->
             <div class="clearfix">
                 <figure>
-                    <a href="single.html" class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
+                    <a class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
                                                              alt="Alt text"/></a>
                     <figcaption>
                         <strong>Упорядочивание ссылок</strong>
@@ -154,7 +154,7 @@
                 </figure>
 
                 <figure>
-                    <a href="single.html" class="thumb"><img src="/resources/img/dummies/featured-2.jpg"
+                    <a class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
                                                              alt="Alt text"/></a>
                     <figcaption>
                         <strong>Приватность или Публичность?</strong>
@@ -163,7 +163,7 @@
                 </figure>
 
                 <figure>
-                    <a href="single.html" class="thumb"><img src="/resources/img/dummies/featured-3.jpg"
+                    <a class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
                                                              alt="Alt text"/></a>
                     <figcaption>
                         <strong>Социальность</strong>
@@ -172,7 +172,7 @@
                 </figure>
 
                 <figure>
-                    <a href="single.html" class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
+                    <a class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
                                                              alt="Alt text"/></a>
                     <figcaption>
                         <strong>Избранное</strong>
@@ -181,7 +181,7 @@
                 </figure>
 
                 <figure>
-                    <a href="single.html" class="thumb"><img src="/resources/img/dummies/featured-3.jpg"
+                    <a  class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
                                                              alt="Alt text"/></a>
                     <figcaption>
                         <strong>Простой и удобный интерфейс</strong>
@@ -190,7 +190,7 @@
                 </figure>
 
                 <figure>
-                    <a href="single.html" class="thumb"><img src="/resources/img/dummies/featured-2.jpg"
+                    <a  class="thumb"><img src="/resources/img/dummies/featured-1.jpg"
                                                              alt="Alt text"/></a>
                     <figcaption>
                         <strong>Расширение для браузера</strong>
@@ -205,71 +205,7 @@
 
 
         <!-- additional blocks -->
-        <div class="home-add clearfix">
-
-            <!-- left -->
-            <div class="left-home-block home-posts">
-                <h4 class="heading">FROM THE BLOG</h4>
-                <article class="format-standard">
-                    <div class="entry-date">
-                        <div class="number">23</div>
-                        <div class="month">JAN</div>
-                        <div class="year">2011</div>
-                        <em></em></div>
-                    <div class="post-heading">
-                        <h4><a href="single.html">Lorem ipsum dolor </a></h4>
-                    </div>
-                    <div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-                        turpis egestas. Vestibulum tortor quam, feugiat vitae.
-                    </div>
-                </article>
-
-                <article class="format-standard">
-                    <div class="entry-date">
-                        <div class="number">23</div>
-                        <div class="month">JAN</div>
-                        <div class="year">2011</div>
-                        <em></em></div>
-                    <div class="post-heading">
-                        <h4><a href="single.html">Lorem ipsum dolor </a></h4>
-                    </div>
-                    <div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-                        turpis egestas. Vestibulum tortor quam, feugiat vitae.
-                    </div>
-                </article>
-
-                <article class="format-standard">
-                    <div class="entry-date">
-                        <div class="number">23</div>
-                        <div class="month">JAN</div>
-                        <div class="year">2011</div>
-                        <em></em></div>
-                    <div class="post-heading">
-                        <h4><a href="single.html">Lorem ipsum dolor </a></h4>
-                    </div>
-                    <div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-                        turpis egestas. Vestibulum tortor quam, feugiat vitae.
-                    </div>
-                </article>
-
-                <article class="format-standard">
-                    <div class="entry-date">
-                        <div class="number">23</div>
-                        <div class="month">JAN</div>
-                        <div class="year">2011</div>
-                        <em></em></div>
-                    <div class="post-heading">
-                        <h4><a href="single.html">Lorem ipsum dolor </a></h4>
-                    </div>
-                    <div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-                        turpis egestas. Vestibulum tortor quam, feugiat vitae.
-                    </div>
-                </article>
-
-
-            </div>
-        </div>
-        <!-- ENDS additional blocks -->
+         <!-- ENDS additional blocks -->
 
         <!-- Fold image -->
         <div id="fold"></div>
@@ -291,19 +227,19 @@
                     <div class="recent-post clearfix">
                         <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
                         <div class="post-head">
-                            <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
+                            <a href="#">q </a><span> March 12, 2011</span>
                         </div>
                     </div>
                     <div class="recent-post clearfix">
                         <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
                         <div class="post-head">
-                            <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
+                            <a href="#">w </a><span> March 12, 2011</span>
                         </div>
                     </div>
                     <div class="recent-post clearfix">
                         <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
                         <div class="post-head">
-                            <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
+                            <a href="#">e </a><span> March 12, 2011</span>
                         </div>
                     </div>
                 </div>
@@ -312,8 +248,8 @@
             <li class="second-col">
 
                 <div class="widget-block">
-                    <h4>FREE TEMPLATES &amp; THEMES</h4>
-                    <p>Visit <a href="http://templatecreme.com/" >Template Creme</a> and browse the selection of well-made FREE Templates and WordPress Themes.</p>
+                    <h4>TWITTER WIDGET</h4>
+                    <p>  <a href="http://templatecreme.com/" > </a> </p>
                 </div>
 
             </li>
@@ -331,8 +267,8 @@
             <li class="fourth-col">
 
                 <div class="widget-block">
-                    <h4>FREE TEMPLATES &amp; THEMES</h4>
-                    <p>Visit <a href="http://templatecreme.com/" >Template Creme</a> and browse the selection of well-made FREE Templates and WordPress Themes.</p>
+                    <h4>TWITTER WIDGET</h4>
+                    <p> <a href="http://templatecreme.com/" > </a> </p>
                 </div>
 
             </li>
@@ -342,7 +278,7 @@
 
         <!-- bottom -->
         <div class="footer-bottom">
-            <div class="left">Simpler Template by <a href="http://www.luiszuno.com" >luiszuno.com</a></div>
+            <div class="left"> </div>
             <div class="right">
                 <ul id="social-bar">
                     <li><a href="http://www.facebook.com"  title="Become a fan" class="poshytip"><img src="img/social/facebook.png"  alt="Facebook" /></a></li>

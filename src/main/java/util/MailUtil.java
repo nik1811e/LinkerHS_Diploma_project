@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static java.lang.String.valueOf;
+
 
 public class MailUtil {
     private static final Logger LOGGER = Logger.getLogger(MailUtil.class);
@@ -19,7 +21,7 @@ public class MailUtil {
             = new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime());
     private Map<String, File> attachments = new HashMap<>();
 
-    private void setupMessageParameters(String email, String subject, String mailBody) {
+    private void setupParametersForMessage(String email, String subject, String mailBody, String contentType) {
         try {
             Properties props = new Properties();
             props.put("mail.smtp.host", FinalValueUtil.EMAIL_HOST);
@@ -28,6 +30,7 @@ public class MailUtil {
             props.put("mail.smtp.starttls.enable", "true");
 
             Authenticator auth = new Authenticator() {
+                @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(FinalValueUtil.EMAIL_SUPPORT, FinalValueUtil.EMAIL_SUPPORT_PASSWORD);
                 }
@@ -42,17 +45,17 @@ public class MailUtil {
 
                 for (Map.Entry<String, File> entry : attachments.entrySet()) {
                     MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-                    attachmentBodyPart.attachFile(new File(String.valueOf(entry.getValue())));
+                    attachmentBodyPart.attachFile(new File(valueOf(entry.getValue())));
                     multipart.addBodyPart(attachmentBodyPart);
                 }
 
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE_HTML);
+                messageBodyPart.setContent(mailBody, contentType);
                 multipart.addBodyPart(messageBodyPart);
 
                 message.setContent(multipart);
             } else {
-                message.setContent(mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE_HTML);
+                message.setContent(mailBody, contentType);
             }
 
             message.setFrom(new InternetAddress(FinalValueUtil.EMAIL_SUPPORT));
@@ -65,16 +68,20 @@ public class MailUtil {
         }
     }
 
-    public void sendMail(String to, String body, String subject) {
-        setupMessageParameters(FinalValueUtil.EMAIL_SUPPORT, subject, body);
+
+    public void sendSimpleHtmlMail(String to, String body, String subject) {
+        setupParametersForMessage(to, subject, body, FinalValueUtil.EMAIL_CONTENT_TYPE_HTML);
     }
 
+    public void sendSimplePlainMail(String to, String body, String subject) {
+        setupParametersForMessage(to, subject, body, FinalValueUtil.EMAIL_CONTENT_TYPE_PLAIN);
+    }
     public void sendErrorMail(String error) {
         String mailBody = "" +
                 "<br/>" + timeNow +
                 "<br/><br/>" + error +
                 "<br/>";
-        setupMessageParameters(FinalValueUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody);
+        setupParametersForMessage(FinalValueUtil.EMAIL_SUPPORT, "Error " + timeNow, mailBody, FinalValueUtil.EMAIL_CONTENT_TYPE_HTML);
     }
 
     public void addAttachment(File file) {

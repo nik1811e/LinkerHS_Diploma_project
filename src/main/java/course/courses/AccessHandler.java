@@ -29,8 +29,8 @@ public class AccessHandler extends HttpServlet implements Serializable {
             String uuidCourse = req.getParameter("uuidCourseAc");
             String uuidOwner = req.getParameter("uuidAuthOwnerdAc");
             if (addAccess(session, transaction, uuidAuth, uuidCourse)) {
-                MethodUtil.updateRequest(session, transaction, new RequestRemoving().prepareRemoveRequest(session, uuidCourse, uuidAuth, uuidOwner), uuidOwner);
-                /*URL url = new URL(req.getRequestURL().toString());
+                MethodUtil.updateRequest( new RequestRemoving().prepareRemoveRequest(session, uuidCourse, uuidAuth, uuidOwner), uuidOwner);
+                 /*URL url = new URL(req.getRequestURL().toString());
                 String body = "<br/> " + new SimpleDateFormat(FinalValueUtil.PATTERN_FULL_DATE_TIME).format(new Date().getTime()) + "<br/>" +
                         "<p>Здравствуйте,</p>" +
                         "<p>Вам открыт доступ к курсу</p>" +

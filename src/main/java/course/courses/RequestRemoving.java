@@ -33,7 +33,7 @@ public class RequestRemoving extends HttpServlet implements Serializable {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             req.setCharacterEncoding("UTF-8");
             Transaction transaction = session.beginTransaction();
-            if (MethodUtil.updateRequest(session, transaction, prepareRemoveRequest(session, req.getParameter("uuidCourseReq"), req.getParameter("uuidAuthReq"), uuidAuthOwner), uuidAuthOwner)) {
+            if (MethodUtil.updateRequest( prepareRemoveRequest(session, req.getParameter("uuidCourseReq"), req.getParameter("uuidAuthReq"), uuidAuthOwner), uuidAuthOwner)) {
                 resp.sendRedirect("/pages/requests.jsp?uuidAuth=" + uuidAuthOwner);
             }
         } catch (Exception ex) {
